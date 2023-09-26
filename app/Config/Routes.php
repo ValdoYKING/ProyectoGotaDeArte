@@ -39,4 +39,7 @@ $routes->get('/pruebaruta', 'Principal::pruebaruta');
 /* EXAMPLES */
 $routes->get('/pinturas/(:num)', 'Pinturas::index/$1');
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> fcc20fe775ca2a264f993a1826ddb203c1d1263c
