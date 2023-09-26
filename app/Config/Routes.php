@@ -29,3 +29,5 @@ $routes->get('/estilodisenio', 'Principal::estilodisenio');
 
 /* EXAMPLES */
 $routes->get('/pinturas/(:num)', 'Pinturas::index/$1');
+
+$routes->get('/solicita_cuadro', 'CuadroArte::solicitarCuadro');
