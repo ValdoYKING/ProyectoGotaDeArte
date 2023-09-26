@@ -59,4 +59,23 @@ class Principal extends BaseController
         $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
         return view('Principal/estilodisenio',$data);
     }
+
+    public function pruebaruta(): string
+    {
+        /* Encabezado y head de HTML en disenio.php */
+        $dataMenuDisenio = [
+            'title' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'userName' => 'John Doe',
+        ];
+        /* Informacion enviada a la vista  */
+        $dataContenido = [
+            'mensaje' => 'mensaje enciado desde el controlador'
+        ];
+        /* Info para el pie pagina */
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
+        return view('Pruebas/pruebaruta',$data);
+    }
 }
