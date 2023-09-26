@@ -41,6 +41,6 @@
             <a href="javascript:void(0)" class="footer-link d-block pb-2">Integration</a>
 
 
-            av
+
     </div>
   </div>
