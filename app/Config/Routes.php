@@ -38,4 +38,3 @@ $routes->get('/pruebaruta', 'Principal::pruebaruta');
 
 /* EXAMPLES */
 $routes->get('/pinturas/(:num)', 'Pinturas::index/$1');
-
