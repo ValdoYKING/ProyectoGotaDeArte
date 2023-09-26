@@ -20,6 +20,8 @@ $routes->get('/sign_in', 'Autenticacion::ingresar');
 $routes->get('/subasta', 'Subasta::listaSubastas');
 
 $routes->get('/solicita_cuadro', 'CuadroArte::solicitarCuadro');
+
+$routes->get('/biografia_usuario', 'Usuario::biografia');
 /* TESTS2 */
 
 /* TESTS */
@@ -27,6 +29,17 @@ $routes->get('/prueba', 'Principal::index');
 $routes->get('/miestilo', 'Principal::miestilo');
 $routes->get('/estilodisenio', 'Principal::estilodisenio');
 
+$routes->get('/subastaPrueba', 'Subasta::index');
+$routes->get('/cuadroArtePrueba', 'CuadroArte::index');
+$routes->get('/loginPrueba', 'Autenticacion::index');
+
+
+$routes->get('/pruebaruta', 'Principal::pruebaruta');
+
 /* EXAMPLES */
 $routes->get('/pinturas/(:num)', 'Pinturas::index/$1');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fcc20fe775ca2a264f993a1826ddb203c1d1263c

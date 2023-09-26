@@ -55,3 +55,15 @@ Undefined property: Config\App::$baseURL
 #21 {main}
 in SYSTEMPATH\HTTP\SiteURI.php on line 193.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-09-26 02:31:47 --> Undefined variable: title
+in APPPATH\Views\Plantilla\disenio.php on line 6.
+ 1 APPPATH\Views\Plantilla\disenio.php(6): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: title', 'C:\\xampp\\htdocs\\ProyectoGotaDeArte\\app\\Views\\Plantilla\\disenio.php', 6, [])
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ProyectoGotaDeArte\\app\\Views\\Plantilla\\disenio.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('Plantilla/disenio', [], true)
+ 5 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Pruebas/pruebaruta', [], true)
+ 6 APPPATH\Controllers\Principal.php(65): view('Pruebas/pruebaruta')
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Principal->pruebaruta()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Principal))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
