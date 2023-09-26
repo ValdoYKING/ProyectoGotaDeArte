@@ -19,6 +19,8 @@
 <?php echo $this->endSection(); ?>
 
 <?php echo $this->section('scripts'); ?>
- <script> alert('Miame')</script>
+<script>
+  alert('Miame')
+</script>
 
 <?php echo $this->endSection(); ?>
