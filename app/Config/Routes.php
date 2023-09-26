@@ -28,7 +28,7 @@ $routes->get('/biografia_usuario', 'Usuario::biografia');
 $routes->get('/prueba', 'Principal::index');
 $routes->get('/miestilo', 'Principal::miestilo');
 $routes->get('/estilodisenio', 'Principal::estilodisenio');
-
+//Hola soy German!!
 $routes->get('/Subastas', 'Subasta::index');
 $routes->get('/cuadroArtePrueba', 'CuadroArte::index');
 $routes->get('/loginPrueba', 'Autenticacion::index');
