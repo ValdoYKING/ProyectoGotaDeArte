@@ -29,7 +29,7 @@ $routes->get('/prueba', 'Principal::index');
 $routes->get('/miestilo', 'Principal::miestilo');
 $routes->get('/estilodisenio', 'Principal::estilodisenio');
 
-$routes->get('/subastaPrueba', 'Subasta::index');
+$routes->get('/Subastas', 'Subasta::index');
 $routes->get('/cuadroArtePrueba', 'CuadroArte::index');
 $routes->get('/loginPrueba', 'Autenticacion::index');
 
