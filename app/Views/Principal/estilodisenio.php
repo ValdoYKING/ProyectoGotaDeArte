@@ -262,8 +262,8 @@
 </div>
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
-<script>
+<!--<script>
     alert('HOla')
 </script>
-
+-->
 <?php echo $this->endSection(); ?>
