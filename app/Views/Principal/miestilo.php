@@ -123,9 +123,6 @@ void 0===window.kintMicrotimeInitialized&&(window.kintMicrotimeInitialized=1,win
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     
-<script>
-    alert('HolaSiu');
-</script>
 
   </body>
 </html>

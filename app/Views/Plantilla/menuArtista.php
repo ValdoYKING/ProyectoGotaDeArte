@@ -9,10 +9,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?php echo base_url('/inicio')?>">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="<?php echo base_url('/inicioartista')?>">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Obras</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Publicaciones</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="<?php echo base_url('/cuadros')?>">Mis publicaciones</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('/cuadros')?>">Nueva publicacion</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">Sobre nosotros</a>
@@ -21,13 +25,6 @@
                     <a class="nav-link" href="javascript:void(0)">Contactanos</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo base_url('/cuadros')?>">Artes visuales</a></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url('/subastas')?>">Oleo</a></li>
-                    </ul>
-                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Obras </a>
@@ -49,11 +46,6 @@
                         <?php echo $userName; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo base_url('/Contactos')?>">Mi canasta</a></li>
-                        <li><a class="dropdown-item" href="javascript:void(0)">Guardados</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
                         <li><a class="dropdown-item" href="<?php echo $url;?>"><?php echo $sesion;?></a></li>
                     </ul>
                 </li>

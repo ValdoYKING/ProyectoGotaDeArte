@@ -10,22 +10,28 @@
           </li>
           <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Arte</a></li>         
       </div>
-      <div class="col-12 col-sm-6 col-md-3 mb-4 mb-sm-0">
+      <div class="col-12 col-sm-4 col-md-2 mb-3 mb-sm-0">
         <h5>Servicio a cliente</h5>
         <ul id="list" class="list-unstyled">
-          <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Crear Cuenta</a></li>  
-          <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Iniciar Sesion</a></li>
-          <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Contactanos</a></li>
+          <li><a href="<?php echo base_url('/registrar')?>" class="footer-link d-block pb-2">Crear Cuenta</a></li>  
+          <li><a href="<?php echo base_url('/login')?>" class="footer-link d-block pb-2">Iniciar Sesion</a></li>
+          <li><a href="<?php echo base_url('/Contactos')?>" class="footer-link d-block pb-2">Contactanos</a></li>
           <li><a href="javascript:void(0)" class="footer-link d-block pb-2">¿Preguntas?</a></li>
         </ul>
       </div>
-      <div class="col-12 col-sm-6 col-md-3">
+      <div class="col-12 col-sm-4 col-md-2">
         <h5 class="footerW" >Servicios del Sitio</h5>
         <ul class="list-unstyled">
         <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Terminos y condiciones</a></li>
           <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Politicas del sitio Web</a></li>
       </div>
-  <div class="col-12 col-sm-6 col-md-3 mb-4 mb-sm-0">
+      <div class="col-12 col-sm-4 col-md-2">
+        <h5 class="footerW" >Soy artista</h5>
+        <ul class="list-unstyled">
+        <li><a href="<?php echo base_url('/login_art')?>" class="footer-link d-block pb-2">Iniciar sesión</a></li>
+          <li><a href="<?php echo base_url('/registrar_art')?>" class="footer-link d-block pb-2">Crear cuenta</a></li>
+      </div>
+  <div class="col-12 col-sm-4 col-md-2 mb-3 mb-sm-0">
         <h4 class="footerW fw-bold mb-3 "><a 
         target="_blank" class="footer-text">SIGUENOS EN: </a></h4>  <span>gota de Arte </span>
         <div class="social-icon my-3">
@@ -36,9 +42,10 @@
         </div>
       </div>
       <p id="cop" class="pt-4">
+
           <script>
         document.write(new Date().getFullYear())
-        </script> © pixeles
+        </script> © <a href="<?php echo base_url('/login_admin')?>">PixelFusion</a>
       </p>
   </div>
 </div>

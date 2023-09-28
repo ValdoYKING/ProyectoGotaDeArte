@@ -8,21 +8,35 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/dev', 'dev::index');
 $routes->get('/', 'Principal::index');
-$routes->get('/incio', 'Principal::inicio');
+$routes->get('/inicio', 'Principal::inicio');
 //$routes->get('/contacto', 'Principal::contacto');
 $routes->get('/info', 'Principal::sobreNosotros');
 $routes->get('/tyc', 'Principal::terminosCondiciones');
 $routes->get('/politicadeprivacidad', 'Principal::politicaPrivacidad');
 
 $routes->get('/login', 'Autenticacion::login');
-$routes->get('/sign_in', 'Autenticacion::ingresar');
+$routes->get('/registrar', 'Autenticacion::ingresar');
+$routes->get('/login_art', 'Autenticacion::loginArtista');
+$routes->get('/registrar_art', 'Autenticacion::ingresarArtista');
+$routes->get('/login_admin', 'Autenticacion::loginAdmin');
 
 $routes->get('/subasta', 'Subasta::listaSubastas');
+$routes->get('/subastas', 'Subasta::index');
 
 $routes->get('/solicita_cuadro', 'CuadroArte::solicitarCuadro');
 
-$routes->get('/biografia_Art', 'Artista::biografia');
-/* TESTS2 */
+$routes->get('/Contactos', 'Contacto::index');
+
+$routes->get('/biografia_art', 'Artista::biografia');
+$routes->get('/inicioartista', 'Artista::incioArtista');
+$routes->get('/nuevapublicacion', 'Artista::nuevaPublicacion');
+
+
+$routes->get('/inicioadmin', 'Admin::inicioAdmin');
+$routes->get('/usuariosLista', 'Admin::listaUsuarios');
+$routes->get('/artistasLista', 'Admin::listaArtistas');
+$routes->get('/publicacionesLista', 'Admin::listaPublicaciones');
+$routes->get('/subastasLista', 'Admin::listaSubastas');
 
 /* TESTS */
 $routes->get('/prueba', 'Principal::index');
@@ -33,12 +47,9 @@ $routes->get('/subastaPrueba', 'Subasta::index');
 $routes->get('/CuadroArte', 'CuadroArte::index');
 
 //Hola soy German!!
-$routes->get('/Subastas', 'Subasta::index');
-$routes->get('/Contactos', 'Contacto::index');
+
 $routes->get('/cuadroArtePrueba', 'CuadroArte::index');
-
 $routes->get('/loginPrueba', 'Autenticacion::index');
-
 $routes->get('/pruebaruta', 'Principal::pruebaruta');
 
 /* EXAMPLES */

@@ -35,5 +35,22 @@ class Artista extends BaseController
         $data = $dataMenu + $dataContenido + $artista + $fraseArt + $alias + $historia + $fechaNacimiento + $nacionalidad + $dataPiePagina;
         return view('biografia_Art/Artista',$data);
     }
+
+    public function incioArtista(): string{
+
+        $dataMenu = [
+            'userName' => 'Pepito',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+        ];
+        $dataContenido = [
+            'titulo' => 'Obras',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Artista/inicioArtista',$data);
+    }
 }
 ?>

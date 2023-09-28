@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="/assets/" data-template="vertical-menu-template-free">
+<html lang="es" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="<?php echo base_url()?>" data-template="vertical-menu-template-free">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
   <title><?php echo $titulo;?></title>
   <meta name="description" content="" />
-  <link rel="shortcut icon" href="<?php echo base_url('img/recursos/logotipoGA_zoom.png')?>">
+  <link rel="shortcut icon" href="<?php echo base_url('img/recursos/GA_admin_transparente.png')?>">
   <!-- Favicon -->
   <link rel="stylesheet" href="<?= base_url('img/favicon/favicon.ico'); ?>">
   <!-- Fonts -->
@@ -33,7 +33,7 @@
 </head>
 <body>
   <!-- Navbar de la pagina -->
-  <?php echo $this->include("Plantilla/menu"); ?>
+  <?php echo $this->include("Plantilla/menuAdmin"); ?>
   <!-- Vista correspondiente a la ruta -->
   <?php echo $this->renderSection("contenido"); ?>
 
@@ -51,7 +51,7 @@
   <!-- endbuild -->
   <!-- Vendors JS -->
   <!-- Main JS -->
-  <script src="/assets/js/main.js"></script>
+  <!-- <script src="/assets/js/main.js"></script> -->
   <script src="<?= base_url('js/main.js'); ?>"></script>
   <!-- Page JS -->
   <!-- Place this tag in your head or just before your close body tag. -->

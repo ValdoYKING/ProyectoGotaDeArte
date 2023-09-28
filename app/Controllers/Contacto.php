@@ -7,6 +7,8 @@ class Contacto extends BaseController
 
         $dataMenu = [
             'userName' => 'Pepito',
+            'sesion' => 'Iniciar sesión',
+            'url' => base_url('/login'),
         ];
         $dataContenido = [
             'titulo' => 'Estas son las artes de subasta',

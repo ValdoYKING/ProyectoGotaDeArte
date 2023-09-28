@@ -6,10 +6,12 @@ class Principal extends BaseController
 {
     public function index(): string{
         $dataMenu = [
-            'userName' => 'John Doe',
+            'userName' => 'Iniciar sesión',
+            'sesion' => 'Iniciar sesión',
+            'url' => base_url('/login'),
         ];
         $dataContenido = [
-            'titulo' => 'Hello, world!',
+            'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -18,19 +20,21 @@ class Principal extends BaseController
         return view('Principal/inicio',$data);
     }
 
-    public function index2(): string
+    public function inicio(): string
     {
         $dataMenu = [
-            'userName' => 'John Doe',
+            'userName' => 'Usuario Gota PRUEBA',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
         ];
         $dataContenido = [
-            'titulo' => 'Hello, world!',
+            'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/index');
+        return view('Principal/inicio',$data);
     }
 
     public function miestilo(): string
@@ -43,6 +47,7 @@ class Principal extends BaseController
         $dataMenuDisenio = [
             'title' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
             'userName' => 'John Doe',
+            'sesion' => 'Iniciar sesión',
         ];
 
         $elementosCarrusel = '<li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>

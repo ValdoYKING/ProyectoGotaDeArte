@@ -1,3 +1,17 @@
+.desliza {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Estilo adicional para evitar que el contenido se superponga con la barra de navegación */
+  body {
+    padding-top: 56px; /* Ajusta según la altura de tu barra de navegación */
+  }
+  
+
+
 .bxl-facebook,
 .bxl-twitter,
 .bxl-pinterest {
@@ -53,3 +67,4 @@ div>h3 {
 .card-text {
     color: #d2f4fc;
 }
+

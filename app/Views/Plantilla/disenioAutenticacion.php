@@ -22,7 +22,11 @@
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/estilosPropios.css'); ?>">
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/libs/perfect-scrollbar/perfect-scrollbar.css'); ?>">
+  <!-- Estilos particular -->
+  <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/estilosPropios.css'); ?>">
   <!-- Page CSS -->
+  <!-- <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" /> -->
+  <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-auth.css')?>" />
   <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-icons.css')?>" />
   <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-misc.css')?>" />
   <!-- Helpers -->
@@ -32,14 +36,11 @@
   <script src="<?= base_url('js/config.js'); ?>"></script>
 </head>
 <body>
-  <!-- Navbar de la pagina -->
-  <?php echo $this->include("Plantilla/menu"); ?>
+
   <!-- Vista correspondiente a la ruta -->
   <?php echo $this->renderSection("contenido"); ?>
 
-  <footer class="content-footer footer">
-    <?php echo $this->include("Plantilla/piePagina"); ?>
-  </footer>
+
   <!-- Core JS -->
   <!-- build:js assets/vendorTemplate/js/core.js -->
   <script src="<?= base_url('vendorTemplate/libs/jquery/jquery.js'); ?>"></script>
