@@ -50,9 +50,9 @@
 
 <?php echo $this->endSection(); ?>
 
-<footer class="content-footer footer">
+<footer >
     <?php echo $this->include("Plantilla/piePagina"); ?>
-  </footer>
+</footer>
 
 <?php echo $this->section("scripts"); ?>
 

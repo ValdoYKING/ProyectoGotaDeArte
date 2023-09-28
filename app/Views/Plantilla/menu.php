@@ -27,7 +27,7 @@
                         <?php echo $userName; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url("/Contactos") ?>">Action</a></li>
                         <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider" />

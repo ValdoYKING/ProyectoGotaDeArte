@@ -35,6 +35,7 @@
   <!-- Vista correspondiente a la ruta -->
   <?php echo $this->renderSection("contenido"); ?>
 
+
   <footer class="content-footer footer">
     <?php echo $this->include("Plantilla/piePagina"); ?>
   </footer>
