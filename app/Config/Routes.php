@@ -28,12 +28,16 @@ $routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/prueba', 'Principal::index');
 $routes->get('/miestilo', 'Principal::miestilo');
 $routes->get('/estilodisenio', 'Principal::estilodisenio');
+
+$routes->get('/subastaPrueba', 'Subasta::index');
+$routes->get('/CuadroArte', 'CuadroArte::index');
+
 //Hola soy German!!
 $routes->get('/Subastas', 'Subasta::index');
 $routes->get('/Contactos', 'Contacto::index');
 $routes->get('/cuadroArtePrueba', 'CuadroArte::index');
-$routes->get('/loginPrueba', 'Autenticacion::index');
 
+$routes->get('/loginPrueba', 'Autenticacion::index');
 
 $routes->get('/pruebaruta', 'Principal::pruebaruta');
 
