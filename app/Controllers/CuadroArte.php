@@ -7,8 +7,10 @@ class CuadroArte extends BaseController
 {
 public  function index()
 {
-    $data =['Titulo' => 'CuadroArte'];
-    return view('CuadroArte',$data);
+    $titulo =['titulo' => 'CuadroArte'];
+    $usuarionombre =['userName' => 'Olayo'];
+    $data = $titulo + $usuarionombre;
+    return view('CuadroArte/CuadroArte',$data);
 }
    
     public function show()
@@ -16,4 +18,5 @@ public  function index()
 {
     return "<h2>Detalles del CuadroaArte</h2>";
 }
+
 }
