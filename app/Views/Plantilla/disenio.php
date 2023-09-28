@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/theme-default.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('css/demo.css'); ?>">
   <!-- Estilos particular -->
-  <link rel="stylesheet" href="<?php base_url('css/estilosGotaA.css')?>">
+  <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/estilosPropios.css'); ?>">
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/libs/perfect-scrollbar/perfect-scrollbar.css'); ?>">
   <!-- Page CSS -->

@@ -1,0 +1,55 @@
+.bxl-facebook,
+.bxl-twitter,
+.bxl-pinterest {
+    font-size: 40px;
+}
+
+p,
+#cop {
+    text-align: center;
+}
+
+ul>li>a {
+    color: #d7f5fc;
+}
+
+ul>li>a:hover {
+
+    color: #ef0f96;
+
+}
+
+#formCon {
+    border-radius: 15px;
+    padding: 25px;
+    background-color: #ecdfc3
+}
+
+
+#perfil {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+div>div>div>div>div>div,
+.card-body {
+
+    border-radius: 200px;
+}
+
+div>h3 {
+    padding: 50PX;
+    text-align: center;
+}
+
+#fondo {
+
+    width: 100%;
+    height: 400px;
+}
+
+.card-title,
+.card-text {
+    color: #d2f4fc;
+}
