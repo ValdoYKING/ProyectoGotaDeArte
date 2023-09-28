@@ -39,7 +39,7 @@ $routes->get('/cuadroArtePrueba', 'CuadroArte::index');
 
 $routes->get('/loginPrueba', 'Autenticacion::index');
 
-$routes->get('/pruebaruta', 'Principal::pruebaruta');
+$routes->get('/Principal', 'Principal::index2');
 
 /* EXAMPLES */
 $routes->get('/pinturas/(:num)', 'Pinturas::index/$1');
