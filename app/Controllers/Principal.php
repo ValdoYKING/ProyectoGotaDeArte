@@ -15,7 +15,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/index',$data);
+        return view('Principal/inicio',$data);
     }
 
     public function index2(): string
