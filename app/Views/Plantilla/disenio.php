@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-  <title><?php echo $title;?></title>
+  <title><?php echo $titulo;?></title>
   <meta name="description" content="" />
   <link rel="shortcut icon" href="<?php echo base_url('img/recursos/exampleLogo.jpg')?>">
   <!-- Favicon -->
@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/core.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/theme-default.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('css/demo.css'); ?>">
+  <!-- Estilos particular -->
+  <link rel="stylesheet" href="<?php base_url('css/estilosGotaA.css')?>">
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/libs/perfect-scrollbar/perfect-scrollbar.css'); ?>">
   <!-- Page CSS -->

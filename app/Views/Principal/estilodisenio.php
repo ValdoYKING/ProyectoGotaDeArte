@@ -12,21 +12,21 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="<?php echo base_url('img/elements/18.jpg');?>" alt="First slide" />
+                    <img class="d-block w-100" src="<?php echo base_url('img/elements/18.jpg'); ?>" alt="First slide" />
                     <div class="carousel-caption d-none d-md-block">
                         <h3>First slide</h3>
                         <p>Eos mutat malis maluisset et, agam ancillae quo te, in vim congue pertinacia.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="<?php echo base_url('img/elements/2.jpg');?>" alt="Second slide" />
+                    <img class="d-block w-100" src="<?php echo base_url('img/elements/2.jpg'); ?>" alt="Second slide" />
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Second slide</h3>
                         <p>In numquam omittam sea.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="<?php echo base_url('img/elements/18.jpg');?>" alt="Third slide" />
+                    <img class="d-block w-100" src="<?php echo base_url('img/elements/18.jpg'); ?>" alt="Third slide" />
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Third slide</h3>
                         <p>Lorem ipsum dolor sit amet, virtute consequat ea qui, minim graeco mel no.</p>
@@ -262,6 +262,8 @@
 </div>
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
- <script> alert('HOla')</script>
-
+<!--<script>
+    alert('HOla')
+</script>
+-->
 <?php echo $this->endSection(); ?>
