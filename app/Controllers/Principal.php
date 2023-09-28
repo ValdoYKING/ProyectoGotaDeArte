@@ -34,7 +34,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/inicio',$data);
+        return view('Principal/paginaInicial',$data );
     }
 
     public function miestilo(): string

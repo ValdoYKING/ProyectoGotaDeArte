@@ -15,10 +15,10 @@ class Artista extends BaseController
             'artista' => 'Mario Galileo',
         ];
         $fraseArt = [
-            'frase' => 'Mario Galileo',
+            'frase' => 'La vida es un lienzo en blanco, y debes lanzar sobre él toda la pintura que puedas',
         ];
         $alias = [
-            'alias' => 'lopcot2',
+            'alias' => 'lopcot',
         ];
         $historia = [
             'historia' => 'Mario inicion desde 2010 su vida de artista en la cual se especializa en el pintura Realismo, Abstraccto y Retrato'
@@ -27,7 +27,7 @@ class Artista extends BaseController
             'fecha_n' => 'Nacio 1990',
         ];
         $nacionalidad = [
-            'nacionalidad' => 'Mario Galileo',
+            'nacionalidad' => 'Mexicano',
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),

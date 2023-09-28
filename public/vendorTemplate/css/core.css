@@ -15242,6 +15242,10 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 }
 
 .content-footer {
+  position: sticky;
+  bottom: 0;
+  height:280px;
+  width: 100%;
   padding-left: 20px;
   flex: 0 0 auto;
   background-color: #1e2c3c;

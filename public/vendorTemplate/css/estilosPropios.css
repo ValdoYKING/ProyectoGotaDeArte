@@ -33,9 +33,17 @@ ul>li>a:hover {
 
 }
 
+div, .container > div, .row {
+    padding-bottom:0px;
+}
+
 #formCon {
+    
+    position:relative;
+    width: 1100px; /* Cambia el ancho según tus necesidades */
+    height: 550px; 
     border-radius: 15px;
-    padding: 25px;
+    padding: 30px;
     background-color: #ecdfc3
 }
 
@@ -44,6 +52,7 @@ ul>li>a:hover {
     border-radius: 50%;
     width: 150px;
     height: 150px;
+    margin-bottom:20px;
 }
 
 div>div>div>div>div>div,
@@ -57,10 +66,23 @@ div>h3 {
     text-align: center;
 }
 
-#fondo {
+#subtitulo > h3 {
+    font-size:30px;
+    border-radius:10px;
+   background-color:#000;
+   color:#fff;
+}
 
+#fondo {
+    opacity:50%;
     width: 100%;
-    height: 400px;
+    height: 350px;
+}
+
+ .row .row-cols-1 .row-cols-md-3 .g-4{
+    background-color:#000;
+
+    padding:30px;
 }
 
 .card-title,

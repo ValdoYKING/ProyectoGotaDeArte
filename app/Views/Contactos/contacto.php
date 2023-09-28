@@ -4,7 +4,7 @@
 <div class="container " id="formCon"> 
     <h1> Contactanos </h1>
     <div class="row">
-        <form action="" method="get">
+        <form id="formulario" action="" method="get">
             
 
                 <div class="mb-3 row">
@@ -47,9 +47,12 @@
 
     </div>
 </div>
-
+<br>
 <?php echo $this->endSection(); ?>
 
+<footer >
+    <?php echo $this->include("Plantilla/piePagina"); ?>
+</footer>
 
 <?php echo $this->section("scripts"); ?>
 
