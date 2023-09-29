@@ -3892,6 +3892,9 @@ textarea.form-control-lg {
 .card-link + .card-link {
   margin-left: 1.5rem;
 }
+.card-header h2 , h5{
+  text-align: center;
+}
 
 .card-header {
   padding: 1.5rem 1.5rem;

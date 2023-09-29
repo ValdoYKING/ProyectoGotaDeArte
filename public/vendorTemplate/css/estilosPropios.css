@@ -33,12 +33,12 @@ body {
     height: auto;
 }
 
-div, .card-text > h5 , h4  {
+  .card-text {
     align-items: center ;
     text-align: center;
-color: #000;
+color: #000; */
+  }
 
-}
 #carusel{
     width: 10000px ;
     height: 600px;
@@ -109,11 +109,11 @@ div,
     margin-bottom: 20px;
 }
 
-div>div>div>div>div>div,
+/* div>div>div>div>div>div,
 .card-body {
 
     border-radius: 200px;
-}
+} */
 
 div>h3 {
     padding: 50PX;
