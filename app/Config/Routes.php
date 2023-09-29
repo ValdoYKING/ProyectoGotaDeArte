@@ -27,7 +27,7 @@ $routes->get('/solicita_cuadro', 'CuadroArte::solicitarCuadro');
 
 $routes->get('/Contactos', 'Contacto::index');
 
-$routes->get('/biografia_art', 'Artista::biografia');
+$routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/inicioartista', 'Artista::incioArtista');
 $routes->get('/nuevapublicacion', 'Artista::nuevaPublicacion');
 
