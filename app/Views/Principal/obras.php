@@ -1,11 +1,14 @@
-<?php echo $this->extend('Plantilla/disenioArtista'); ?>
+<?php echo $this->extend('Plantilla/disenio'); ?>
 <?php echo $this->section('contenido'); ?>
 <br>
 <div class="container">
     <nav class="breadcrumb  mb-5 segundo-navbar">
         <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            <a href="<?php echo base_url('/inicio')?>">Inicio</a>
+            </li>
             <li class="breadcrumb-item active">
-                <a href="<?php echo base_url('/inicioartista')?>">/Inicio</a>
+                <a href="<?php echo base_url('/obras')?>">Obras</a>
             </li>
         </ol>
     </nav>
@@ -14,7 +17,7 @@
 <section>
     <div class="container">
         <div>
-            <h2 class="mb-2">Mis publicaciones</h2>
+            <h2 class="mb-2">Obras publicadas recientemente</h2>
         </div>
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">
@@ -31,7 +34,8 @@
                         <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +52,8 @@
                         <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +70,8 @@
                         <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -82,7 +88,8 @@
                         <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -99,7 +106,8 @@
                         <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -116,7 +124,8 @@
                         <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -133,7 +142,8 @@
                         <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -150,7 +160,8 @@
                         <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>

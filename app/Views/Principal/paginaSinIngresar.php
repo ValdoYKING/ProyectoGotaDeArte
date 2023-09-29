@@ -1,8 +1,7 @@
-<?php echo $this->extend("Plantilla/disenio"); ?>
+<?php echo $this->extend("Plantilla/disenioIntro"); ?>
 <?php echo $this->section("contenido"); ?>
 
-<h1>  Inicio2 </h1>
-<div id="searchResults"></div>
+<h1>  Inicio </h1>
 <div class="row">
     <div class="col-md">
         <div class="card shadow-none bg-transparent border border-secondary">
@@ -23,8 +22,8 @@
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 <p class="card-text">Last updated 3 mins ago</p>
             </div>
-        </div>
-    </div>
+        </div>    
+    </div> 
 
 </div>
 <br>

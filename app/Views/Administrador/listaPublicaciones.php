@@ -1,5 +1,18 @@
 <?php echo $this->extend('Plantilla/disenioAdmin'); ?>
 <?php echo $this->section('contenido'); ?>
+<br>
+<div class="container">
+    <nav class="breadcrumb  mb-5 segundo-navbar">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            <a href="<?php echo base_url('/inicioadmin')?>">Inicio</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a href="<?php echo base_url('/publicacionesLista')?>">Lista de publicaciones</a>
+            </li>
+        </ol>
+    </nav>
+</div>
 
 <section>
     <div class="container">
