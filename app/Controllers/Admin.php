@@ -27,7 +27,7 @@ class Admin extends BaseController{
             'url' => base_url('/'),
         ];
         $dataContenido = [
-            'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'titulo' => 'GOTA DE ARTE | Lista de usuarios',
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -43,7 +43,7 @@ class Admin extends BaseController{
             'url' => base_url('/'),
         ];
         $dataContenido = [
-            'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'titulo' => 'GOTA DE ARTE | Lista de artistas',
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -59,7 +59,7 @@ class Admin extends BaseController{
             'url' => base_url('/'),
         ];
         $dataContenido = [
-            'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -75,7 +75,7 @@ class Admin extends BaseController{
             'url' => base_url('/'),
         ];
         $dataContenido = [
-            'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'titulo' => 'GOTA DE ARTE | Lista de subastas',
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),

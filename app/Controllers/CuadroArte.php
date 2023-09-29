@@ -12,7 +12,7 @@ public  function index()
     $data = $titulo + $usuarionombre;
     return view('CuadroArte/CuadroArte',$data);
 }
-   
+
     public function show()
 
 {

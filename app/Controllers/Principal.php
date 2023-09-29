@@ -9,6 +9,8 @@ class Principal extends BaseController
             'userName' => 'Iniciar sesión',
             'sesion' => 'Iniciar sesión',
             'url' => base_url('/login'),
+            'canastaUrl' => base_url('/login'),
+            'guardadosUrl' => base_url('/login'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
@@ -26,6 +28,8 @@ class Principal extends BaseController
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
+            'canastaUrl' => base_url('/canasta'),
+            'guardadosUrl' => base_url('/guardados'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
@@ -35,6 +39,101 @@ class Principal extends BaseController
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Principal/paginaInicial',$data );
+    }
+
+    public function obras(): string
+    {
+        $dataMenu = [
+            'userName' => 'Usuario Gota PRUEBA',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'canastaUrl' => base_url('/canasta'),
+            'guardadosUrl' => base_url('/guardados'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Obras',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Principal/obras',$data );
+    }
+
+    public function sobreNosotros(): string
+    {
+        $dataMenu = [
+            'userName' => 'Usuario Gota PRUEBA',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'canastaUrl' => base_url('/canasta'),
+            'guardadosUrl' => base_url('/guardados'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Sobre nosotros',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Principal/sobreNosotros',$data );
+    }
+
+    public function canasta(): string
+    {
+        $dataMenu = [
+            'userName' => 'Usuario Gota PRUEBA',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'canastaUrl' => base_url('/canasta'),
+            'guardadosUrl' => base_url('/guardados'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Mi canasta',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Principal/canasta',$data );
+    }
+
+    public function guardados(): string
+    {
+        $dataMenu = [
+            'userName' => 'Usuario Gota PRUEBA',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'canastaUrl' => base_url('/canasta'),
+            'guardadosUrl' => base_url('/guardados'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Guardados',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Principal/guardados',$data );
+    }
+
+    public function pruebaruta(): string
+    {
+        /* Encabezado y head de HTML en disenio.php */
+        $dataMenuDisenio = [
+            'title' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'userName' => 'John Doe',
+        ];
+        /* Informacion enviada a la vista  */
+        $dataContenido = [
+            'mensaje' => 'mensaje enciado desde el controlador'
+        ];
+        /* Info para el pie pagina */
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
+        return view('Pruebas/pruebaruta',$data);
     }
 
     public function miestilo(): string
@@ -63,24 +162,5 @@ class Principal extends BaseController
         ];
         $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
         return view('Principal/estilodisenio',$data);
-    }
-
-    public function pruebaruta(): string
-    {
-        /* Encabezado y head de HTML en disenio.php */
-        $dataMenuDisenio = [
-            'title' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
-            'userName' => 'John Doe',
-        ];
-        /* Informacion enviada a la vista  */
-        $dataContenido = [
-            'mensaje' => 'mensaje enciado desde el controlador'
-        ];
-        /* Info para el pie pagina */
-        $dataPiePagina = [
-            'fecha' => date('Y'),
-        ];
-        $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
-        return view('Pruebas/pruebaruta',$data);
     }
 }

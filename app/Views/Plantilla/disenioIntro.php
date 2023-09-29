@@ -33,9 +33,10 @@
 </head>
 <body>
   <!-- Navbar de la pagina -->
-  <?php echo $this->include("Plantilla/menuArtista"); ?>
+  <?php echo $this->include("Plantilla/menuSinIngresar"); ?>
   <!-- Vista correspondiente a la ruta -->
   <?php echo $this->renderSection("contenido"); ?>
+
 
   <footer class="content-footer footer">
     <?php echo $this->include("Plantilla/piePagina"); ?>
@@ -51,7 +52,7 @@
   <!-- endbuild -->
   <!-- Vendors JS -->
   <!-- Main JS -->
-  <!-- <script src="/assets/js/main.js"></script> -->
+  <script src="/assets/js/main.js"></script>
   <script src="<?= base_url('js/main.js'); ?>"></script>
   <!-- Page JS -->
   <!-- Place this tag in your head or just before your close body tag. -->
