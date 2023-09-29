@@ -8,7 +8,44 @@
     width: 100%;
     top: 0;
     z-index: 1000;
+
+  }
+  
+  /* Estilo adicional para evitar que el contenido se superponga con la barra de navegación */
+body {
+    padding-top: 56px; /* Ajusta según la altura de tu barra de navegación */
 }
+
+.contenedor{
+    border-radius: 10px;
+    width: 100%;
+    max-width:1200px;
+    margin: auto;
+    padding: 60px 0 ;
+    
+}
+ 
+
+
+#galeria{
+
+    max-width:600px; /* La imagen no será más ancha que su contenedor */
+    height: auto;
+}
+
+div, .card-text > h5 , h4  {
+    align-items: center ;
+    text-align: center;
+color: #000;
+
+}
+#carusel{
+    width: 10000px ;
+    height: 600px;
+}
+
+
+
 
 /* Estilo adicional para evitar que el contenido se superponga con la barra de navegación */
 body {
