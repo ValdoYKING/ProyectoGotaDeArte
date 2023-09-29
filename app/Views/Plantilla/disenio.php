@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="/assets/" data-template="vertical-menu-template-free">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-  <title><?php echo $titulo;?></title>
+  <title><?php echo $titulo; ?></title>
   <meta name="description" content="" />
-  <link rel="shortcut icon" href="<?php echo base_url('img/recursos/logotipoGA_zoom.png')?>">
+  <link rel="shortcut icon" href="<?php echo base_url('img/recursos/logotipoGA_zoom.png') ?>">
   <!-- Favicon -->
   <link rel="stylesheet" href="<?= base_url('img/favicon/favicon.ico'); ?>">
   <!-- Fonts -->
@@ -23,14 +24,15 @@
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/libs/perfect-scrollbar/perfect-scrollbar.css'); ?>">
   <!-- Page CSS -->
-  <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-icons.css')?>" />
-  <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-misc.css')?>" />
+  <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-icons.css') ?>" />
+  <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-misc.css') ?>" />
   <!-- Helpers -->
   <script src="<?= base_url('vendorTemplate/js/helpers.js'); ?>"></script>
   <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="<?= base_url('js/config.js'); ?>"></script>
 </head>
+
 <body>
   <!-- Navbar de la pagina -->
   <?php echo $this->include("Plantilla/menu"); ?>
@@ -38,7 +40,7 @@
   <?php echo $this->renderSection("contenido"); ?>
 
 
-  <footer class="content-footer footer">
+  <footer class="content-footer footer pie">
     <?php echo $this->include("Plantilla/piePagina"); ?>
   </footer>
   <!-- Core JS -->
@@ -49,10 +51,41 @@
   <script src="<?= base_url('vendorTemplate/libs/perfect-scrollbar/perfect-scrollbar.js'); ?>"></script>
 
   <script src="<?= base_url('vendorTemplate/js/menu.js'); ?>"></script>
-  <!-- endbuild -->
-  <!-- Vendors JS -->
-  <!-- Main JS -->
-  <script src="/assets/js/main.js"></script>
+
+  <script>
+    function search() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const bodyContent = document.body.innerHTML;
+
+      // Si el término de búsqueda está vacío, mostrar todo el contenido del cuerpo nuevamente
+      if (searchTerm.trim() === '') {
+        document.body.innerHTML = bodyContent;
+        return;
+      }
+
+      // Resaltar el término de búsqueda solo dentro del contenido de texto (no dentro de etiquetas)
+      const highlightedContent = bodyContent.replace(new RegExp(`(?<=>)([^<]*${searchTerm}[^<]*)(?=<)`, 'gi'), (_, match) => `<span class="highlight">${match}</span>`);
+      document.body.innerHTML = highlightedContent;
+
+      const matches = document.querySelectorAll('.highlight');
+
+      if (matches.length === 0) {
+        document.getElementById('searchResults').innerText = 'No se encontraron coincidencias.';
+      } else {
+        document.getElementById('searchResults').innerText = `Coincidencias encontradas: ${matches.length}`;
+      }
+    }
+
+    document.getElementById('searchInput').addEventListener('input', search);
+    document.getElementById('searchInput').addEventListener('keyup', function(event) {
+      if (event.key === 'Escape') {
+        this.value = ''; // Limpiar el contenido cuando se presiona Esc
+        search(); // Ejecutar búsqueda para mostrar todo el contenido nuevamente
+      }
+    });
+  </script>
+
+  <!-- <script src="/assets/js/main.js"></script> -->
   <script src="<?= base_url('js/main.js'); ?>"></script>
   <!-- Page JS -->
   <!-- Place this tag in your head or just before your close body tag. -->
@@ -60,4 +93,5 @@
 
   <?php echo $this->renderSection("scripts"); ?>
 </body>
+
 </html>
