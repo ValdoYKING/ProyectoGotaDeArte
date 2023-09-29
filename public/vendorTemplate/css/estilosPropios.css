@@ -1,45 +1,20 @@
+.segundo-navbar {
+    margin-top: 20px;
+    /* Ajusta el valor según la separación deseada */
+}
+
 .desliza {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-  }
-  
-  /* Estilo adicional para evitar que el contenido se superponga con la barra de navegación */
+}
+
+/* Estilo adicional para evitar que el contenido se superponga con la barra de navegación */
 body {
-    padding-top: 56px; /* Ajusta según la altura de tu barra de navegación */
+    padding-top: 56px;
+    /* Ajusta según la altura de tu barra de navegación */
 }
-
-.contenedor{
-    border-radius: 10px;
-    width: 100%;
-    max-width:1200px;
-    margin: auto;
-    padding: 60px 0 ;
-    
-}
- 
-header {
-    background-image: url('<?php echo base_url("/public/img/illustrations/fondoPagina.jpg"); ?>');
-}
-
-#galeria{
-
-    max-width:600px; /* La imagen no será más ancha que su contenedor */
-   height: auto;
-}
-
-div, .card-text > h5 , h4  {
-    align-items: center ;
-    text-align: center;
-color: #000;
-
-}
-#carusel{
-    width: 10000px ;
-    height: 600px;
-}
-
 
 
 .bxl-facebook,
@@ -63,26 +38,38 @@ ul>li>a:hover {
 
 }
 
-div, .container > div, .row {
-    padding-bottom:0px;
+div,
+.container>div,
+.row {
+    padding-bottom: 0px;
 }
 
 #formCon {
-    
-    position:relative;
-    width: 1100px; /* Cambia el ancho según tus necesidades */
-    height: 550px; 
+    position: relative;
+    width: 1100px;
+    height: 550px;
     border-radius: 15px;
     padding: 30px;
-    background-color: #ecdfc3
+    background-color: #ecdfc3;
+    margin-top: auto; /* Ancla el footer en la parte inferior */
 }
+
+/* 
+#formCon {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+} */
+
 
 
 #perfil {
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 div>div>div>div>div>div,
@@ -96,23 +83,23 @@ div>h3 {
     text-align: center;
 }
 
-#subtitulo > h3 {
-    font-size:30px;
-    border-radius:10px;
-   background-color:#000;
-   color:#fff;
+#subtitulo>h3 {
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
 }
 
 #fondo {
-    opacity:50%;
+    opacity: 50%;
     width: 100%;
     height: 350px;
 }
 
- .row .row-cols-1 .row-cols-md-3 .g-4{
-    background-color:#000;
+.row .row-cols-1 .row-cols-md-3 .g-4 {
+    background-color: #000;
 
-    padding:30px;
+    padding: 30px;
 }
 
 .card-title,
@@ -120,3 +107,16 @@ div>h3 {
     color: #d2f4fc;
 }
 
+.pie{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.highlight {
+    background-color: rgb(255, 255, 203);
+    font-weight: bold;
+}

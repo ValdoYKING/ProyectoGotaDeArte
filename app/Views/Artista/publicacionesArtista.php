@@ -4,8 +4,11 @@
 <div class="container">
     <nav class="breadcrumb  mb-5 segundo-navbar">
         <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            <a href="<?php echo base_url('/inicioartista')?>">Inicio</a>
+            </li>
             <li class="breadcrumb-item active">
-                <a href="<?php echo base_url('/inicioartista')?>">/Inicio</a>
+                <a href="<?php echo base_url('/publicacionesartista')?>">Publicaciones</a>
             </li>
         </ol>
     </nav>
@@ -14,7 +17,7 @@
 <section>
     <div class="container">
         <div>
-            <h2 class="mb-2">Mis publicaciones</h2>
+            <h2 class="mb-2">Mis publicaciones mas recientes</h2>
         </div>
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">

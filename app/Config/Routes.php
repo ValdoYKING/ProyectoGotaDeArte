@@ -13,6 +13,9 @@ $routes->get('/inicio', 'Principal::inicio');
 $routes->get('/info', 'Principal::sobreNosotros');
 $routes->get('/tyc', 'Principal::terminosCondiciones');
 $routes->get('/politicadeprivacidad', 'Principal::politicaPrivacidad');
+$routes->get('/obras', 'Principal::obras');
+$routes->get('/canasta', 'Principal::canasta');
+$routes->get('/guardados', 'Principal::guardados');
 
 $routes->get('/login', 'Autenticacion::login');
 $routes->get('/registrar', 'Autenticacion::ingresar');
@@ -21,7 +24,7 @@ $routes->get('/registrar_art', 'Autenticacion::ingresarArtista');
 $routes->get('/login_admin', 'Autenticacion::loginAdmin');
 
 $routes->get('/subasta', 'Subasta::listaSubastas');
-$routes->get('/subastas', 'Subasta::index');
+$routes->get('/subastas', 'Subasta::subastas');
 
 $routes->get('/solicita_cuadro', 'CuadroArte::solicitarCuadro');
 
@@ -30,6 +33,9 @@ $routes->get('/Contactos', 'Contacto::index');
 $routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/inicioartista', 'Artista::incioArtista');
 $routes->get('/nuevapublicacion', 'Artista::nuevaPublicacion');
+$routes->get('/publicacionesartista', 'Artista::publicacionesArtista');
+
+$routes->get('/comprarObra', 'Pagos::compraObra');
 
 
 $routes->get('/inicioadmin', 'Admin::inicioAdmin');
@@ -42,16 +48,7 @@ $routes->get('/subastasLista', 'Admin::listaSubastas');
 $routes->get('/prueba', 'Principal::index');
 $routes->get('/miestilo', 'Principal::miestilo');
 $routes->get('/estilodisenio', 'Principal::estilodisenio');
-
-$routes->get('/subastaPrueba', 'Subasta::index');
-$routes->get('/CuadroArte', 'CuadroArte::index');
-
-//Hola soy German!!
-
-$routes->get('/cuadroArtePrueba', 'CuadroArte::index');
-$routes->get('/loginPrueba', 'Autenticacion::index');
-
 $routes->get('/Principal', 'Principal::index2');
 
-/* EXAMPLES */
+/* EXAMPLES GET/%*/
 $routes->get('/pinturas/(:num)', 'Pinturas::index/$1');

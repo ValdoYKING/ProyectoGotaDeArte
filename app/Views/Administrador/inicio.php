@@ -1,5 +1,15 @@
 <?php echo $this->extend('Plantilla/disenioAdmin'); ?>
 <?php echo $this->section('contenido'); ?>
+<br>
+<div class="container">
+    <nav class="breadcrumb  mb-5 segundo-navbar">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">
+            <a href="<?php echo base_url('/inicioadmin')?>">/Inicio</a>
+            </li>
+        </ol>
+    </nav>
+</div>
 
 <section>
     <div class="container">
@@ -12,17 +22,17 @@
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
+                        <p class="card-text bg-black">Arte abstracto</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">$100.99</li>
+                        <li class="list-group-item">115 x 98 x 45 cm</li>
+                        <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -30,17 +40,17 @@
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
+                        <p class="card-text bg-black">Arte abstrcato</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">$100.99</li>
+                        <li class="list-group-item">115 x 98 x 45 cm</li>
+                        <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -48,17 +58,17 @@
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
+                        <p class="card-text bg-black">Arte abstracto</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">$100.99</li>
+                        <li class="list-group-item">115 x 98 x 45 cm</li>
+                        <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -66,17 +76,17 @@
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
+                        <p class="card-text bg-black">Arte abstracto</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">$100.99</li>
+                        <li class="list-group-item">115 x 98 x 45 cm</li>
+                        <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -84,17 +94,17 @@
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
+                        <p class="card-text bg-black">Arte abstracto</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">$100.99</li>
+                        <li class="list-group-item">115 x 98 x 45 cm</li>
+                        <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -102,17 +112,17 @@
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
+                        <p class="card-text bg-black">Arte abstracto</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">$100.99</li>
+                        <li class="list-group-item">115 x 98 x 45 cm</li>
+                        <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -120,17 +130,17 @@
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
+                        <p class="card-text bg-black">Arte abstracto</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">$100.99</li>
+                        <li class="list-group-item">115 x 98 x 45 cm</li>
+                        <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -138,17 +148,17 @@
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
+                        <p class="card-text bg-black">Arte abstracto</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">$100.99</li>
+                        <li class="list-group-item">115 x 98 x 45 cm</li>
+                        <a href="#" class="list-group-item">Artista Gota</a>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a href="#" class="card-link">Guardar</a>
+                        <a href="#" class="card-link">Agregar a mi canasta</a>
                     </div>
                 </div>
             </div>
@@ -162,7 +172,6 @@
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
 <!--<script>
-    alert('HOla')
 </script>
 -->
 <?php echo $this->endSection(); ?>

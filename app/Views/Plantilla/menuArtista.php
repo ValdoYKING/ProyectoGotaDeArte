@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-black bg-dark mb-5 desliza">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?php echo base_url('/')?>">
-            <img src="<?php echo base_url('img/recursos/logotipoGA_zoom.png')?>" alt="Logo" height="30" class="d-inline-block align-top" /> | <b> Gota de Arte </b>
+        <a class="navbar-brand" href="<?php echo base_url('/') ?>">
+            <img src="<?php echo base_url('img/recursos/logotipoGA_zoom.png') ?>" alt="Logo" height="30" class="d-inline-block align-top" /> | <b> Gota de Arte </b>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,28 +9,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?php echo base_url('/inicioartista')?>">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="<?php echo base_url('/inicioartista') ?>">Inicio</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Publicaciones</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo base_url('/cuadros')?>">Mis publicaciones</a></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url('/cuadros')?>">Nueva publicacion</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('/publicacionesartista') ?>">Mis publicaciones</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('/nuevapublicacion') ?>">Nueva publicacion</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Sobre nosotros</a>
+                <a class="nav-link" href="<?php echo base_url('/info') ?>">Sobre nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Contactanos</a>
+                <a class="nav-link" href="<?php echo base_url('/Contactos') ?>">Contactanos</a>
                 </li>
-
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Obras </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo base_url('/cuadros')?>">Todas las obras</a></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url('/subastas')?>">Subastas</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('/obras') ?>">Todas las obras</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('/subastas') ?>">Subastas</a></li>
                     </ul>
                 </li>
             </ul>
@@ -46,21 +45,10 @@
                         <?php echo $userName; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo $url;?>"><?php echo $sesion;?></a></li>
+                        <li><a class="dropdown-item" href="<?php echo $url; ?>"><?php echo $sesion; ?></a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
-</nav>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a href="#">Home</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a href="#">Library</a>
-    </li>
-    <li class="breadcrumb-item active">Data</li>
-  </ol>
 </nav>

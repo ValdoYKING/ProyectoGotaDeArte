@@ -44,13 +44,47 @@ class Artista extends BaseController
             'url' => base_url('/'),
         ];
         $dataContenido = [
-            'titulo' => 'Obras',
+            'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Artista/inicioArtista',$data);
+    }
+
+    public function publicacionesArtista(): string{
+
+        $dataMenu = [
+            'userName' => 'Pepito',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Mis publicaciones',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Artista/publicacionesArtista',$data);
+    }
+
+    public function nuevaPublicacion(): string{
+
+        $dataMenu = [
+            'userName' => 'Pepito',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Nueva publicación',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Artista/nuevaPublicacion',$data);
     }
 }
 ?>
