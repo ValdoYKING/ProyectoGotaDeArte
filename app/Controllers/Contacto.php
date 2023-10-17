@@ -9,7 +9,7 @@ class Contacto extends BaseController
             'userName' => 'Pepito',
             'sesion' => 'Iniciar sesión',
             'url' => base_url('/'),
-            'canastaUrl' => base_url('/cantasta'),
+            'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];
         $dataContenido = [
