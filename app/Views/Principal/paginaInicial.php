@@ -144,7 +144,7 @@
                 <img src="<?php echo base_url('img/elements/pintura/capibara.jpg'); ?>" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body align-content-center">
                     <div class="around">
                         <div class="card-text">
                             <h4 class="">Quieres Seguir viendo más..?</h4>
