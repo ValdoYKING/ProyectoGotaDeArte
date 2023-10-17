@@ -157,3 +157,38 @@ div>h3 {
     background-color: rgb(255, 255, 203);
     font-weight: bold;
 }
+/* estilos para la parte de sobre nosotros  */
+#inicio-link {
+    color: blue;
+    text-decoration: none;
+}
+
+#info-link {
+    color: rgb(0, 51, 128);
+    text-decoration: none;
+}
+
+#acerca-titulo {
+    font-size: 24px;
+    color: #333;
+}
+
+#descripcion-general {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#proyecto-titulo {
+    font-size: 20px;
+    color: #333;
+}
+
+#proyecto-descripcion {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#proyecto-objetivo {
+    font-size: 16px;
+    line-height: 1.5;
+}
