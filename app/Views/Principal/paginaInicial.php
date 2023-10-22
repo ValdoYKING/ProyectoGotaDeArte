@@ -44,7 +44,8 @@
 </div>
 <br>
 <!--Galeria-->
-<div id="congaleria" class="row row-cols-1 row-cols-md-3 g-4">
+
+<div id="confom" class="row row-cols-1 row-cols-md-3 g-4" >
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
             <img  src="<?php echo base_url('img/elements/pintura/pintura1.jpg'); ?>" class="card-img" alt="...">
