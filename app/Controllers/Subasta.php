@@ -22,7 +22,7 @@ class Subasta extends BaseController
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
-            'canastaUrl' => base_url('/cantasta'),
+            'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];
         $dataContenido = [

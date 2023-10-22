@@ -81,8 +81,8 @@
 
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
-<!--<script>
-    alert('HOla')
+<script>
+    /* alert('HOla') */
 </script>
--->
+
 <?php echo $this->endSection(); ?>
