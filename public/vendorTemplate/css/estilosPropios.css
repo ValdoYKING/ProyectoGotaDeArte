@@ -9,12 +9,9 @@
     top: 0;
     z-index: 1000;
 
-  }
-  
-  /* Estilo adicional para evitar que el contenido se superponga con la barra de navegación */
-body {
-    padding-top: 56px; /* Ajusta según la altura de tu barra de navegación */
 }
+
+
 
 .contenedor{
     border-radius: 10px;
@@ -24,8 +21,6 @@ body {
     padding: 60px 0 ;
     
 }
- 
-
 
 #galeria{
 
@@ -40,6 +35,7 @@ body {
     color: #000;
 
 }
+
 #carusel{
     width: 10000px ;
     height: 600px;
@@ -76,11 +72,7 @@ ul>li>a:hover {
 
 }
 
-div,
-.container>div,
-.row {
-    padding-bottom: 0px;
-}
+
 
 #formCon {
     position: relative;
@@ -110,11 +102,11 @@ div,
     margin-bottom: 20px;
 }
 
-div>div>div>div>div>div,
+/* div>div>div>div>div>div,
 .card-body {
 
     border-radius: 200px;
-}
+} */
 
 div>h3 {
     padding: 50PX;
@@ -134,11 +126,7 @@ div>h3 {
     height: 350px;
 }
 
-.row .row-cols-1 .row-cols-md-3 .g-4 {
-    background-color: #000;
 
-    padding: 30px;
-}
 
 .card-title,
 .card-text {
@@ -158,3 +146,12 @@ div>h3 {
     background-color: rgb(255, 255, 203);
     font-weight: bold;
 }
+
+div#confom > div#galeria {
+    justify-content: center;
+}
+
+#confom{
+    justify-content: center;
+}
+

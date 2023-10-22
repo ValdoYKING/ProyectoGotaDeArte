@@ -8,7 +8,7 @@
                 <a href="<?php echo base_url('/inicio') ?>">Inicio</a>
             </li>
             <li class="breadcrumb-item active">
-                <a href="<?php echo base_url('/obras') ?>">Obras</a>
+                <a href="<?php echo base_url('/guardados') ?>">Guardados</a>
             </li>
         </ol>
     </nav>
