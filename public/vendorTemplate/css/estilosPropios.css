@@ -33,10 +33,11 @@ body {
     height: auto;
 }
 
-div, .card-text > h5 , h4  {
+#te{
+ 
     align-items: center ;
     text-align: center;
-color: #000;
+    color: #000;
 
 }
 #carusel{

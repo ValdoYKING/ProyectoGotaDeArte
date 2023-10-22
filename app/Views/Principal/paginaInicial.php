@@ -145,11 +145,11 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <div class="around">
-                        <div class="card-text">
-                            <h4 class="">Quieres Seguir viendo más..?</h4>
-                            <h5>"Desatando el arte, inspirando el mundo."</h5></div>
-                        <div class="d-grid gap-2 col-6 mx-auto"> 
+                    <div id="te" class="around">
+                        <div id="te" class="card-text ">
+                            <h4 >Quieres Seguir viendo más..?</h4>
+                            <h5 >"Desatando el arte, inspirando el mundo."</h5></div>
+                        <div  class="d-grid gap-2 col-6 mx-auto"> 
                             <button class="btn btn-secondary btn-lg" type="button">REGISTRATE</button>
                         </div>
                     </div>
