@@ -23,20 +23,20 @@
                 <div class="mb-3 row">
                     <label for="html5-text-input" class="col-md-2 col-form-label">Nombre</label>
                     <div class="col-md-10">
-                    <input class="form-control" type="text" pattern="[A-Za-z]+" placeholder="Ingresa nombre" id="html5-text-input" required/>
+                    <input class="form-control" type="text" pattern="[A-Za-z]+" placeholder="Ingresa nombre" id="nombre" required/>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="html5-email-input" class="col-md-2 col-form-label">Email</label>
                     <div class="col-md-10">
                     <input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Debe contener tres cadenas separadas por un @ y un punto" 
-                    placeholder="Ingresa tu email" id="html5-email-input" required />
+                    placeholder="Ingresa tu email" id="email" required />
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="html5-tel-input" class="col-md-2 col-form-label">Telefono</label>
                     <div class="col-md-10">
-                    <input class="form-control" type="tel" value="" pattern="[0-9]{10}" title="Le falta numeros" placeholder="Agrega tu telefono" id="html5-tel-input" required />
+                    <input class="form-control" type="tel" value="" pattern="[0-9]{10}" title="Le falta numeros" placeholder="Agrega tu telefono" id="telefono" required />
                     </div>
                 </div>
 

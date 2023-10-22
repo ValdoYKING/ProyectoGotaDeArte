@@ -21,5 +21,16 @@ class Contacto extends BaseController
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Contactos/contacto',$data);
     }
+
+    public function insertar() {
+    $data = [
+        'id'=>$_POST('nombre'),
+        'nombre'=>$_POST('email'),
+        ''=>$_POST(''),
+        
+    ];
+        return view('Contactos/contacto');
+    }
+    
 }
 ?>
