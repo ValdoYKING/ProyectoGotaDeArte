@@ -32,6 +32,8 @@ $routes->get('/Contactos', 'Contacto::index');
 
 $routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/inicioartista', 'Artista::incioArtista');
+$routes->get('/inicioartista/(:num)', 'Artista::show/$1');
+$routes->get('/inicioartista/trasaccion', 'Artista::transaccion');
 $routes->get('/nuevapublicacion', 'Artista::nuevaPublicacion');
 $routes->get('/publicacionesartista', 'Artista::publicacionesArtista');
 

@@ -16,6 +16,23 @@
         <div>
             <h2 class="mb-2">Mis publicaciones</h2>
         </div>
+        <table>
+            <thead>
+                <th>Dato </th>
+                <th>Dato </th>
+                <th>Dato </th>
+            </thead>
+            <tbody>
+                <?php foreach($publicaciones as $publicacion): ?>
+                <tr>
+                    <td><?php echo $publicacion->nombre ?></td>
+                    <td><?php echo $publicacion->descripcion ?></td>
+                    <td><?php echo $publicacion->medidas ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+
+        </table>
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">
             <div class="col-auto">
@@ -163,8 +180,8 @@
 
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
-<!--<script>
-    alert('HOla')
+<script>
+
 </script>
--->
+
 <?php echo $this->endSection(); ?>
