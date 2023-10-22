@@ -28,10 +28,12 @@
     height: auto;
 }
 
-.card-text {
+#te{
+ 
     align-items: center ;
     text-align: center;
-color: #000; 
+    color: #000;
+
 }
 
 #carusel{
