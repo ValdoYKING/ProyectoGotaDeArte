@@ -16,43 +16,42 @@
         <div>
             <h2 class="mb-2">Mis publicaciones</h2>
         </div>
-        <table>
+       <!--  <table>
             <thead>
                 <th>Dato </th>
                 <th>Dato </th>
                 <th>Dato </th>
             </thead>
             <tbody>
-                <?php foreach($publicaciones as $publicacion): ?>
                 <tr>
-                    <td><?php echo $publicacion->nombre ?></td>
-                    <td><?php echo $publicacion->descripcion ?></td>
-                    <td><?php echo $publicacion->medidas ?></td>
+            
                 </tr>
-                <?php endforeach; ?>
             </tbody>
-
-        </table>
+            
+        </table> -->
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">
-            <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstracto</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
+            <?php foreach($publicaciones as $publicacion): ?>
+                <div class="col-auto">
+                    <div class="card h-100" style="width: 18rem;">
+                        <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
+                        <div class="card-body">
+                            <h5 class="card-title bg-black"><?php echo $publicacion->nombre ?></h5>
+                            <p class="card-text bg-black">Arte abstracto</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <p><?php echo $publicacion->descripcion ?></p>
+                            <li class="list-group-item">$100.99</li>
+                            <li class="list-group-item"><?php echo $publicacion->medidas ?></li>
+                            <a href="#" class="list-group-item">Artista Gota</a>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Editar</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
+                <?php endforeach; ?>
+<!--             <div class="col-auto">
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
@@ -170,7 +169,7 @@
                         <a href="#" class="card-link">Editar</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             
         </div>

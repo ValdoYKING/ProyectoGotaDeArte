@@ -19,8 +19,6 @@ class Artista extends BaseController
             'historia' => 'Mario inicion desde 2010 su vida de artista en la cual se especializa en el pintura Realismo, Abstraccto y Retrato',
             'fecha_n' => 'Nacio 1990',
             'nacionalidad' => 'Mexicano',
-        ];
-        $dataPiePagina = [
             'fecha' => date('Y'),
         ];
         return view('biografia_Art/Artista',$data);
@@ -105,6 +103,9 @@ class Artista extends BaseController
 
     public function publicacionesArtista(): string{
 
+        $obraArteModel = new ObrasArtista();
+        $results = $obraArteModel->find();
+        
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
@@ -112,6 +113,8 @@ class Artista extends BaseController
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mis publicaciones',
+            'publicaciones' => $results,
+
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),

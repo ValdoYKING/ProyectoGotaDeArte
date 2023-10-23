@@ -14,12 +14,13 @@ class contactosModel extends Model {
     protected $returnType = 'array';  //object
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['id', 'nombre_contacto','correo_contacto','asunto_contacto','fk_rol'];
+    protected $allowedFields = ['id', 'nombre_contacto','correo_contacto','asunto_contacto','comentario_contacto','fk_rol'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'fecha_creacion';
+    protected $updatedField  = 'fecha_modifica';
 
 
 }

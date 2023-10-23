@@ -5,6 +5,7 @@ use App\Models\contactosModel;
 class Contacto extends BaseController
 {
     private $contactosModel;
+    protected $helpers = ['form'];
 
     public function __construct(){
         $this->contactosModel = new contactosModel();
@@ -28,18 +29,39 @@ class Contacto extends BaseController
         return view('Contactos/contacto',$data);
     }
 
+    public function guargar(){
+        print_r($_POST);
+
+        $val = [
+            'nombre' => 'required',
+            'email' =>  'required',
+            'telefono' =>  'required',
+            'asunto' =>  'required',
+            'mensaje' =>  'required',
+
+        ];
+
+        if(!$this->validate($val)){
+
+            return redirect()->back()->withInput();
+        }
+    }
+
     public function insertar() {
     $data = [
-        'nombre_contacto' => "Gabriel",
-        'correo_contacto' => "gabriel@gmail.com",
-        'asunto_contacto' => "Nuevo arte",
+        'nombre_contacto' => $_POST['nombre'],
+        'correo_contacto' => $_POST['email'],
+        'asunto_contacto' => $_POST['asunto'],
+        'comentario_contacto' => $_POST['mensaje'],
         'fk_rol' => 1
         
     ];
 
-    echo $this->contactosModel->insert($data);
-    echo $this->contactosModel->getInsertID();
     
+    $this->contactosModel->insert($data);
+    $this->contactosModel->getInsertID();
+    
+    return redirect()->to('/inicio');
     }
     
 }

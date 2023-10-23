@@ -17,38 +17,41 @@
 <div class="container " id="formCon"> 
     <h1> Contactanos </h1>
     <div class="row">
-        <form id="formulario" action="" method="get">
+
+      
+
+        <form id="formulario" action="<?php echo base_url('/Contactos/insertar')?>" method="post">
             
 
                 <div class="mb-3 row">
-                    <label for="html5-text-input" class="col-md-2 col-form-label">Nombre</label>
+                    <label for="nombre" class="col-md-2 col-form-label">Nombre</label>
                     <div class="col-md-10">
-                    <input class="form-control" type="text" pattern="[A-Za-z]+" placeholder="Ingresa nombre" id="nombre" required/>
+                    <input class="form-control" type="text" pattern="[A-Za-z]+" placeholder="Ingresa nombre" name="nombre" id="nombre" required/>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="html5-email-input" class="col-md-2 col-form-label">Email</label>
+                    <label for="email" class="col-md-2 col-form-label">Email</label>
                     <div class="col-md-10">
-                    <input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Debe contener tres cadenas separadas por un @ y un punto" 
+                    <input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" title="Debe contener tres cadenas separadas por un @ y un punto" 
                     placeholder="Ingresa tu email" id="email" required />
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="html5-tel-input" class="col-md-2 col-form-label">Telefono</label>
+                    <label for="telefono" class="col-md-2 col-form-label">Telefono</label>
                     <div class="col-md-10">
-                    <input class="form-control" type="tel" value="" pattern="[0-9]{10}" title="Le falta numeros" placeholder="Agrega tu telefono" id="telefono" required />
+                    <input class="form-control" type="tel" value="" pattern="[0-9]{10}" title="Le falta numeros" name="telefono" placeholder="Agrega tu telefono" id="telefono" required />
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label for="html5-text-input" class="col-md-2 col-form-label">Asunto </label>
+                    <label for="asunto" class="col-md-2 col-form-label">Asunto </label>
                     <div class="col-md-10">
-                    <input class="form-control" type="text" value="" placeholder="Agregar Asunto " id="html5-text-input" required />
+                    <input class="form-control" type="text" value="" placeholder="Agregar Asunto " name="asunto"  id="asunto" required />
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="exampleFormControlTextarea1" class="form-label">Mensaje que desee enviar</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <label for="mensaje" class="form-label">Mensaje que desee enviar</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required></textarea>
                 </div>
                 <div class="mb-3 row">
                     <p class="aviso"> <span class="obligatorio"></span>Los campos son obligatorios </p>
