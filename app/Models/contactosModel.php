@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class contactos extends Model {
+class contactosModel extends Model {
 
     protected $table      = 'contactos';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
 
-    protected $returnType     = 'array';  //object
+    protected $returnType = 'array';  //object
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['id', 'nombre_contacto','correo_contacto','asunto_contacto','fecha_creacion','fk_rol'];
+    protected $allowedFields = ['id', 'nombre_contacto','correo_contacto','asunto_contacto','fk_rol'];
 
     // Dates
     protected $useTimestamps = true;

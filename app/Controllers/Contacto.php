@@ -1,8 +1,14 @@
 <?php
 namespace App\Controllers;
+use App\Models\contactosModel;
 
 class Contacto extends BaseController
 {
+    private $contactosModel;
+
+    public function __construct(){
+        $this->contactosModel = new contactosModel();
+    }
     public function index(): string{
 
         $dataMenu = [
@@ -24,12 +30,16 @@ class Contacto extends BaseController
 
     public function insertar() {
     $data = [
-        'id'=>$_POST('nombre'),
-        'nombre'=>$_POST('email'),
-        ''=>$_POST(''),
+        'nombre_contacto' => "Gabriel",
+        'correo_contacto' => "gabriel@gmail.com",
+        'asunto_contacto' => "Nuevo arte",
+        'fk_rol' => 1
         
     ];
-        return view('Contactos/contacto');
+
+    echo $this->contactosModel->insert($data);
+    echo $this->contactosModel->getInsertID();
+    
     }
     
 }

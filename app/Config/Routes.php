@@ -29,6 +29,8 @@ $routes->get('/subastas', 'Subasta::subastas');
 $routes->get('/solicita_cuadro', 'CuadroArte::solicitarCuadro');
 
 $routes->get('/Contactos', 'Contacto::index');
+$routes->get('/Contactos', 'Contacto::insertar');
+
 
 $routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/inicioartista', 'Artista::incioArtista');
