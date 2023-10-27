@@ -15,7 +15,7 @@ class Contacto extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Iniciar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];

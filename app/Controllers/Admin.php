@@ -8,7 +8,7 @@ class Admin extends BaseController{
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
@@ -24,7 +24,7 @@ class Admin extends BaseController{
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de usuarios',
@@ -40,7 +40,7 @@ class Admin extends BaseController{
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de artistas',
@@ -56,7 +56,7 @@ class Admin extends BaseController{
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -72,7 +72,7 @@ class Admin extends BaseController{
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de subastas',

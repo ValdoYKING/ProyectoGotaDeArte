@@ -38,7 +38,7 @@ class Artista extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -59,7 +59,7 @@ class Artista extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -80,7 +80,7 @@ class Artista extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -112,7 +112,7 @@ class Artista extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',    
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mis publicaciones',
@@ -131,7 +131,7 @@ class Artista extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Nueva publicación',
