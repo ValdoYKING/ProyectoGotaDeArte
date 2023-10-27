@@ -45,12 +45,18 @@ $routes->post('/UsuarioCanasta/edit', 'Canasta::edit');
 
 
 $routes->get('/biografia_Art', 'Artista::biografia');
-$routes->get('/inicioartista', 'Artista::incioArtista', ['filter' => 'auth']);
-$routes->get('/inicioartista/(:num)', 'Artista::show/$1');
+$routes->get('/inicioartista', 'Artista::incioArtista');
+$routes->get('/inicioartista/obraArtista/(:num)', 'Artista::obraArtista/$1');
+$routes->get('/inicioartista/consultarObra/(:num)', 'Artista::consultarObra/$1');
+
+
 //$routes->get('/nuevapublicacion/insertarObra', 'Artista::insertarObra');
 $routes->get('/nuevapublicacion', 'Artista::nuevaPublicacion');
-$routes->post('/Artista/insertarObra', 'Artista::insertarObra');
+$routes->post('/Artista/insertaObra', 'Artista::insertaObra');
 $routes->get('/publicacionesartista', 'Artista::publicacionesArtista');
+$routes->post('/Artista/ActualizarArtista/(:num)', 'Artista::ActualizarArtista/$1');
+$routes->get('/Artista/EliminarArtista/(:num)', 'Artista::EliminarArtista/$1');
+
 
 $routes->get('/comprarObra', 'Pagos::compraObra');
 

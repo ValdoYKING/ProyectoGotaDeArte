@@ -45,7 +45,7 @@
                             <hr class="dropdown-divider" />
                         </li>
 
-                        <li><a class="dropdown-item" href="<?php echo $urlSalir; ?>"><?php echo $sesion; ?></a></li>
+                        <li><a class="dropdown-item" href="<?php  ?>"><?php echo $sesion; ?></a></li>
                     </ul>
                 </li>
             </ul>

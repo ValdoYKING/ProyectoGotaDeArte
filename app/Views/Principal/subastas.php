@@ -39,8 +39,8 @@
                             <a href="#" class="list-group-item">Artista Gota</a>
                         </ul>
                         <div class="card-body">
+                            <a href="<?php echo base_url('/inicioartista/'.$subastas['id'])?>" class="card-link">Ver</a>
                             <a href="#" class="card-link">Ingresar</a>
-                            <a href="#" class="card-link">Ver</a>
 
                         </div>
                     </div>

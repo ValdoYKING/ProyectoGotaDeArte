@@ -45,7 +45,7 @@
 
           <script>
         document.write(new Date().getFullYear())
-        </script> © <a href="<?php echo base_url('/login_admin')?>">PixelFusion</a>
+        </script> © <a href="<?php echo base_url('/login_admin')?>">PixelFusion</a> / © <a href="https://themeselection.com/">Sneat</a>
       </p>
   </div>
 </div>

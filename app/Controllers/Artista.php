@@ -39,6 +39,7 @@ class Artista extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
             'urlSalir' => base_url('/salir'),
             'url' => base_url('/salir'),
         ];
@@ -53,35 +54,34 @@ class Artista extends BaseController
         return view('Artista/inicioArtista',$data);
     }
 
-    public function insertaObraArtista(): string{
+    public function insertaObra(){
 
-        $obraArteModel = new ObrasArtista();
-        $results = $obraArteModel->find();
+        
+            $data = [
+                'nombre' => $_POST['nombre'],
+                'descripcion' => $_POST['descripcion'],
+                'precio' => $_POST['precio'],
+                'medidas' => $_POST['medidas'],
+                'estatus_subasta' => $_POST['status']
+                
+            ];
 
-        $dataMenu = [
-            'userName' => 'Pepito',
-            'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/salir'),
-        ];
-        $dataContenido = [
-            'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
-            'publicaciones' => $results,
-        ];
-        $dataPiePagina = [
-            'fecha' => date('Y'),
-        ];
-        $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Artista/inicioArtista',$data);
+            $this->obrasArtista->insert($data);
+
+    
+            return redirect()->to('/inicioartista');
+        
     }
 
     /* FUNCION PARA MOSTRAR POR BUSQUEDA POR ID */
-    public function show($id){
+    public function obraArtista($id){
         $obraArteModel = new ObrasArtista();
         $results = $obraArteModel->find($id);
 
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
             'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
@@ -96,13 +96,27 @@ class Artista extends BaseController
     }
 
     /* Transaccion basica para agregar resgistros */
-    public function insertarObra(){
-        //print_r($_POST);
-        $data = [
-            'nombre' => 'GOTA DE ARTE | Lista de publicaciones',
-            'descripcion' => 2,
+    public function consultarObra($id){
+        $obraArteModel = new ObrasArtista();
+        $results = $obraArteModel->find($id);
+
+
+        $dataMenu = [
+            'userName' => 'Pepito',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
         ];
-        echo $this->obrasArtista->insert($data);
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
+            'publicacion' => $results,
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Artista/actualizarPublicacion',$data);
     }
 
 
@@ -113,11 +127,12 @@ class Artista extends BaseController
         
         $dataMenu = [
             'userName' => 'Pepito',
-            'sesion' => 'Cerrar sesión',    
+            'sesion' => 'Cerrar sesión', 
+            'url' => base_url('/'),   
             'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
-            'titulo' => 'GOTA DE ARTE | Mis publicaciones',
+            'titulo' => 'GOTA DE ARTE | Mi publicacion',
             'publicaciones' => $results,
 
         ];
@@ -133,6 +148,8 @@ class Artista extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+
             'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
@@ -144,5 +161,40 @@ class Artista extends BaseController
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Artista/nuevaPublicacion',$data);
     }
+
+
+    public function ActualizarArtista($id){
+
+        $data = [
+            'nombre' => $_POST['nombre'],
+            'descripcion' => $_POST['descripcion'],
+            'precio' => $_POST['precio'],
+            'estatus_subasta' => $_POST['status']
+            
+        ];
+    
+        
+        $this->obrasArtista->update($id, $data);
+
+    
+        return redirect()->to('/inicioartista');
+
+
+    }
+    public function EliminarArtista($id){
+
+
+        $obrasArtista = new ObrasArtista();
+        $this->obrasArtista->delete($id);
+
+
+        return redirect()->to('/publicacionesartista');
+
+    }    
+    
+        
+
 }
+    
+
 ?>

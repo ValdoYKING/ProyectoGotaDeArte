@@ -26,7 +26,7 @@
             <div class="col-xl">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form id="form" action="<?php echo base_url('/Artista/insertarObra')?>" method="POST">
+                        <form id="form" action="<?php echo base_url('/Artista/insertaObra')?>" method="POST">
                             <div class="mb-3">
                                 <label class="form-label" for="basic-icon-default-fullname">Fotografía</label>
                                 <div class="input-group">
