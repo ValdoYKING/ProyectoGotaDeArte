@@ -26,7 +26,7 @@ class Principal extends BaseController
         $dataMenu = [
             'userName' => 'Iniciar sesión',
             'sesion' => 'Iniciar sesión',
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/login'),
             'canastaUrl' => base_url('/login'),
             'guardadosUrl' => base_url('/login'),
         ];

@@ -61,7 +61,7 @@ class Contacto extends BaseController
     $this->contactosModel->insert($data);
     $this->contactosModel->getInsertID();
     
-    return redirect()->to('/inicio');
+    return redirect()->to('/');
     }
     
     public function listaContactos(): string{

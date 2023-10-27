@@ -40,6 +40,7 @@ class Artista extends BaseController
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
+            'url' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
