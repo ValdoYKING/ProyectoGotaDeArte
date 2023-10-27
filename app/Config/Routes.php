@@ -14,7 +14,7 @@ $routes->get('/info', 'Principal::sobreNosotros');
 $routes->get('/tyc', 'Principal::terminosCondiciones');
 $routes->get('/politicadeprivacidad', 'Principal::politicaPrivacidad');
 $routes->get('/obras', 'Principal::obras');
-$routes->get('/canasta', 'Principal::canasta');
+//$routes->get('/canasta', 'Principal::canasta');
 $routes->get('/guardados', 'Principal::guardados');
 
 $routes->get('/login', 'Autenticacion::login');
@@ -32,6 +32,9 @@ $routes->get('/Contactos', 'Contacto::index');
 /* $routes->get('/Contactos/insertar', 'Contacto::insertar'); */
 $routes->post('/Contactos/insertar', 'Contacto::insertar');
 
+//
+$routes->get('/canasta_prueba', 'Canasta::index');
+$routes->post('/UsuarioCanasta/edit', 'Canasta::edit');
 
 
 $routes->get('/biografia_Art', 'Artista::biografia');
