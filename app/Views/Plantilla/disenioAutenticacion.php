@@ -25,7 +25,6 @@
   <!-- Estilos particular -->
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/estilosPropios.css'); ?>">
   <!-- Page CSS -->
-  <!-- <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" /> -->
   <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-auth.css')?>" />
   <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-icons.css')?>" />
   <link rel="stylesheet" href="<?php echo base_url('vendorTemplate/css/pages/page-misc.css')?>" />
@@ -49,13 +48,9 @@
   <script src="<?= base_url('vendorTemplate/libs/perfect-scrollbar/perfect-scrollbar.js'); ?>"></script>
 
   <script src="<?= base_url('vendorTemplate/js/menu.js'); ?>"></script>
-  <!-- endbuild -->
-  <!-- Vendors JS -->
-  <!-- Main JS -->
-  <script src="/assets/js/main.js"></script>
+
   <script src="<?= base_url('js/main.js'); ?>"></script>
-  <!-- Page JS -->
-  <!-- Place this tag in your head or just before your close body tag. -->
+
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <?php echo $this->renderSection("scripts"); ?>

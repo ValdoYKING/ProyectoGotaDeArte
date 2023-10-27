@@ -1,58 +1,63 @@
 <?php echo $this->extend('Plantilla/disenio'); ?>
 <?php echo $this->section('contenido'); ?>
-<div class="fondo">
-    <div class="container">
-        <nav aria-label="breadcrumb" class="mb-5 segundo-navbar">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a id="inicio-link" href="<?php echo base_url('/inicio') ?>">Inicio</a>
-                </li>
-                <li class="breadcrumb-item active">
-                    <a id="info-link" href="<?php echo base_url('/info') ?>">Sobre nosotros</a>
-                </li>
-            </ol>
-        </nav>
+<br>
+<div class="container">
+    <nav class="breadcrumb mb-5 segundo-navbar">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            <link rel="stylesheet" href="<?php echo base_url('public/vendorTemplate/css/estilosPropios.css'); ?>">
+ 
+
+                <a id="inicio-link" href="<?php echo base_url('/inicio') ?>">Inicio</a>
+            </>
+            <li class="breadcrumb-item active">
+                <a id="info-link" href="<?php echo base_url('/info') ?>">Sobre nosotros</a>
+            </li>
+        </ol>
+    </nav>
+    <div class="sobre-nosotros-contenedor">
     </div>
 
-    <div class="container">
-        <h1 class="acerca-titulo">Acerca de Nosotros</h1>
-        <hr>
-
-        <div class="descripcion-container">
-            <p>
-                El objetivo de GotaDeArte es crear una plataforma en línea que facilite la publicación, exhibición y venta de obras de arte, además de ofrecer la opción de subasta para los amantes del arte. Queremos conectar a artistas talentosos con coleccionistas y amantes del arte, brindando una experiencia enriquecedora y accesible en el mundo del arte.
-            </p>
-        </div>
-
-        <div>
-        <div class="card" style="width: 18rem;">
-  <img src="" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-        </div>
-
-        <div>
-            <h2 class="proyecto-titulo">Sobre el proyecto Gota De Arte</h2>
-            <div class="descripcion-container">
-                <p>
-                    "GotaDeArte" es un proyecto dedicado a la creación de una plataforma en línea que busca inspirar y promover la apreciación del arte en todas sus formas. La página web "Gota De Arte" es un espacio digital donde artistas de todo el mundo pueden mostrar sus obras, y donde los amantes del arte pueden explorar, aprender y conectarse con la creatividad.
-                </p>
+    <h1>Acerca de Nosotros</h1>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <img src="<?php echo base_url('img/elements/sobrenosotros/Real1.jpeg')?>" class="sobre-nosotros-imagen" width="440" height="500" id="sobre-nosotros-imagen">
+                <div class="card-body">
+                    <h5 id="card-title" style="color: black;">¿Quienes somos?</h5>
+                    <p id="card-text" style="text-align: justify; color: black;">
+                        En "Gota de Arte", somos un apasionado grupo de artistas y amantes del arte que se han unido para celebrar la creatividad en todas sus formas. Nos dedicamos a fomentar la apreciación del arte y a brindar una plataforma para artistas emergentes y establecidos para mostrar su trabajo. Nuestra misión es ser un faro de inspiración para la comunidad artística y un destino para aquellos que buscan sumergirse en el mundo del arte.
+                        
+                    </p>
+                </div>
             </div>
-
-            <div class="descripcion-container">
-                <p>
-                    Nuestro objetivo es apoyar a la comunidad artística, proteger y fortalecer la identidad digital de sus miembros y generar ingresos del arte. GotaDeArte fomenta la creatividad en una variedad de formas, patrocinando la innovación de las industrias del arte y alta tecnología, entregando diversos premios y proyectos especiales. Al unirte a GotaDeArte, expandirás tus límites. Lanzando tu arte en el espacio de Internet, empezarás a formar parte de un mundo creativo creciente.
-                </p>
+        </div>
+        <div class="col">
+            <div class= "card h-100">
+                <img src="<?php echo base_url('img/elements/sobrenosotros/Real2.jpeg')?>" class="sobre-nosotros-imagen" width="440" height="500" id="sobre-nosotros-imagen">
+                <div class="card-body">
+                    <h5 id="card-title" style="color: black;">Nuestra motivación</h5>
+                    <p id="card-text" style="text-align: justify; color: black;">
+                        Nuestra motivación es que en "Gota de Arte" ayude a la diversidad artística y la libre expresión creativa. Creemos que el arte tiene el poder de inspirar, educar y conectar a las personas de todas las edades y orígenes. A través de exposiciones, eventos culturales y recursos educativos, trabajamos incansablemente para fomentar un entorno en el que el arte florezca y donde cada obra cuente una historia única.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="<?php echo base_url('img/elements/sobrenosotros/Real3.jpeg')?>" class="sobre-nosotros-imagen" width="440" height="500" id="sobre-nosotros-imagen">
+                <div class="card-body">
+                    <h5 id="card-title" style="color: black;">Lo que ofrecemos</h5>
+                    <p id="card-text" style="text-align: justify; color: black;">
+                        En "Gota de Arte", ofrecemos una amplia gama de servicios y contenido relacionados con el arte. Esto incluye exposiciones en línea y en persona que destacan el trabajo de artistas emergentes y establecidos, talleres de arte para todas las edades, reseñas y análisis de obras de arte, y una comunidad en línea donde los amantes del arte pueden conectarse y compartir su pasión. Además, nuestra tienda en línea ofrece una selección de obras de arte originales y productos inspirados en el arte para aquellos que buscan llevar un toque artístico a sus vidas.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-
 </div>
-
+</div>
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
-<!--<script>
-</script>
--->
 <?php echo $this->endSection(); ?>

@@ -5,9 +5,11 @@ use App\Models\ObrasArtista;
 class Artista extends BaseController
 {
     private $obrasArtista;
+    private $db;
     protected $helpers = ['form'];
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
+        $this->db = \Config\Database::connect();
     }
     public function biografia(): string{
 
@@ -96,16 +98,10 @@ class Artista extends BaseController
     public function insertarObra(){
         //print_r($_POST);
         $data = [
-            'nombre' => $_POST['nombre'],
-            'foto' => $_POST['foto'],
-            'descripcion' => $_POST['descripcion'],
-            'medidas' => $_POST['medidas'],
-            'precio' => $_POST['precio'],
-            'estatus_subasta' => $_POST['status'],
-        ]; 
-        $this->obrasArtista->insert($data);
-        
-        return redirect()->to('/inicioartista');
+            'nombre' => 'GOTA DE ARTE | Lista de publicaciones',
+            'descripcion' => 2,
+        ];
+        echo $this->obrasArtista->insert($data);
     }
 
 
@@ -116,7 +112,7 @@ class Artista extends BaseController
         
         $dataMenu = [
             'userName' => 'Pepito',
-            'sesion' => 'Cerrar sesión',
+            'sesion' => 'Cerrar sesión',    
             'url' => base_url('/'),
         ];
         $dataContenido = [
