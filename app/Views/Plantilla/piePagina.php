@@ -6,7 +6,7 @@
         <ul class="list-unstyled">
           <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Acerca de nosotros</a></li>
           <li>
-            <a href="javascript:void(0)" class="footer-link d-block pb-2">Sobre los Artitas</a>
+            <a href="javascript:void(0)" class="footer-link d-block pb-2">Sobre los Artistas</a>
           </li>
           <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Arte</a></li>         
       </div>

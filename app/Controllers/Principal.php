@@ -27,8 +27,8 @@ class Principal extends BaseController
             'userName' => 'Iniciar sesión',
             'sesion' => 'Iniciar sesión',
             'urlSalir' => base_url('/login'),
-            'canastaUrl' => base_url('/login'),
-            'guardadosUrl' => base_url('/login'),
+            'canastaUrl' => base_url('/canasta'),
+            'guardadosUrl' => base_url('/guardados'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
@@ -42,16 +42,6 @@ class Principal extends BaseController
 
     public function inicio(): string
     {
-        if (session()->has('user_id')) {
-            $userNameSession = session()->get('user_id');
-            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
-            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
-            if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
-                $userName = $datosUsuario->nombre;
-            }
-        } else {
-            $userName = 'Usuario Gota PRUEBA';
-        }
 
         $dataMenu = [
             'userName' => $this->userName,
