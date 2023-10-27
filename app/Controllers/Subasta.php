@@ -1,9 +1,17 @@
 <?php
 namespace App\Controllers;
+use App\Models\subastasModelo;
 
 class Subasta extends BaseController
 {
+    private $obraSubasta;
+
+    public function __construct(){
+        $this->obraSubasta = new subastasModelo();
+    }
+
     public function index(): string{
+
         $dataMenu = [
             'userName' => 'Pepito',
         ];
@@ -18,8 +26,12 @@ class Subasta extends BaseController
     }
 
     public function subastas(): string{
+
+        $subasta = new subastasModelo();
+        $results = $subasta->findAll();
+
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => 'maria',
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
             'canastaUrl' => base_url('/canasta'),
@@ -27,6 +39,7 @@ class Subasta extends BaseController
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Subastas',
+            'subastas' => $results            
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -34,5 +47,57 @@ class Subasta extends BaseController
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Principal/subastas',$data);
     }
+
+    public function insertSubasta(){
+        $data = [
+            'nombre_subasta' => 'maria',
+            'fotos_subasta' => 'Cerrar sesión',
+            'precio_inicial' => base_url('/'),
+            'precio_pagado' => base_url('/canasta'),
+            'fk_obra' => base_url('/guardados'),
+            'fk_usuario' => '',
+            'fecha_subasta' => ''
+        ];
+
+        $this->obraSubasta->insert($data);
+        $this->obraSubasta->getInsertID();
+        
+        return redirect()->to('/inicio');
+    }
+
+    public function UpdateSubasta(){
+        $data = [
+            'nombre_subasta' => 'maria',
+            'fotos_subasta' => 'Cerrar sesión',
+            'precio_inicial' => base_url('/'),
+            'precio_pagado' => base_url('/canasta'),
+            'fk_obra' => base_url('/guardados'),
+            'fk_usuario' => '',
+            'fecha_subasta' => ''
+        ];
+
+        $this->obraSubasta->insert($data);
+        $this->obraSubasta->getInsertID();
+        
+        return redirect()->to('/inicio');
+    }
+
+    public function deleteSubasta(){
+        $data = [
+            'nombre_subasta' => 'maria',
+            'fotos_subasta' => 'Cerrar sesión',
+            'precio_inicial' => base_url('/'),
+            'precio_pagado' => base_url('/canasta'),
+            'fk_obra' => base_url('/guardados'),
+            'fk_usuario' => '',
+            'fecha_subasta' => ''
+        ];
+
+        $this->obraSubasta->insert($data);
+        $this->obraSubasta->getInsertID();
+        
+        return redirect()->to('/inicio');
+    }
+
 }
 ?>

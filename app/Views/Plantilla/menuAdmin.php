@@ -28,6 +28,8 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="<?php echo base_url('/publicacionesLista')?>">Lista de publicaciones</a></li>
                         <li><a class="dropdown-item" href="<?php echo base_url('/subastasLista')?>">Lista de subastas</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('/contactosLista')?>">Lista de Contactos</a></li>
+
                     </ul>
                 </li>
             </ul>

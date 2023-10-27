@@ -5,6 +5,7 @@ use App\Models\ObrasArtista;
 class Artista extends BaseController
 {
     private $obrasArtista;
+    protected $helpers = ['form'];
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
     }
@@ -92,12 +93,19 @@ class Artista extends BaseController
     }
 
     /* Transaccion basica para agregar resgistros */
-    public function transaccion(){
+    public function insertarObra(){
+        //print_r($_POST);
         $data = [
-            'nombre' => 'GOTA DE ARTE | Lista de publicaciones',
-            'descripcion' => 2,
-        ];
-        echo $this->obrasArtista->insert($data);
+            'nombre' => $_POST['nombre'],
+            'foto' => $_POST['foto'],
+            'descripcion' => $_POST['descripcion'],
+            'medidas' => $_POST['medidas'],
+            'precio' => $_POST['precio'],
+            'estatus_subasta' => $_POST['status'],
+        ]; 
+        $this->obrasArtista->insert($data);
+        
+        return redirect()->to('/inicioartista');
     }
 
 

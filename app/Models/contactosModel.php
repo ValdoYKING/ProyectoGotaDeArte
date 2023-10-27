@@ -11,17 +11,17 @@ class contactosModel extends Model {
 
     protected $useAutoIncrement = true;
 
-    protected $returnType = 'array';  //object
+    protected $returnType = 'object';  //object
     protected $useSoftDeletes = true;
 
     protected $allowedFields = ['id', 'nombre_contacto','correo_contacto','asunto_contacto','comentario_contacto','fk_rol'];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'fecha_creacion';
     protected $updatedField  = 'fecha_modifica';
-
+    protected $deletedField  = 'fecha_delete';
 
 }
 
