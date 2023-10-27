@@ -48,7 +48,7 @@
 <div id="confom" class="row row-cols-1 row-cols-md-3 g-4" >
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/pintura/pintura1.jpg'); ?>" class="card-img" alt="...">
+            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real1.jpg'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title"> </h5>
                 <p class="card-text"></p>
@@ -58,7 +58,7 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/pintura/pintura2.jpg'); ?>" class="card-img" alt="...">
+            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real2.jpg'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
@@ -68,7 +68,7 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/pintura/pintura3.jpg'); ?>" class="card-img" alt="...">
+            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real3.jpg'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
@@ -78,7 +78,7 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/pintura/pintura4.jpg'); ?>" class="card-img" alt="...">
+            <img src="<?php echo base_url('img/elements/ImagenesReales/Real13.jpeg'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
@@ -88,7 +88,7 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/pintura/pintura5.jpg'); ?>" class="card-img" alt="...">
+            <img src="<?php echo base_url('img/elements/ImagenesReales/Real10.jpeg'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
@@ -98,7 +98,17 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/pintura/pintura6.jpg'); ?> " class="card-img" alt="...">
+            <img src="<?php echo base_url('img/elements/ImagenesReales/Real11.jpeg'); ?> " class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div> 
+    <!-- <div id="galeria" class="col">
+        <div class="card bg-dark text-white">
+            <img src="<?php echo base_url('img/elements/ImagenesReales/Real7.jpg'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
@@ -108,7 +118,7 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/pintura/pintura7.jpg'); ?>" class="card-img" alt="...">
+            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real11.jpg'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
@@ -118,24 +128,14 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/pintura/pintura8.jpg'); ?>" class="card-img" alt="...">
+            <img src="<?php echo base_url(''); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
                 <p class="card-text"></p>
             </div>
         </div>
-    </div> 
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/pintura/pintura9.jpg'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-            </div>
-        </div>
-    </div> 
+    </div>  -->
 </div>
 <br>
 <div class="conteiner">
@@ -195,6 +195,7 @@
                 en el inicio de sus carreras, brindándoles una plataforma para mostrar sus creaciones únicas y apasionantes. 
                 Trabajamos incansablemente para conectar a estos artistas con una audiencia apreciativa y coleccionistas, 
                 proporcionando oportunidades de venta y subasta. </h5>
+             
             
         </div>
         </div>
