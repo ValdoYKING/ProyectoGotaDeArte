@@ -14,21 +14,9 @@
 <section>
     <div class="container">
         <div>
-            <h2 class="mb-2">Mis publicaciones</h2>
+            <h2 class="mb-2"> Publicaciones</h2>
         </div>
-       <!--  <table>
-            <thead>
-                <th>Dato </th>
-                <th>Dato </th>
-                <th>Dato </th>
-            </thead>
-            <tbody>
-                <tr>
-            
-                </tr>
-            </tbody>
-            
-        </table> -->
+
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">
             <?php foreach($publicaciones as $publicacion): ?>
@@ -41,13 +29,13 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <p><?php echo $publicacion->descripcion ?></p>
-                            <li class="list-group-item">$100.99</li>
+                            <li class="list-group-item">$<?php echo $publicacion->precio ?></li>
                             <li class="list-group-item"><?php echo $publicacion->medidas ?></li>
                             <a href="#" class="list-group-item">Artista Gota</a>
                         </ul>
                         <div class="card-body">
-                            <a href="#" class="card-link">Editar</a>
-                            <a href="#" class="card-link">Eliminar</a>
+                        <a href="<?php echo base_url('/inicioartista/consultarObra/'.$publicacion->id)?>" class="card-link">Editar</a>
+                        <a href="<?php echo base_url('/Artista/EliminarArtista/'.$publicacion->id)?>" class="card-link">Eliminar</a>
 
                         </div>
                     </div>

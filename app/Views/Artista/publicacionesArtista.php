@@ -37,7 +37,7 @@
                         </ul>
                         <div class="card-body">
                         <a href="<?php echo base_url('/inicioartista/consultarObra/'.$publicacion->id)?>" class="card-link">Editar</a>
-                        <a href="<?php echo base_url('/Artista/EliminarArtista/'.$publicacion->id)?>" class="card-link">ELiminar</a>                        </div>
+                        <a href="<?php echo base_url('/Artista/EliminarArtista/'.$publicacion->id)?>" class="card-link">Eliminar</a>                        </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
