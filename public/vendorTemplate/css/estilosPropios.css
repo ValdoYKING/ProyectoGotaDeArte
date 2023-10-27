@@ -154,4 +154,19 @@ div#confom > div#galeria {
 #confom{
     justify-content: center;
 }
+/* 
+Estilos sobre nosotros OPL */
+.card-title {
+    font-size: 220px; /* Tamaño de fuente para card-title */
+    color: black; /* Color de fuente */
+    border: 1px solid #333; /* Borde de 1 píxel sólido de color gris oscuro (#333) */
+    padding: 10px; /* Espacio interior alrededor del contenido */
+}
 
+.card-text {
+    font-size: 300px; /* Tamaño de fuente para card-text */
+    text-align: justify;
+    color: black; /* Color de fuente */
+    border: 1px solid #333; /* Borde de 1 píxel sólido de color gris oscuro (#333) */
+    padding: 10px; /* Espacio interior alrededor del contenido */
+}
