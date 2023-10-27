@@ -36,10 +36,8 @@
                             <a href="#" class="list-group-item">Artista Gota</a>
                         </ul>
                         <div class="card-body">
-                            <a href="#" class="card-link">Subastar</a>
-
-                            <a href="#" class="card-link">Editar</a>
-                        </div>
+                        <a href="<?php echo base_url('/inicioartista/consultarObra/'.$publicacion->id)?>" class="card-link">Editar</a>
+                        <a href="<?php echo base_url('/Artista/EliminarArtista/'.$publicacion->id)?>" class="card-link">ELiminar</a>                        </div>
                     </div>
                 </div>
                 <?php endforeach; ?>

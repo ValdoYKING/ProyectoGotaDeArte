@@ -36,7 +36,7 @@
                             <a href="#" class="list-group-item">Artista Gota</a>
                         </ul>
                         <div class="card-body">
-                            <a href="#" class="card-link">VER</a>
+                        <a href="<?php echo base_url('/inicioartista/'.$publicacion->id)?>" class="card-link">Ver</a>
                         </div>
                     </div>
                 </div>

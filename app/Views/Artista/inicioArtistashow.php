@@ -12,7 +12,7 @@
 </div>
 
 <section>
-    <h2> Detalles de  la obra <?php echo $publicaciones['nombre'];?></h2>
+    <h2> Detalles de  la obra <?php echo $publicaciones->nombre;?></h2>
 
 </section>
 <hr>
