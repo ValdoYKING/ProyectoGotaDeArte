@@ -24,25 +24,29 @@
         </div>
         <hr class="dropdown-divider" />
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstracto</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Guardar</a>
-                        <a href="#" class="card-link">Ofertar</a>
+        <?php foreach($subastas as $subastas): ?>
+                <div class="col-auto">
+                    <div class="card h-100" style="width: 18rem;">
+                        <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
+                        <div class="card-body">
+                            <h5 class="card-title bg-black"><?php echo $subastas['nombre'] ?></h5>
+                            <p class="card-text bg-black">Arte abstracto</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <p></p>
+                            <li class="list-group-item"><?php echo $subastas['precioInicial'] ?></li>
+                            <li class="list-group-item"><?php echo $subastas['fechaSubasta'] ?></li>
+                            <a href="#" class="list-group-item">Artista Gota</a>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Ingresar</a>
+                            <a href="#" class="card-link">Ver</a>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
+                <?php endforeach; ?>
+<!--             <div class="col-auto">
                 <div class="card h-100" style="width: 18rem;">
                     <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
                     <div class="card-body">
@@ -113,7 +117,7 @@
                         <a href="#" class="card-link">Ofertar</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
         </div>
     </div>

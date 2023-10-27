@@ -6,6 +6,7 @@ class Artista extends BaseController
 {
     private $obrasArtista;
     private $db;
+    protected $helpers = ['form'];
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
         $this->db = \Config\Database::connect();
@@ -94,13 +95,13 @@ class Artista extends BaseController
     }
 
     /* Transaccion basica para agregar resgistros */
-    public function transaccion(){
+    public function insertarObra(){
+        //print_r($_POST);
         $data = [
             'nombre' => 'GOTA DE ARTE | Lista de publicaciones',
             'descripcion' => 2,
         ];
         echo $this->obrasArtista->insert($data);
-        $this->db->query('INSERT INTO obras_artista (nombre, descripcion) VALUES(:nombre:, :descripcion:)', $data);
     }
 
 

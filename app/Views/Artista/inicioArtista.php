@@ -47,6 +47,8 @@
                         </ul>
                         <div class="card-body">
                             <a href="#" class="card-link">Editar</a>
+                            <a href="#" class="card-link">Eliminar</a>
+
                         </div>
                     </div>
                 </div>

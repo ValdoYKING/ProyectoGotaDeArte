@@ -26,19 +26,25 @@
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
-                            <th>Project</th>
-                            <th>Client</th>
-                            <th>Users</th>
-                            <th>Status</th>
+                            <th>Nombre Obra</th>
+                            <th>Fotos</th>
+                            <th>descripcion</th>
+                            <th>Medidas</th>
+                            <th>Precio</th>
+                            <th>Subastas</th>
+                            <th>Fecha Publicada</th>
+                            <th>Fecha de baja</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($publicacion as $publicacion): ?>
+
                         <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <span class="fw-medium">Angular Project</span></td>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <span class="fw-medium"><?php echo $publicacion->nombre ?></span></td>
                             <td>Albert Cook</td>
-                            <td>
-                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <td><?php echo $publicacion->descripcion?>
+<!--                                 <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
                                         <img src="<?php echo base_url('img/avatars/5.png')?>" alt="Avatar" class="rounded-circle">
                                     </li>
@@ -48,9 +54,14 @@
                                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
                                         <img src="<?php echo base_url('img/avatars/7.png')?>" alt="Avatar" class="rounded-circle">
                                     </li>
-                                </ul>
+                                </ul> -->
                             </td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
+                            <td><?php echo $publicacion->medidas ?></td>
+                            <td><?php echo $publicacion->precio ?></td>
+                            <td><span class="badge bg-label-primary me-1"><?php echo $publicacion->estatus_subasta ?></span></td>
+                            <td><?php echo $publicacion->fecha_creacion ?></td>
+                            <td><?php echo $publicacion->fecha_delete ?></td>
+
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
@@ -61,7 +72,10 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <?php endforeach; ?>
+
+
+<!--                         <tr>
                             <td><i class="fab fa-react fa-lg text-info me-3"></i> <span class="fw-medium">React Project</span></td>
                             <td>Barry Hunter</td>
                             <td>
@@ -573,7 +587,7 @@
                                     </div>
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

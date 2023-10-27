@@ -64,5 +64,25 @@ class Contacto extends BaseController
     return redirect()->to('/inicio');
     }
     
+    public function listaContactos(): string{
+
+        $results = $this->contactosModel->findAll();
+
+
+        $dataMenu = [
+            'userName' => 'Usuario Gota PRUEBA',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Lista de Contactos',
+            'contactos' => $results,
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Administrador/listaContactos',$data);
+    }
 }
 ?>

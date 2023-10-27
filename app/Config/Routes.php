@@ -12,9 +12,8 @@ $routes->get('/inicio', 'Principal::inicio', ['filter' => 'auth']);
 $routes->get('/info', 'Principal::sobreNosotros');
 $routes->get('/tyc', 'Principal::terminosCondiciones');
 $routes->get('/politicadeprivacidad', 'Principal::politicaPrivacidad');
-$routes->get('/obras', 'Principal::obras');
-
-//$routes->get('/canasta', 'Principal::canasta');
+$routes->get('/obras', 'UsuarioCliente::iniciObras');
+$routes->get('/canasta', 'Principal::canasta');
 $routes->get('/guardados', 'Principal::guardados');
 
 $routes->get('/login', 'Autenticacion::loginUsuario');
@@ -45,8 +44,9 @@ $routes->post('/UsuarioCanasta/edit', 'Canasta::edit');
 $routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/inicioartista', 'Artista::incioArtista');
 $routes->get('/inicioartista/(:num)', 'Artista::show/$1');
-$routes->get('/inicioartista/trasaccion', 'Artista::transaccion');
+//$routes->get('/nuevapublicacion/insertarObra', 'Artista::insertarObra');
 $routes->get('/nuevapublicacion', 'Artista::nuevaPublicacion');
+$routes->post('/Artista/insertarObra', 'Artista::insertarObra');
 $routes->get('/publicacionesartista', 'Artista::publicacionesArtista');
 
 $routes->get('/comprarObra', 'Pagos::compraObra');
@@ -57,6 +57,8 @@ $routes->get('/usuariosLista', 'Admin::listaUsuarios');
 $routes->get('/artistasLista', 'Admin::listaArtistas');
 $routes->get('/publicacionesLista', 'Admin::listaPublicaciones');
 $routes->get('/subastasLista', 'Admin::listaSubastas');
+$routes->get('/contactosLista', 'Contacto::listaContactos');
+
 
 /* TESTS */
 $routes->get('/prueba', 'Principal::index');
