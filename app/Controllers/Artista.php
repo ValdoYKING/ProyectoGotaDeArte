@@ -5,8 +5,10 @@ use App\Models\ObrasArtista;
 class Artista extends BaseController
 {
     private $obrasArtista;
+    private $db;
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
+        $this->db = \Config\Database::connect();
     }
     public function biografia(): string{
 
@@ -115,6 +117,7 @@ class Artista extends BaseController
             'descripcion' => 2,
         ];
         echo $this->obrasArtista->insert($data);
+        $this->db->query('INSERT INTO obras_artista (nombre, descripcion) VALUES(:nombre:, :descripcion:)', $data);
     }
 
 
@@ -122,7 +125,7 @@ class Artista extends BaseController
 
         $dataMenu = [
             'userName' => 'Pepito',
-            'sesion' => 'Cerrar sesión',
+            'sesion' => 'Cerrar sesión',    
             'url' => base_url('/'),
         ];
         $dataContenido = [

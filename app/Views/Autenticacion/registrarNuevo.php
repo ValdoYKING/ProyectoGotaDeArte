@@ -1,6 +1,7 @@
 <?php echo $this->extend('Plantilla/disenioAutenticacion'); ?>
 
 <?php echo $this->section('contenido'); ?>
+
 <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
         <div>
@@ -23,16 +24,20 @@
                             Por favor, complete todos los campos.
                         </div>
                     </section>
+                    <?php if (session()->has('error')) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo session('error'); ?>
+                        </div>
+                    <?php endif; ?>
 
-
-                    <form id="formAuthentication" class="mb-3" action="<?php echo base_url('/autenticarInicio') ?>" method="POST">
+                    <form id="formAuthentication" class="mb-3" action="<?php echo base_url('/registrar-usuario') ?>" method="POST">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Ingrese su nombre" autofocus />
                         </div>
                         <div class="mb-3">
                             <label for="apellidos" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" id="apelldos" name="Apellidos" placeholder="Ingrese sus apellidos" autofocus />
+                            <input type="text" class="form-control" id="Apellidos" name="Apellidos" placeholder="Ingrese sus apellidos" autofocus />
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo</label>
@@ -52,7 +57,7 @@
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="term_cond" />
+                                <input class="form-check-input" type="checkbox" id="term_cond" name="term_cond"/>
                                 <label class="form-check-label" for="term_cond"> Acepto terminos y condiciones </label>
                             </div>
                         </div>
@@ -62,23 +67,18 @@
                             </div>
                         </section>
                         <div class="mb-3">
-                            <!-- <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button> -->
-                            <!-- <button class="btn btn-primary d-grid w-100"><a href="<?php echo base_url('/inicio') ?>">Sign in</a></button> -->
-                            <!-- <a href="<?php echo base_url('/inicio') ?>" class="btn btn-primary d-grid w-100">Registrarme</a> -->
-                            <a href="<?php echo base_url('/inicio') ?>" class="btn btn-primary d-grid w-100" onclick="return validarFormulario()">Registrarme</a>
+                            <button class="btn btn-primary d-grid w-100" type="submit" onclick="return validarFormulario()">Registrarme</button>
                         </div>
                     </form>
 
                     <p class="text-center">
                         <span>¿Ya tienes cuenta?</span>
-                        <!-- <a href="auth-register-basic.html"> -->
                         <a href="<?php echo base_url('/login') ?>">
                             <span>Inicia sesión</span>
                         </a>
                     </p>
                 </div>
             </div>
-            <!-- /Register -->
         </div>
     </div>
 </div>
@@ -89,7 +89,7 @@
 <script>
     function validarFormulario() {
         var nombre = document.getElementById('nombre');
-        var apellidos = document.getElementById('apelldos');
+        var apellidos = document.getElementById('Apellidos');
         var email = document.getElementById('correo');
         var contrasenia = document.getElementById('contrasenia');
         var term_cond = document.getElementById('term_cond');

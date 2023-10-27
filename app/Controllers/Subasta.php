@@ -21,7 +21,7 @@ class Subasta extends BaseController
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];

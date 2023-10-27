@@ -4,11 +4,29 @@ namespace App\Controllers;
 
 class Principal extends BaseController
 {
-    public function index(): string{
+    private $userName;
+
+    public function __construct()
+    {
+
+    if (session()->has('user_id')) {
+        $userNameSession = session()->get('user_id');
+        $datosPersonalesModel = new \App\Models\datosPersonalesModel();
+        $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+        if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
+            $this->userName = $datosUsuario->nombre;
+        }
+    } else {
+        $this->userName = 'Usuario Gota';
+    }
+        helper(['url', 'form']);
+    }
+    public function index(): string
+    {
         $dataMenu = [
             'userName' => 'Iniciar sesión',
             'sesion' => 'Iniciar sesión',
-            'url' => base_url('/login'),
+            'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/login'),
             'guardadosUrl' => base_url('/login'),
         ];
@@ -19,15 +37,26 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/paginaInicial',$data);
+        return view('Principal/paginaInicial', $data);
     }
 
     public function inicio(): string
     {
+        if (session()->has('user_id')) {
+            $userNameSession = session()->get('user_id');
+            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
+            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+            if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
+                $userName = $datosUsuario->nombre;
+            }
+        } else {
+            $userName = 'Usuario Gota PRUEBA';
+        }
+
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];
@@ -38,7 +67,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/paginaInicial',$data );
+        return view('Principal/paginaInicial', $data);
     }
 
     public function obras(): string
@@ -46,7 +75,7 @@ class Principal extends BaseController
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];
@@ -57,7 +86,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/obras',$data );
+        return view('Principal/obras', $data);
     }
 
     public function sobreNosotros(): string
@@ -65,7 +94,7 @@ class Principal extends BaseController
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];
@@ -76,7 +105,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/sobreNosotros',$data );
+        return view('Principal/sobreNosotros', $data);
     }
 
     public function canasta(): string
@@ -84,7 +113,7 @@ class Principal extends BaseController
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];
@@ -95,7 +124,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/canasta',$data );
+        return view('Principal/canasta', $data);
     }
 
     public function guardados(): string
@@ -103,7 +132,7 @@ class Principal extends BaseController
         $dataMenu = [
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];
@@ -114,7 +143,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/guardados',$data );
+        return view('Principal/guardados', $data);
     }
 
     public function pruebaruta(): string
@@ -133,7 +162,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
-        return view('Pruebas/pruebaruta',$data);
+        return view('Pruebas/pruebaruta', $data);
     }
 
     public function miestilo(): string
@@ -161,6 +190,6 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
-        return view('Principal/estilodisenio',$data);
+        return view('Principal/estilodisenio', $data);
     }
 }
