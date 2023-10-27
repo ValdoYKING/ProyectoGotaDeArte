@@ -21,8 +21,11 @@ $routes->post('/autenticarInicio', 'Autenticacion::autenticarInicioUsuario');
 $routes->get('/registrar', 'Autenticacion::ingresarNuevoUsuario');
 $routes->post('/registrar-usuario', 'Autenticacion::registrarUsuario');
 $routes->get('/login_art', 'Autenticacion::loginArtista');
+$routes->post('/autenticarInicioArtista', 'Autenticacion::autenticarInicioArtista');
 $routes->get('/registrar_art', 'Autenticacion::ingresarArtista');
+$routes->post('/registrar-artista', 'Autenticacion::registrarUsuarioArtista');
 $routes->get('/login_admin', 'Autenticacion::loginAdmin');
+$routes->post('/autenticarInicioAdmin', 'Autenticacion::autenticarInicioAdmin');
 $routes->get('/salir', 'Autenticacion::salirUsuario');
 
 $routes->get('/subasta', 'Subasta::listaSubastas');
@@ -58,7 +61,7 @@ $routes->get('/Artista/EliminarArtista/(:num)', 'Artista::EliminarArtista/$1');
 $routes->get('/comprarObra', 'Pagos::compraObra');
 
 
-$routes->get('/inicioadmin', 'Admin::inicioAdmin');
+$routes->get('/inicioadmin', 'Admin::inicioAdmin', ['filter' => 'auth']);
 $routes->get('/usuariosLista', 'Admin::listaUsuarios');
 $routes->get('/artistasLista', 'Admin::listaArtistas');
 $routes->get('/publicacionesLista', 'Admin::listaPublicaciones');

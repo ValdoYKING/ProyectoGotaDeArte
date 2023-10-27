@@ -18,8 +18,13 @@
                     <!-- /Logo -->
                     <h3 class="mb-1">Gota de arte | Bienvenido</h3>
                     <p class="mb-1">Por favor, inicie sesión o registrese para continuar</p>
+                    <?php if (session()->has('error')) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo session('error'); ?>
+                        </div>
+                    <?php endif; ?>
 
-                    <form id="formAuthentication" class="mb-3" action="<?php echo base_url('/autenticarInicio')?>" method="POST">
+                    <form id="formAuthentication" class="mb-3" action="<?php echo base_url('/autenticarInicioAdmin')?>" method="POST">
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo</label>
                             <input type="text" class="form-control" id="correo" name="email-username" placeholder="Enter your email or username" autofocus />
@@ -34,8 +39,8 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <!-- <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button> -->
-                            <a href="<?php echo base_url('/inicioadmin')?>"class="btn btn-primary d-grid w-100">Iniciar sesión</a>
+                            <button class="btn btn-primary d-grid w-100" type="submit">Iniciar sesion</button>
+                            <!-- <a href="<?php echo base_url('/inicioadmin')?>"class="btn btn-primary d-grid w-100">Iniciar sesión</a> -->
                         </div>
                     </form>
 

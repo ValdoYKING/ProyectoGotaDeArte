@@ -1,25 +1,37 @@
 <?php echo $this->extend('Plantilla/disenioAutenticacion'); ?>
-
 <?php echo $this->section('contenido'); ?>
 <div class="container-xxl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if (session()->has('message')) : ?>
+                    <div class="alert alert-success">
+                        <?php echo session('message'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
     <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
-            <!-- Register -->
             <div class="card">
                 <div class="card-body">
-                    <!-- Logo -->
                     <div class="app-brand justify-content-center">
-                        <a href="<?php echo base_url('/')?>" class="app-brand-link gap-2">
+                        <a href="<?php echo base_url('/') ?>" class="app-brand-link gap-2">
                             <span class="app-brand-logo">
-                                <img src="<?php echo base_url('img/recursos/pincelGATransparenteRedux.png')?>" alt="Logo" height="150" >
+                                <img src="<?php echo base_url('img/recursos/pincelGATransparenteRedux.png') ?>" alt="Logo" height="150">
                             </span>
                         </a>
                     </div>
-                    <!-- /Logo -->
                     <h3 class="mb-1">Gota de arte | Bienvenido</h3>
                     <p class="mb-1">Por favor, inicie sesión o registrese para continuar</p>
+                    <?php if (session()->has('error')) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo session('error'); ?>
+                        </div>
+                    <?php endif; ?>
 
-                    <form id="formAuthentication" class="mb-3" action="<?php echo base_url('/autenticarInicio')?>" method="POST">
+                    <form id="formAuthentication" class="mb-3" action="<?php echo base_url('/autenticarInicioArtista') ?>" method="POST">
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo</label>
                             <input type="text" class="form-control" id="correo" name="email-username" placeholder="Enter your email or username" autofocus />
@@ -37,20 +49,19 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <!-- <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button> -->
-                            <a href="<?php echo base_url('/inicioartista')?>"class="btn btn-primary d-grid w-100">Iniciar sesión</a>
+                            <button class="btn btn-primary d-grid w-100" type="submit">Iniciar sesión</button>
+                            <!-- <a href="<?php echo base_url('/inicioartista') ?>"class="btn btn-primary d-grid w-100">Iniciar sesión</a> -->
                         </div>
                     </form>
 
                     <p class="text-center">
                         <span>¿No tienes cuenta?</span>
-                        <a href="<?php echo base_url('/registrar_art')?>">
+                        <a href="<?php echo base_url('/registrar_art') ?>">
                             <span>Registrate</span>
                         </a>
                     </p>
                 </div>
             </div>
-            <!-- /Register -->
         </div>
     </div>
 </div>

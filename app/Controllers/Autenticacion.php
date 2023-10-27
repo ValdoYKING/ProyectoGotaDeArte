@@ -45,7 +45,7 @@ class Autenticacion extends BaseController
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Registrate',
         ];
-        $data =$dataContenido;
+        $data = $dataContenido;
         return view('Autenticacion/registrarNuevo', $data);
     }
 
@@ -89,7 +89,7 @@ class Autenticacion extends BaseController
 
             return redirect()->to('/login')->with('message', 'Usuario creado con éxito, por favor inicia sesión.');
         } else {
-            return redirect()->to('/registrarNuevo');
+            return redirect()->to('/registrar');
             // Puedes redirigir a una página de error o mostrar un mensaje al usuario
         }
     }
@@ -105,49 +105,107 @@ class Autenticacion extends BaseController
 
     public function loginArtista(): string
     {
-        $dataMenu = [
-            'userName' => 'John Doe',
-        ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Iniciar sesión',
         ];
-        $dataPiePagina = [
-            'fecha' => date('Y'),
-        ];
-        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        $data = $dataContenido;
         return view('Autenticacion/loginArtista', $data);
+    }
+
+    public function autenticarInicioArtista()
+    {
+        $correoUsername = $this->request->getPost('email-username');
+        $contrasenia = $this->request->getPost('password');
+
+        $usuario = $this->usuariosModel->where('correo', $correoUsername)->first();
+
+        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '2') {
+            $session = session();
+            $session->set('user_id', $usuario->id);
+            return redirect()->to('/inicioartista');
+        } else {
+            return redirect()->to('/login_art')->with('error', 'Credenciales incorrectas o no tienes el rol adecuado. Por favor, inténtalo de nuevo.');
+        }
     }
 
     public function ingresarArtista(): string
     {
-        $dataMenu = [
-            'userName' => 'John Doe',
-        ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Registrate',
         ];
-        $dataPiePagina = [
-            'fecha' => date('Y'),
-        ];
-        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        $data = $dataContenido;
         return view('Autenticacion/registrarArtista', $data);
+    }
+
+    public function registrarUsuarioArtista()
+    {
+        $nombre = $this->request->getPost('Nombre');
+        $apellidos = $this->request->getPost('Apellidos');
+        $correo = $this->request->getPost('email-username');
+        $contrasenia = $this->request->getPost('password');
+        $aceptaTerminos = $this->request->getPost('term_cond');
+
+        $existingUser = $this->usuariosModel->where('correo', $correo)->first();
+
+        if ($existingUser) {
+            return redirect()->to('/registrar_art')->with('error', 'El correo ya está registrado');
+        }
+
+        $salt = base64_encode(random_bytes(16));
+        $contraseniaConSalt = $contrasenia . $salt;
+        $hashedPassword = password_hash($contraseniaConSalt, PASSWORD_DEFAULT);
+
+        if ($aceptaTerminos) {
+            $dataUsuarios = [
+                'correo' => $correo,
+                'contrasenia' => $hashedPassword,
+                'salt' => $salt,
+                'fk_rol' => 2,
+            ];
+            $this->usuariosModel->insert($dataUsuarios);
+
+            $usuarioId = $this->usuariosModel->getInsertID();
+
+            $datosPersonalesModel = new DatosPersonalesModel();
+            $dataDatosPersonales = [
+                'nombre' => $nombre,
+                'a_paterno' => $apellidos,
+                'a_materno' => '',
+                'fk_usuario' => $usuarioId,
+            ];
+            $datosPersonalesModel->insert($dataDatosPersonales);
+
+            return redirect()->to('/login_art')->with('message', 'Usuario creado con éxito, por favor inicia sesión.');
+        } else {
+            return redirect()->to('/registrar_art');
+            // Puedes redirigir a una página de error o mostrar un mensaje al usuario
+        }
     }
 
     /* ADMINISTRADOR */
 
     public function loginAdmin(): string
     {
-        $dataMenu = [
-            'userName' => 'John Doe',
-        ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Iniciar sesión',
         ];
-        $dataPiePagina = [
-            'fecha' => date('Y'),
-        ];
-        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        $data = $dataContenido;
         return view('Autenticacion/loginAdmin', $data);
     }
 
+    public function autenticarInicioAdmin()
+    {
+        $correoUsername = $this->request->getPost('email-username');
+        $contrasenia = $this->request->getPost('password');
+
+        $usuario = $this->usuariosModel->where('correo', $correoUsername)->first();
+
+        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '3') {
+            $session = session();
+            $session->set('user_id', $usuario->id);
+            return redirect()->to('/inicioadmin');
+        } else {
+            return redirect()->to('/login_admin')->with('error', 'Credenciales incorrectas o no tienes el rol adecuado. Por favor, inténtalo de nuevo.');
+        }
+    }
 }
