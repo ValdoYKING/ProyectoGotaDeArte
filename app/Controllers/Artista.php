@@ -40,7 +40,7 @@ class Artista extends BaseController
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/'),
-            'url' => base_url('/salir'),
+            'url' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -81,7 +81,7 @@ class Artista extends BaseController
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -103,7 +103,7 @@ class Artista extends BaseController
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -127,7 +127,7 @@ class Artista extends BaseController
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión', 
             'url' => base_url('/'),   
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi publicacion',

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-black bg-dark mb-5 desliza">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?php echo base_url('/') ?>">
+        <a class="navbar-brand" href="<?php echo base_url('/inicioartista') ?>">
             <img src="<?php echo base_url('img/recursos/logotipoGA_zoom.png') ?>" alt="Logo" height="30" class="d-inline-block align-top" /> | <b> Gota de Arte </b>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
