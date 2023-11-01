@@ -31,7 +31,7 @@
                             <th>descripcion</th>
                             <th>Medidas</th>
                             <th>Precio</th>
-                            <th>Subastas</th>
+                            <th>Estatus</th>
                             <th>Fecha Publicada</th>
                             <th>Actions</th>
                         </tr>
@@ -41,7 +41,7 @@
 
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <span class="fw-medium"><?php echo $publicacion->nombre ?></span></td>
-                            <td>Albert Cook</td>
+                            <td><img src="<?php echo base_url('img/elements/ImagenesReales/Real1.jpg')?>" width="50px" alt="Avatar" class="rounded-circle"></td>
                             <td><?php echo $publicacion->descripcion?>
 <!--                                 <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
@@ -56,8 +56,18 @@
                                 </ul> -->
                             </td>
                             <td><?php echo $publicacion->medidas ?></td>
-                            <td><?php echo $publicacion->precio ?></td>
-                            <td><span class="badge bg-label-primary me-1"><?php echo $publicacion->estatus_subasta ?></span></td>
+                            <td>$<?php echo $publicacion->precio ?>.00</td>
+                            <td>      
+                            <?php if($publicacion->estatus_subasta == 1){
+
+                                echo '<span class="badge bg-label-primary me-1">En subasta</span>';
+                            } else if($publicacion->estatus_subasta == 0) {
+                                
+                                echo '<span class="badge bg-label-primary me-1">Publicado</span>';
+                            }
+                            ?>
+
+                            </td>
                             <td><?php echo $publicacion->fecha_creacion ?></td>
 
 

@@ -39,8 +39,7 @@ class Artista extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
             'url' => base_url('/salir'),
         ];
         $dataContenido = [

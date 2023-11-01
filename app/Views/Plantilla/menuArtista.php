@@ -16,20 +16,8 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="<?php echo base_url('/publicacionesartista') ?>">Mis publicaciones</a></li>
                         <li><a class="dropdown-item" href="<?php echo base_url('/nuevapublicacion') ?>">Nueva publicacion</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('/info') ?>">Sobre nosotros</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('/Contactos') ?>">Contactanos</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Obras </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo base_url('/obras') ?>">Todas las obras</a></li>
                         <li><a class="dropdown-item" href="<?php echo base_url('/subastas') ?>">Subastas</a></li>
+
                     </ul>
                 </li>
             </ul>

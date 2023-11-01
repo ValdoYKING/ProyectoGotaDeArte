@@ -81,6 +81,8 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Publicar</button>
+                            <a href="<?php echo base_url('/publicacionesartista')?>" class="btn btn-danger">Cancelar</a>
+
                         </form>
                     </div>
                 </div>
