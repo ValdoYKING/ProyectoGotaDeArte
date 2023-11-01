@@ -72,9 +72,9 @@ class Contacto extends BaseController
 
 
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => 'Administrador',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de Contactos',

@@ -65,6 +65,7 @@ $routes->get('/comprarObra', 'Pagos::compraObra');
 
 $routes->get('/inicioadmin', 'Admin::inicioAdmin', ['filter' => 'auth']);
 $routes->get('/usuariosLista', 'Admin::listaUsuarios');
+$routes->get('/Admin/eliminarusario/(:num)', 'Admin::eliminarusario/$1');
 $routes->get('/artistasLista', 'Admin::listaArtistas');
 $routes->get('/publicacionesLista', 'Admin::listaPublicaciones');
 $routes->get('/subastasLista', 'Admin::listaSubastas');
