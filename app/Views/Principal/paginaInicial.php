@@ -171,7 +171,8 @@
                             <h4 >Quieres Seguir viendo más..?</h4>
                             <h5 >"Desatando el arte, inspirando el mundo."</h5></div>
                         <div  class="d-grid gap-2 col-6 mx-auto"> 
-                            <button class="btn btn-secondary btn-lg" type="button">REGISTRATE</button>
+                        <a href="<?php echo base_url('/registrar')?>" class="btn btn-secondary btn-lg">REGRISTRATE</a>
+
                         </div>
                     </div>
                 </div>

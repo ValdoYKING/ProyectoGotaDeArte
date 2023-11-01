@@ -20,13 +20,13 @@
 <section>
     <div class="container">
         <div>
-            <h2 class="mb-2">Nueva publicación</h2>
+            <h2 class="mb-2">Actualizar publicación</h2>
         </div>
         <div class="row">
             <div class="col-xl">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form id="form" action="<?php echo base_url('/Artista/ActualizarArtista/'.$publicacion->id)?>" method="POST">
+                        <form id="form" action="<?php echo base_url('/Contacto/actualizarPublicacion/'.$publicacion->id)?>" method="POST">
                             <div class="mb-3">
                                 <label class="form-label" for="basic-icon-default-fullname">Fotografía</label>
                                 <div class="input-group">
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Publicar</button>
-                            <a href="<?php echo base_url('/publicacionesartista')?>" class="btn btn-danger">Cancelar</a>
+                            <a href="<?php echo base_url('/publicacionesLista')?>" class="btn btn-danger">Cancelar</a>
 
                         </form>
                     </div>

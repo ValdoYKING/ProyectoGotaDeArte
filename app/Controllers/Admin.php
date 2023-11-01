@@ -4,11 +4,16 @@ namespace App\Controllers;
 use App\Models\ObrasArtista;
 use App\Models\subastasModelo;
 use App\Models\contactosModel;
+use App\Models\usuariosModel;
+use App\Models\datosPersonalesmodel;
+
 
 class Admin extends BaseController{
     private $obrasArtista;
     private $subastas;
     private $contactosModel;
+    private $usuariomodel;
+    private $personamodel;    
     protected $userName;
 
 
@@ -47,13 +52,16 @@ class Admin extends BaseController{
     }
 
     public function listaUsuarios(): string{
+
+        $results = $this->usuariomodel->where('fk_rol',1)->findAll();
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => 'Administrador',
             'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de usuarios',
+            'usuarios' => $results,
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -62,14 +70,25 @@ class Admin extends BaseController{
         return view('Administrador/listaUsuarios',$data);
     }
 
+    public function eliminarusario($id){
+        $this->usuariomodel->where('')->find($id);
+        $this->usuariomodel->delete($id);
+        
+        return redirect()->to('/usuariosLista');   
+
+    }
+
     public function listaArtistas(): string{
+        $results = $this->usuariomodel->where('fk_rol',2)->findAll();
+
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => 'Administrador',
             'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de artistas',
+            'artistas' => $results
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -80,13 +99,12 @@ class Admin extends BaseController{
 
     public function listaPublicaciones(): string{
 
-        $obraArteModel = new ObrasArtista();
-        $results = $obraArteModel->findAll();
+        $results = $this->obrasArtista->findAll();
 
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => 'Administrador',
             'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -99,16 +117,66 @@ class Admin extends BaseController{
         return view('Administrador/listaPublicaciones',$data);
     }
 
+    public function mostrarObra($id){
+
+        $results = $this->obrasArtista->find($id);
+
+        $Menu = [
+            'userName' => 'Pepito',
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'urlSalir' => base_url('/'),
+        ];
+        $Contenido = [
+            'titulo' => 'GOTA DE ARTE | Actualizar publicacion',
+            'publicacion' => $results,
+        ];
+        $PiePagina = [
+            'fecha' => date('Y'),
+        ];
+
+        $data = $Menu + $Contenido + $PiePagina;
+        return view('Administrador/actualizarObra',$data);
+
+    }
+
+    public function actualizarPublicacion($id){
+
+     
+        $data = [
+            'nombre' => $_POST['nombre'],
+            'descripcion' => $_POST['descripcion'],
+            'medidas'=> $_POST['medidas'],
+            'precio' => $_POST['precio'],
+            'estatus_subasta' => $_POST['status']
+            
+        ];
+    
+        
+        $this->obrasArtista->update($id, $data);
+
+    
+        return redirect()->to('/publicacionesLista');   
+
+    }
+
+    public function eliminarPublicacion($id){
+
+        $this->obrasArtista->delete($id);
+
+        return redirect()->to('/publicacionesLista');   
+
+    }
+
     public function listaSubastas(): string{
 
-        $subastasArte = new subastasModelo();
-        $results = $subastasArte->findAll();
+        $results = $this->subastas->findAll();
 
 
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => 'Administrador',
             'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de subastas',
@@ -123,14 +191,13 @@ class Admin extends BaseController{
 
     public function listaContactos(): string{
 
-        $contactosModel = new contactosModel();
-        $results = $contactosModel->findAll();
+        $results = $this->contactosModel->findAll();
 
 
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => 'Administrador',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de Contactos',

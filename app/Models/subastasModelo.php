@@ -12,18 +12,12 @@ class subastasModelo extends Model {
     protected $useAutoIncrement = true;
 
     protected $returnType = 'array';  //object
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id', 'nombre','fotos','precioInicial','precioPagado','fk_obra','fk_usuario','fechaSubasta'];
+    protected $allowedFields = ['id', 'nombre','fotos','precioInicial','precioPagado','fk_obra','fk_usuario','fechaSubasta','fecha_creacion'];
 
     // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'fecha_creacion';
-    protected $updatedField  = 'fecha_modifica';
-    protected $deletedField  = 'fecha_delete';
-
-
+    protected $useTimestamps = false;
 
 }
 

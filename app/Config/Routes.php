@@ -40,6 +40,8 @@ $routes->get('/solicita_cuadro', 'CuadroArte::solicitarCuadro');
 $routes->get('/Contactos', 'Contacto::index');
 /* $routes->get('/Contactos/insertar', 'Contacto::insertar'); */
 $routes->post('/Contactos/insertar', 'Contacto::insertar');
+$routes->get('/Contactos/eliminarcontacto/(:num)', 'Contacto::eliminarcontacto/$1');
+
 
 //
 $routes->get('/canasta_prueba', 'Canasta::index');
@@ -65,10 +67,15 @@ $routes->get('/comprarObra', 'Pagos::compraObra');
 
 $routes->get('/inicioadmin', 'Admin::inicioAdmin', ['filter' => 'auth']);
 $routes->get('/usuariosLista', 'Admin::listaUsuarios');
+$routes->get('/Admin/eliminarusario/(:num)', 'Admin::eliminarusario/$1');
 $routes->get('/artistasLista', 'Admin::listaArtistas');
 $routes->get('/publicacionesLista', 'Admin::listaPublicaciones');
 $routes->get('/subastasLista', 'Admin::listaSubastas');
 $routes->get('/contactosLista', 'Contacto::listaContactos');
+$routes->get('/Contacto/mostrarObra/(:num)', 'Admin::mostrarObra/$1');
+$routes->post('/Contacto/actualizarPublicacion/(:num)', 'Admin::actualizarPublicacion/$1');
+$routes->get('/Contacto/eliminarPublicacion/(:num)', 'Admin::eliminarPublicacion/$1');
+
 
 
 /* TESTS */

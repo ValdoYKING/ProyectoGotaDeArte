@@ -93,7 +93,7 @@ class Artista extends BaseController
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -108,15 +108,14 @@ class Artista extends BaseController
 
     /* Transaccion basica para agregar resgistros */
     public function consultarObra($id){
-        $obraArteModel = new ObrasArtista();
-        $results = $obraArteModel->find($id);
+        $results = $this->obrasArtista->find($id);
 
 
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -140,7 +139,7 @@ class Artista extends BaseController
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión', 
             'url' => base_url('/'),   
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi publicacion',
@@ -179,6 +178,7 @@ class Artista extends BaseController
         $data = [
             'nombre' => $_POST['nombre'],
             'descripcion' => $_POST['descripcion'],
+            'medidas' => $_POST['medidas'],
             'precio' => $_POST['precio'],
             'estatus_subasta' => $_POST['status']
             
@@ -195,7 +195,6 @@ class Artista extends BaseController
     public function EliminarArtista($id){
 
 
-        $obrasArtista = new ObrasArtista();
         $this->obrasArtista->delete($id);
 
 

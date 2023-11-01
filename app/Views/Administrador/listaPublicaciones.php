@@ -31,9 +31,8 @@
                             <th>descripcion</th>
                             <th>Medidas</th>
                             <th>Precio</th>
-                            <th>Subastas</th>
+                            <th>Estatus</th>
                             <th>Fecha Publicada</th>
-                            <th>Fecha de baja</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -42,7 +41,7 @@
 
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <span class="fw-medium"><?php echo $publicacion->nombre ?></span></td>
-                            <td>Albert Cook</td>
+                            <td><img src="<?php echo base_url('img/elements/ImagenesReales/Real1.jpg')?>" width="50px" alt="Avatar" class="rounded-circle"></td>
                             <td><?php echo $publicacion->descripcion?>
 <!--                                 <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
@@ -57,17 +56,27 @@
                                 </ul> -->
                             </td>
                             <td><?php echo $publicacion->medidas ?></td>
-                            <td><?php echo $publicacion->precio ?></td>
-                            <td><span class="badge bg-label-primary me-1"><?php echo $publicacion->estatus_subasta ?></span></td>
+                            <td>$<?php echo $publicacion->precio ?>.00</td>
+                            <td>      
+                            <?php if($publicacion->estatus_subasta == 1){
+
+                                echo '<span class="badge bg-label-primary me-1">En subasta</span>';
+                            } else if($publicacion->estatus_subasta == 0) {
+                                
+                                echo '<span class="badge bg-label-primary me-1">Publicado</span>';
+                            }
+                            ?>
+
+                            </td>
                             <td><?php echo $publicacion->fecha_creacion ?></td>
-                            <td><?php echo $publicacion->fecha_delete ?></td>
+
 
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>Delete</a>
+                                        <a class="dropdown-item" href="<?php echo base_url('/Contacto/mostrarObra/'.$publicacion->id) ?>"><i class="bx bx-edit-alt me-1"></i>Editar</a>
+                                        <a class="dropdown-item" href="<?php echo base_url('/Contacto/eliminarPublicacion/'.$publicacion->id) ?>"><i class="bx bx-trash me-1"></i>Eliminar</a>
                                     </div>
                                 </div>
                             </td>

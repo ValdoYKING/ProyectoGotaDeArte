@@ -39,8 +39,7 @@ class UsuarioCliente extends BaseController
 
     /* FUNCION PARA MOSTRAR POR BUSQUEDA POR ID */
     public function show($id){
-        $obraArteModel = new ObrasArtista();
-        $results = $obraArteModel->find($id);
+        $results = $this->obrasArtista->find($id);
 
         $dataMenu = [
             'userName' => 'Pepito',
