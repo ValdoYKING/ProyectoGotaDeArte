@@ -27,6 +27,8 @@ $routes->post('/registrar-artista', 'Autenticacion::registrarUsuarioArtista');
 $routes->get('/login_admin', 'Autenticacion::loginAdmin');
 $routes->post('/autenticarInicioAdmin', 'Autenticacion::autenticarInicioAdmin');
 $routes->get('/salir', 'Autenticacion::salirUsuario');
+$routes->get('/salirArtista', 'Autenticacion::salirArtista');
+$routes->get('/salirAdmin', 'Autenticacion::salirAdmin');
 
 $routes->get('/subasta', 'Subasta::listaSubastas');
 $routes->get('/subastas', 'Subasta::subastas');

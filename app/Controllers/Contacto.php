@@ -6,14 +6,26 @@ class Contacto extends BaseController
 {
     private $contactosModel;
     protected $helpers = ['form'];
+    protected $userName;
 
     public function __construct(){
         $this->contactosModel = new contactosModel();
+
+        if (session()->has('user_id')) {
+            $userNameSession = session()->get('user_id');
+            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
+            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+            if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
+                $this->userName = $datosUsuario->nombre;
+            }
+        } else {
+            $this->userName = 'Usuario Gota';
+        }
     }
     public function index(): string{
 
         $dataMenu = [
-            'userName' => 'Pepito',
+            'userName' => $this->userName,
             'sesion' => 'Iniciar sesión',
             'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),

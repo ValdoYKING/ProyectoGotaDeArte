@@ -45,7 +45,7 @@
                         <?php echo $userName; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                       
+                    <li><a class="dropdown-item" href="<?php echo $urlSalir ?>"><?php echo $sesion; ?></a></li>
                     </ul>
                 </li>
             </ul>

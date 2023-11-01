@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\UsuariosModel;
+use App\Models\usuariosModel;
 use App\Models\DatosPersonalesModel;
 
 class Autenticacion extends BaseController
@@ -11,7 +11,7 @@ class Autenticacion extends BaseController
 
     public function __construct()
     {
-        $this->usuariosModel = new UsuariosModel();
+        $this->usuariosModel = new usuariosModel();
         helper(['url', 'form']);
     }
     /* ------------------------------- USUARIOS ------------------------------- */
@@ -31,12 +31,12 @@ class Autenticacion extends BaseController
 
         $usuario = $this->usuariosModel->where('correo', $correoUsername)->first();
 
-        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia)) {
+        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '1') {
             $session = session();
             $session->set('user_id', $usuario->id);
             return redirect()->to('/inicio');
         } else {
-            return redirect()->to('/login')->with('error', 'Credenciales incorrectas. Por favor, inténtalo de nuevo.');
+            return redirect()->to('/login')->with('error', 'Credenciales incorrectas o no tienes el rol adecuado. Por favor, inténtalo de nuevo.');
         }
     }
 
@@ -119,7 +119,7 @@ class Autenticacion extends BaseController
 
         $usuario = $this->usuariosModel->where('correo', $correoUsername)->first();
 
-        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '2') {
+        if ($usuario && property_exist/s($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '2') {
             $session = session();
             $session->set('user_id', $usuario->id);
             return redirect()->to('/inicioartista');
@@ -182,6 +182,13 @@ class Autenticacion extends BaseController
         }
     }
 
+    public function salirArtista()
+    {
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/login_art');
+    }
+
     /* ADMINISTRADOR */
 
     public function loginAdmin(): string
@@ -207,5 +214,11 @@ class Autenticacion extends BaseController
         } else {
             return redirect()->to('/login_admin')->with('error', 'Credenciales incorrectas o no tienes el rol adecuado. Por favor, inténtalo de nuevo.');
         }
+    }
+    public function salirAdmin()
+    {
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/login_admin');
     }
 }

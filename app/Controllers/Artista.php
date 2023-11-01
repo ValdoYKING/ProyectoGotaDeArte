@@ -6,10 +6,22 @@ class Artista extends BaseController
 {
     private $obrasArtista;
     private $db;
+    private $userName;
     protected $helpers = ['form'];
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
         $this->db = \Config\Database::connect();
+
+        if (session()->has('user_id')) {
+            $userNameSession = session()->get('user_id');
+            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
+            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+            if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
+                $this->userName = $datosUsuario->nombre;
+            }
+        } else {
+            $this->userName = 'Usuario Gota';
+        }
     }
     public function biografia(): string{
 
@@ -37,11 +49,10 @@ class Artista extends BaseController
         $results = $obraArteModel->findAll();
 
         $dataMenu = [
-            'userName' => 'Pepito',
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
-            'urlSalir' => base_url('/salir'),
-            'url' => base_url('/salir'),
+            'url' => base_url('/salirArtista'),
+            // 'url' => base_url('/salir'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',

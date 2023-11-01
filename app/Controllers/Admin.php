@@ -9,20 +9,31 @@ class Admin extends BaseController{
     private $obrasArtista;
     private $subastas;
     private $contactosModel;
+    protected $userName;
 
 
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
         $this->subastas = new subastasModelo();
         $this->contactosModel = new ContactosModel();
+        if (session()->has('user_id')) {
+            $userNameSession = session()->get('user_id');
+            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
+            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+            if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
+                $this->userName = $datosUsuario->nombre;
+            }
+        } else {
+            $this->userName = 'Usuario Gota';
+        }
     }
     public function inicioAdmin(): string{
         $obraArteModel = new ObrasArtista();
         $results = $obraArteModel->findAll();
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/salir'),
+            'urlSalir' => base_url('/salirAdmin'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
