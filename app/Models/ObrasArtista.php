@@ -12,15 +12,11 @@ class ObrasArtista extends Model{
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'object';  //object
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id', 'nombre','foto','descripcion','medidas','precio','estatus_subasta','fk_usuario_artista'];
+    protected $allowedFields = ['id', 'nombre','foto','descripcion','medidas','precio','estatus_subasta','fk_usuario_artista','fecha_creacion'];
 
     // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'fecha_creacion';
-    protected $updatedField  = 'fecha_modifica';
-    protected $deletedField  = 'fecha_delete';
+    protected $useTimestamps = false;
 
 }

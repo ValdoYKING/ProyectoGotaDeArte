@@ -97,8 +97,7 @@ class Artista extends BaseController
 
     /* Transaccion basica para agregar resgistros */
     public function consultarObra($id){
-        $obraArteModel = new ObrasArtista();
-        $results = $obraArteModel->find($id);
+        $results = $this->obrasArtista->find($id);
 
 
         $dataMenu = [
@@ -168,6 +167,7 @@ class Artista extends BaseController
         $data = [
             'nombre' => $_POST['nombre'],
             'descripcion' => $_POST['descripcion'],
+            'medidas' => $_POST['medidas'],
             'precio' => $_POST['precio'],
             'estatus_subasta' => $_POST['status']
             
@@ -184,7 +184,6 @@ class Artista extends BaseController
     public function EliminarArtista($id){
 
 
-        $obrasArtista = new ObrasArtista();
         $this->obrasArtista->delete($id);
 
 

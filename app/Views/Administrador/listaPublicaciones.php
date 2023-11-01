@@ -33,7 +33,6 @@
                             <th>Precio</th>
                             <th>Subastas</th>
                             <th>Fecha Publicada</th>
-                            <th>Fecha de baja</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -60,14 +59,14 @@
                             <td><?php echo $publicacion->precio ?></td>
                             <td><span class="badge bg-label-primary me-1"><?php echo $publicacion->estatus_subasta ?></span></td>
                             <td><?php echo $publicacion->fecha_creacion ?></td>
-                            <td><?php echo $publicacion->fecha_delete ?></td>
+
 
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>Delete</a>
+                                        <a class="dropdown-item" href="<?php echo base_url('/Contacto/mostrarObra/'.$publicacion->id) ?>"><i class="bx bx-edit-alt me-1"></i>Editar</a>
+                                        <a class="dropdown-item" href="<?php echo base_url('/Contacto/eliminarPublicacion/'.$publicacion->id) ?>"><i class="bx bx-trash me-1"></i>Eliminar</a>
                                     </div>
                                 </div>
                             </td>

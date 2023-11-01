@@ -48,18 +48,20 @@ class Contacto extends BaseController
     }
 
     public function insertar() {
+        $fecha = Date('Y-m-d H:i:s');
     $data = [
         'nombre_contacto' => $_POST['nombre'],
         'correo_contacto' => $_POST['email'],
         'asunto_contacto' => $_POST['asunto'],
         'comentario_contacto' => $_POST['mensaje'],
-        'fk_rol' => 1
+        'fk_rol' => 1,
+        'fecha_creacion' => $fecha,
         
     ];
 
     
     $this->contactosModel->insert($data);
-    $this->contactosModel->getInsertID();
+    //$this->contactosModel->getInsertID();
     
     return redirect()->to('/');
     }
@@ -83,6 +85,14 @@ class Contacto extends BaseController
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Administrador/listaContactos',$data);
+    }
+
+    public function eliminarcontacto($id){
+
+        $this->contactosModel->delete($id);
+
+        return redirect()->to('/contactosLista');
+
     }
 }
 ?>

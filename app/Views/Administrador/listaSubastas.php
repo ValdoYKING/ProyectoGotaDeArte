@@ -35,7 +35,6 @@
                             <th>Usuario</th>
                             <th>Fecha Subasta</th>
                             <th>Fecha creacion</th>
-                            <th>Fecha Baja</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -62,7 +61,6 @@
                             <td><?php echo $subasta['fk_usuario'] ?></td>
                             <td><span class="badge bg-label-primary me-1"><?php echo $subasta ['fechaSubasta'] ?></span></td>
                             <td><?php echo $subasta['fecha_creacion'] ?></td>
-                            <td><?php echo $subasta['fecha_delete'] ?></td>
 
                             <td>
                                 <div class="dropdown">
