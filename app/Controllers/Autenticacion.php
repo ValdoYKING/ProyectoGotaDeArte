@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\usuariosModel;
-use App\Models\DatosPersonalesModel;
+use App\Models\datosPersonalesModel;
 
 class Autenticacion extends BaseController
 {
@@ -78,7 +78,7 @@ class Autenticacion extends BaseController
 
             $usuarioId = $this->usuariosModel->getInsertID();
 
-            $datosPersonalesModel = new DatosPersonalesModel();
+            $datosPersonalesModel = new datosPersonalesModel();
             $dataDatosPersonales = [
                 'nombre' => $nombre,
                 'a_paterno' => $apellidos,
@@ -119,7 +119,7 @@ class Autenticacion extends BaseController
 
         $usuario = $this->usuariosModel->where('correo', $correoUsername)->first();
 
-        if ($usuario && property_exist/s($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '2') {
+        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '2') {
             $session = session();
             $session->set('user_id', $usuario->id);
             return redirect()->to('/inicioartista');
@@ -166,7 +166,7 @@ class Autenticacion extends BaseController
 
             $usuarioId = $this->usuariosModel->getInsertID();
 
-            $datosPersonalesModel = new DatosPersonalesModel();
+            $datosPersonalesModel = new datosPersonalesModel();
             $dataDatosPersonales = [
                 'nombre' => $nombre,
                 'a_paterno' => $apellidos,

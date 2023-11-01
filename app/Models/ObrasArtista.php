@@ -17,6 +17,6 @@ class ObrasArtista extends Model{
     protected $allowedFields = ['id', 'nombre','foto','descripcion','medidas','precio','estatus_subasta','fk_usuario_artista','fecha_creacion'];
 
     // Dates
-    protected $useTimestamps = false;
+    
 
 }

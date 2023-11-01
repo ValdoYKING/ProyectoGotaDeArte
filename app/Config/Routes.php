@@ -66,12 +66,16 @@ $routes->get('/comprarObra', 'Pagos::compraObra');
 
 
 $routes->get('/inicioadmin', 'Admin::inicioAdmin', ['filter' => 'auth']);
-$routes->get('/usuariosLista', 'Admin::listaUsuarios');
+$routes->get('/usuariosLista', 'Admin::listaUsuarios', ['filter' => 'auth']);
+$routes->get('/get_usuario/(:num)', 'Admin::get_data_usuario/$1');
+$routes->post('/actualizarUsuario/(:num)', 'Admin::actualizarusario/$1');
 $routes->get('/Admin/eliminarusario/(:num)', 'Admin::eliminarusario/$1');
 $routes->get('/artistasLista', 'Admin::listaArtistas');
-$routes->get('/publicacionesLista', 'Admin::listaPublicaciones');
-$routes->get('/subastasLista', 'Admin::listaSubastas');
-$routes->get('/contactosLista', 'Contacto::listaContactos');
+$routes->get('/get_artista/(:num)', 'Admin::get_data_artista/$1');
+$routes->post('/actualizarArtista/(:num)', 'Admin::actualizarArtista/$1');
+$routes->get('/publicacionesLista', 'Admin::listaPublicaciones', ['filter' => 'auth']);
+$routes->get('/subastasLista', 'Admin::listaSubastas', ['filter' => 'auth']);
+$routes->get('/contactosLista', 'Contacto::listaContactos', ['filter' => 'auth']);
 $routes->get('/Contacto/mostrarObra/(:num)', 'Admin::mostrarObra/$1');
 $routes->post('/Contacto/actualizarPublicacion/(:num)', 'Admin::actualizarPublicacion/$1');
 $routes->get('/Contacto/eliminarPublicacion/(:num)', 'Admin::eliminarPublicacion/$1');

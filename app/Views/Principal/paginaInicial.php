@@ -72,7 +72,7 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real2.jpg'); ?>" class="card-img" alt="...">
+            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real2.JPG'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title">Obra 2</h5>
                 <p class="card-text">La pintura se desliza entre la realidad y el sueño, revelando un mundo abstracto donde la imaginación vuela libre.</p>
@@ -83,7 +83,7 @@
     </div> 
     <div id="galeria" class="col">
         <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real3.jpg'); ?>" class="card-img" alt="...">
+            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real3.JPG'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h5 class="card-title">Obra 3</h5>
                 <p class="card-text">Los colores se entrelazan en una danza sin fin, creando un paisaje abstracto que invita a la reflexión.</p>
