@@ -19,7 +19,7 @@ class contactosModel extends Model {
     // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
-    protected $createdField  = 'fecha_creacion';
+
 
 }
 

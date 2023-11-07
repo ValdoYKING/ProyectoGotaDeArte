@@ -22,146 +22,32 @@
             <?php foreach($publicaciones as $publicacion): ?>
                 <div class="col-auto">
                     <div class="card h-100" style="width: 18rem;">
-                        <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
+                    <img src="<?php echo base_url($publicacion->foto)?>" height="250" width="200" class="card-img-top" alt="imagenPublicacion">
+
                         <div class="card-body">
                             <h5 class="card-title bg-black"><?php echo $publicacion->nombre ?></h5>
-                            <p class="card-text bg-black">Arte abstracto</p>
+
                         </div>
                         <ul class="list-group list-group-flush">
                             <p><?php echo $publicacion->descripcion ?></p>
-                            <li class="list-group-item">$<?php echo $publicacion->precio ?></li>
+                            <li class="list-group-item">$<?php echo $publicacion->precio ?>.00</li>
                             <li class="list-group-item"><?php echo $publicacion->medidas ?></li>
-                            <a href="#" class="list-group-item">Artista Gota</a>
+                            <a href="#" class="list-group-item">
+                                <?php if (isset($datosPersonales[$publicacion->fk_usuario_artista])) : ?>
+                                        <?php foreach ($datosPersonales[$publicacion->fk_usuario_artista] as $datoPersonal) : ?>
+                                            <?php echo $datoPersonal->nombre ?>
+                                        <?php endforeach; ?>
+                                <?php endif; ?>                          
+                            </a>
                         </ul>
                         <div class="card-body">
-                        <a href="<?php echo base_url('/inicioartista/consultarObra/'.$publicacion->id)?>" class="card-link">Editar</a>
-                        <a href="<?php echo base_url('/Artista/EliminarArtista/'.$publicacion->id)?>" class="card-link">Eliminar</a>
+                        <a href="<?php echo base_url('/inicioartista/obraArtista/'.$publicacion->id)?>" class="card-link">Ver</a>
 
                         </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
-<!--             <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstrcato</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstracto</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstracto</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstracto</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstracto</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstracto</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="card h-100" style="width: 18rem;">
-                    <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
-                    <div class="card-body">
-                        <h5 class="card-title bg-black">Un abrazo a la vida</h5>
-                        <p class="card-text bg-black">Arte abstracto</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$100.99</li>
-                        <li class="list-group-item">115 x 98 x 45 cm</li>
-                        <a href="#" class="list-group-item">Artista Gota</a>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Editar</a>
-                    </div>
-                </div>
-            </div> -->
 
-            
         </div>
     </div>
 </section>

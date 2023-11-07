@@ -14,9 +14,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Publicaciones</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo base_url('/publicacionesartista') ?>">Mis publicaciones</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('Artista/publicacionesArtista') ?>">Mis publicaciones</a></li>
                         <li><a class="dropdown-item" href="<?php echo base_url('/nuevapublicacion') ?>">Nueva publicacion</a></li>
-                        <li><a class="dropdown-item" href="<?php echo base_url('/subastas') ?>">Subastas</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('Artista/subastaArt') ?>">Mis subastas</a></li>
 
                     </ul>
                 </li>

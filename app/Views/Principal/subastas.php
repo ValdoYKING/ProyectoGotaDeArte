@@ -27,7 +27,7 @@
         <?php foreach($subastas as $subastas): ?>
                 <div class="col-auto">
                     <div class="card h-100" style="width: 18rem;">
-                        <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
+                        <img src="<?php echo base_url($subastas['fotos'])?>" class="card-img-top" alt="imagenPublicacion">
                         <div class="card-body">
                             <h5 class="card-title bg-black"><?php echo $subastas['nombre'] ?></h5>
                             <p class="card-text bg-black">Arte abstracto</p>

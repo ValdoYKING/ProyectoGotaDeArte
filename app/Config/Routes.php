@@ -50,16 +50,22 @@ $routes->post('/UsuarioCanasta/edit', 'Canasta::edit');
 
 $routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/inicioartista', 'Artista::incioArtista');
-$routes->get('/inicioartista/obraArtista/(:num)', 'Artista::obraArtista/$1');
+$routes->get('/inicioartista/obraArtista/(:num)', 'CuadroArte::obraArtista/$1');
 $routes->get('/inicioartista/consultarObra/(:num)', 'Artista::consultarObra/$1');
+$routes->get('/inicioartista/consultarSubasta/(:num)', 'Artista::consultarSubasta/$1');
+$routes->post('/Artista/actualizarSubasta/(:num)', 'Artista::actualizarSubasta/$1');
 
 
 //$routes->get('/nuevapublicacion/insertarObra', 'Artista::insertarObra');
 $routes->get('/nuevapublicacion', 'Artista::nuevaPublicacion');
 $routes->post('/Artista/insertaObra', 'Artista::insertaObra');
-$routes->get('/publicacionesartista', 'Artista::publicacionesArtista');
+$routes->get('/Artista/publicacionesArtista', 'Artista::publicacionesArtista');
+$routes->get('/Artista/subastaArt', 'Artista::publicacionesSubastas');
+
 $routes->post('/Artista/ActualizarArtista/(:num)', 'Artista::ActualizarArtista/$1');
 $routes->get('/Artista/EliminarArtista/(:num)', 'Artista::EliminarArtista/$1');
+
+$routes->get('/Artista/eliminarSubasta/(:num)', 'Artista::eliminarSubasta/$1');
 
 
 $routes->get('/comprarObra', 'Pagos::compraObra');
@@ -76,9 +82,14 @@ $routes->post('/actualizarArtista/(:num)', 'Admin::actualizarArtista/$1');
 $routes->get('/publicacionesLista', 'Admin::listaPublicaciones', ['filter' => 'auth']);
 $routes->get('/subastasLista', 'Admin::listaSubastas', ['filter' => 'auth']);
 $routes->get('/contactosLista', 'Contacto::listaContactos', ['filter' => 'auth']);
-$routes->get('/Contacto/mostrarObra/(:num)', 'Admin::mostrarObra/$1');
-$routes->post('/Contacto/actualizarPublicacion/(:num)', 'Admin::actualizarPublicacion/$1');
-$routes->get('/Contacto/eliminarPublicacion/(:num)', 'Admin::eliminarPublicacion/$1');
+$routes->get('/Admin/mostrarObra/(:num)', 'Admin::mostrarObra/$1');
+$routes->post('/Admin/actualizarPublicacion/(:num)', 'Admin::actualizarPublicacion/$1');
+$routes->get('/Admin/eliminarPublicacion/(:num)', 'Admin::eliminarPublicacion/$1');
+$routes->get('/Admin/mostrarSubasta/(:num)', 'Admin::mostrarSubasta/$1');
+$routes->post('/Admin/actualizarSubasta/(:num)', 'Admin::actualizarSubasta/$1');
+$routes->get('/Admin/eliminarSubasta/(:num)', 'Admin::eliminarSubasta/$1');
+
+$routes->get('/Admin/eliminarContacto/(:num)', 'Admin::eliminarContacto/$1');
 
 
 

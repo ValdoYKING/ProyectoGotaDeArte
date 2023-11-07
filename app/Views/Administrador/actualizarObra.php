@@ -26,13 +26,13 @@
             <div class="col-xl">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form id="form" action="<?php echo base_url('/Contacto/actualizarPublicacion/'.$publicacion->id)?>" method="POST">
+                        <form id="form" action="<?php echo base_url('/Admin/actualizarPublicacion/'.$publicacion->id)?>"  enctype="multipart/form-data" method="POST">
                             <div class="mb-3">
                                 <label class="form-label" for="basic-icon-default-fullname">Fotografía</label>
+                                <img src="<?php echo base_url($publicacion->foto) ?>" alt="Imagen Obra" height="200" width="200" >                                  
                                 <div class="input-group">
                                     <span id="foto2" class="input-group-text"><i class="bx bx-image"></i></span>
-                                    <input type="file" class="form-control" id="foto" name="foto" aria-describedby="fotos" aria-label="Cargar">
-                                    <button class="btn btn-outline-primary"  type="button" id="fotos">Subir</button>
+                                    <input type="file" class="form-control" id="foto" name="foto"  aria-describedby="foto" aria-label="Cargar" accept="image/*">
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -67,18 +67,39 @@
                             </div>
                             <div class="mb-3">
                                 <small class="text-light fw-medium">¿Disponible para subasta?</small>
+                            <?php 
+                            if($publicacion->estatus_subasta == 1){
+                            ?>
                                 <div class="form-check mt-3">
+                                <input name="status" class="form-check-input" type="radio" value="1" id="status" checked/>
+                                <label class="form-check-label" for="defaultRadio1">
+                                    Si
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input name="status" class="form-check-input" type="radio" value="0" id="status" />
+                                <label class="form-check-label" for="defaultRadio2">
+                                    No
+                                </label>
+                            </div>
+                            <?php
+                            } else if ($publicacion->estatus_subasta == 0){
+                            ?>
+                                                            <div class="form-check mt-3">
                                     <input name="status" class="form-check-input" type="radio" value="1" id="status" />
                                     <label class="form-check-label" for="defaultRadio1">
                                         Si
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input name="status" class="form-check-input" type="radio" value="0" id="status" />
+                                    <input name="status" class="form-check-input" type="radio" value="0" id="status" checked/>
                                     <label class="form-check-label" for="defaultRadio2">
                                         No
                                     </label>
                                 </div>
+                            <?php   
+                            }
+                            ?>
                             </div>
                             <button type="submit" class="btn btn-primary">Publicar</button>
                             <a href="<?php echo base_url('/publicacionesLista')?>" class="btn btn-danger">Cancelar</a>

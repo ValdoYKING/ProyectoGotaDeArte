@@ -15,7 +15,6 @@ class Admin extends BaseController
     private $subastas;
     private $contactosModel;
     private $usuariomodel;
-    private $personamodel;
     protected $userName;
     protected $datosPersonalesModel;
 
@@ -38,7 +37,7 @@ class Admin extends BaseController
             $this->userName = 'Usuario Gota';
         }
     }
-    public function inicioAdmin(): string
+/*     public function inicioAdmin(): string
     {
         $obraArteModel = new ObrasArtista();
         $results = $obraArteModel->findAll();
@@ -56,7 +55,7 @@ class Admin extends BaseController
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Administrador/inicio', $data);
-    }
+    } */
 
     public function listaUsuarios(): string
     {
@@ -232,6 +231,10 @@ class Admin extends BaseController
     public function listaPublicaciones(): string
     {
         $results = $this->obrasArtista->findAll();
+        foreach ($results as $publicacion) {
+            $datosPersonales = $this->datosPersonalesModel->where('id', $publicacion->fk_usuario_artista)->findAll();
+            $dataDatosPersonales[$publicacion->fk_usuario_artista] = $datosPersonales;
+        }
         $dataMenu = [
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
@@ -240,6 +243,7 @@ class Admin extends BaseController
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
             'publicacion' => $results,
+            'datosPersonales'=> $dataDatosPersonales,
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -270,28 +274,193 @@ class Admin extends BaseController
         return view('Administrador/actualizarObra', $data);
     }
 
-    public function actualizarPublicacion($id)
-    {
-        $data = [
-            'nombre' => $_POST['nombre'],
-            'descripcion' => $_POST['descripcion'],
-            'medidas' => $_POST['medidas'],
-            'precio' => $_POST['precio'],
-            // 'estatus_subasta' => $_POST['status']
-        ];
-        $this->obrasArtista->update($id, $data);
-        return redirect()->to('/publicacionesLista');
+    public function actualizarPublicacion($id){
+
+        $sub = $this->subastas->where('fk_obra', $id)->first();
+        $dircFoto = $this->obrasArtista->find($id);
+        $fecha = Date('Y-m-d H:i:s');
+        $imagen = $_FILES['foto']['tmp_name'];
+        $nombreImg = $_FILES['foto']['name'];
+        $tipoImg = strtolower(pathinfo($nombreImg, PATHINFO_EXTENSION));
+        $direccion = "img/galeria/";
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        $status = $_POST['status'];
+        $descrip = $_POST['descripcion'];
+        $medidas = $_POST['medidas'];
+        $ruta = $direccion.$nombre."_".$id.".".$tipoImg;
+
+        
+        if(!empty($imagen)){
+            $fotUrl = $ruta;
+            $data = [
+                'nombre' => $nombre,
+                'foto' => $fotUrl,
+                'descripcion' => $descrip ,
+                'medidas' => $medidas ,
+                'precio' => $precio,
+                'estatus_subasta' => $status, 
+     
+            ];
+            $dataSubes = [
+                'nombre' => $nombre,
+                'fotos' => $fotUrl,
+                'precioInicial' => $precio,
+                'precioPagado' => 0,
+                'fk_obra' => $id,
+                'fechaSubasta' => '',
+            ];
+            if(is_file($imagen)){
+    
+                if($tipoImg == 'jpg' or $tipoImg == 'jpeg' or $tipoImg == 'png'){
+    
+                    try {
+                        unlink($dircFoto->foto);
+                    } catch (\Throwable $th) {
+                        //throw $th;
+                    }
+                    //$name = str_replace(" ","",$nombre);
+                    if(move_uploaded_file($imagen, $ruta)){
+    
+    
+                    
+                    if($status == 1 ){        
+                
+                        if($sub == false){
+                            $Subasta =  $dataSubes + ['fecha_creacion' => $fecha ];
+                    
+                        $this->obrasArtista->update($id, $data);
+                        $this->subastas->insert($Subasta);            
+                
+                        return redirect()->to('/publicacionesLista');
+                    
+                        } else {
+                            $fk = $sub['id'];
+                        
+                            $this->subastas->update($fk,$dataSubes);
+                
+                            $this->obrasArtista->update($id, $data);
+                            return redirect()->to('/publicacionesLista');
+                        }
+                            
+                    } else if ($status == 0) {
+                
+                        if($sub == true){
+                            $fk = $sub['fk_obra'];
+                            $this->subastas->where('fk_obra',$fk)->delete(); 
+                            $this->obrasArtista->update($id, $data);
+                
+                            return redirect()->to('/publicacionesLista');
+                    
+                        } else {
+                
+                            $this->obrasArtista->update($id, $data);
+                        
+                            return redirect()->to('/publicacionesLista');
+                        }
+                    }
+    
+                    }
+    
+                }
+            } else {
+                echo 'archivo no encontrado';
+            }
+        } else {
+            $fotUrl =  $dircFoto->foto;
+            $data = [
+                'nombre' => $nombre,
+                'foto' => $fotUrl,
+                'descripcion' => $descrip ,
+                'medidas' => $medidas ,
+                'precio' => $precio,
+                'estatus_subasta' => $status,      
+            ];
+            $dataSubes = [
+                'nombre' => $nombre,
+                'fotos' => $fotUrl,
+                'precioInicial' => $precio,
+                'precioPagado' => 0,
+                'fk_obra' => $id,
+                'fechaSubasta' => '',
+
+            ];
+            if($status == 1 ){        
+                
+                if($sub == false){
+                    
+                $Subasta =  $dataSubes + ['fecha_creacion' => $fecha ];
+
+                $this->obrasArtista->update($id, $data);
+                $this->subastas->insert($Subasta);            
+        
+                return redirect()->to('/publicacionesLista');
+            
+                } else {
+                    $fk = $sub['id'];
+                
+                    $this->subastas->update($fk,$dataSubes);
+        
+                    $this->obrasArtista->update($id, $data);
+                    return redirect()->to('/publicacionesLista');
+                }
+                    
+            } else if ($status == 0) {
+        
+                if($sub == true){
+                    $fk = $sub['fk_obra'];
+                    $this->subastas->where('fk_obra',$fk)->delete(); 
+                    $this->obrasArtista->update($id, $data);
+        
+                    return redirect()->to('/publicacionesLista');
+            
+                } else {
+        
+                    $this->obrasArtista->update($id, $data);
+                
+                    return redirect()->to('/publicacionesLista');
+                }
+            }
+            
+        }
+
     }
 
     public function eliminarPublicacion($id)
     {
-        $this->obrasArtista->delete($id);
-        return redirect()->to('/publicacionesLista');
+        $sub = $this->subastas->where('fk_obra', $id)->first();
+        $foto = $this->obrasArtista->find($id);
+        $url = $foto->foto;
+        if($sub ==true){
+
+            $fk = $sub['id'];
+            try {
+                unlink($url);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+    
+            $this->subastas->delete($fk);            
+            $this->obrasArtista->delete($id);
+            return redirect()->to('/publicacionesLista');
+        } else {
+            try {
+                unlink($url);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            $this->obrasArtista->delete($id);
+            return redirect()->to('/publicacionesLista');
+        }
     }
 
     public function listaSubastas(): string
     {
         $results = $this->subastas->findAll();
+        foreach ($results as $subasta) {
+            $datosPersonales = $this->datosPersonalesModel->where('id', $subasta['fk_usuario'])->findAll();
+            $dataDatosPersonales[$subasta['fk_usuario']] = $datosPersonales;
+        }
         $dataMenu = [
             'userName' => 'Administrador',
             'sesion' => 'Cerrar sesión',
@@ -300,6 +469,7 @@ class Admin extends BaseController
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de subastas',
             'subasta' => $results,
+            'datosPersonales' => $dataDatosPersonales
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -307,6 +477,53 @@ class Admin extends BaseController
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Administrador/listaSubastas', $data);
     }
+    public function mostrarSubasta($id)
+    {
+        $results = $this->subastas->find($id);
+
+        $Menu = [
+            'userName' => $this->userName,
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'urlSalir' => base_url('/salirAdmin'),
+        ];
+        $Contenido = [
+            'titulo' => 'GOTA DE ARTE | Actualizar Subasta',
+            'subasta' => $results,
+        ];
+        $PiePagina = [
+            'fecha' => date('Y'),
+        ];
+
+        $data = $Menu + $Contenido + $PiePagina;
+        return view('Administrador/actualizarSubasta', $data);
+    }
+
+    public function actualizarSubasta($id){
+
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        $fsubasta = $_POST['subasta'];
+
+        $subastaData = [
+            'nombre' => $nombre,
+            'precioInicial' => $precio,
+            'fechaSubasta' => $fsubasta
+        ];
+
+        $this->subastas->update($id,$subastaData);
+
+        return redirect()->to('/subastasLista');
+
+        
+    }
+
+    public function eliminarSubasta($id)
+    {
+            $this->subastas->delete($id);            
+            return redirect()->to('/subastasLista');
+    }
+
 
     public function listaContactos(): string
     {
@@ -325,5 +542,12 @@ class Admin extends BaseController
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Administrador/listaContactos', $data);
+    }
+
+    public function eliminarContacto($id) {
+
+        $this->contactosModel->delete($id);
+       
+        return redirect()->to('/contactosLista');
     }
 }

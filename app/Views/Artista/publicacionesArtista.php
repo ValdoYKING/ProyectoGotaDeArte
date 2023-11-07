@@ -8,7 +8,7 @@
             <a href="<?php echo base_url('/inicioartista')?>">Inicio</a>
             </li>
             <li class="breadcrumb-item active">
-                <a href="<?php echo base_url('/publicacionesartista')?>">Publicaciones</a>
+                <a href="<?php echo base_url('/Artista/publicacionesArtista')?>">Publicaciones</a>
             </li>
         </ol>
     </nav>
@@ -24,18 +24,32 @@
             <?php foreach($publicaciones as $publicacion): ?>
                 <div class="col-auto">
                     <div class="card h-100" style="width: 18rem;">
-                        <img src="<?php echo base_url('img/recursos/ejemploGA.jpg')?>" class="card-img-top" alt="imagenPublicacion">
+                        <img src="<?php echo base_url($publicacion->foto)?>" height="250" width="200" class="card-img-top" alt="imagenPublicacion">
                         <div class="card-body">
                             <h5 class="card-title bg-black"><?php echo $publicacion->nombre ?></h5>
-                            <p class="card-text bg-black">Arte abstracto</p>
                         </div>
                         <ul class="list-group list-group-flush">
                             <p><?php echo $publicacion->descripcion ?></p>
-                            <li class="list-group-item">$100.99</li>
+                            <li class="list-group-item">$<?php echo $publicacion->precio ?>.00</li>
                             <li class="list-group-item"><?php echo $publicacion->medidas ?></li>
-                            <a href="#" class="list-group-item">Artista Gota</a>
+                            <a href="#" class="list-group-item">
+                                <?php if (isset($datosPersonales[$publicacion->fk_usuario_artista])) : ?>
+                                    <?php foreach ($datosPersonales[$publicacion->fk_usuario_artista] as $datoPersonal) : ?>
+                                        <?php echo $datoPersonal->nombre ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </a>
+                            <?php if($publicacion->estatus_subasta == 1){
+
+                                    echo '<span class="badge bg-label-warning me-1">En subasta</span>';
+                                    } else if($publicacion->estatus_subasta == 0) {
+
+                                    echo '<span class="badge bg-label-primary me-1">Publicado</span>';
+                                    }
+                                    ?>
                         </ul>
                         <div class="card-body">
+                        <a href="<?php echo base_url('/inicioartista/obraArtista/'.$publicacion->id)?>" class="card-link">Ver</a>
                         <a href="<?php echo base_url('/inicioartista/consultarObra/'.$publicacion->id)?>" class="card-link">Editar</a>
                         <a href="<?php echo base_url('/Artista/EliminarArtista/'.$publicacion->id)?>" class="card-link">Eliminar</a>                        </div>
                     </div>
