@@ -113,35 +113,35 @@ class Admin extends BaseController
     }
 
     public function actualizarusario($id)
-{
-    // Datos personales
-    $dataPersonal = [
-        'nombre' => $_POST['Nombre'][0], // Supongo que solo hay un campo 'Nombre' en el formulario
-        'a_paterno' => $_POST['Apellido_p'][0], // Supongo que solo hay un campo 'Apellido_p' en el formulario
-        'a_materno' => $_POST['Apellido_m'][0], // Supongo que solo hay un campo 'Apellido_m' en el formulario
-        'fecha_nacimiento' => $_POST['FechaNacimiento'][0], // Supongo que solo hay un campo 'FechaNacimiento' en el formulario
-        'descripcion' => $_POST['Descripcion'][0], // Supongo que solo hay un campo 'Descripcion' en el formulario
-        // 'urlFoto' => $_POST['urlFoto'], // Asegúrate de que el formulario tenga un campo 'urlFoto'
-    ];
-    // Datos de usuario
-    if($_POST['estatusHidden']){
-        $estatus = 0;
-    }else{
-        $estatus = 9;
-    }
-    $dataUser = [
-        'correo' => $_POST['correo'],
-        'estatus_user' => $estatus,
-    ];
-    // Actualiza los datos del usuario
-    $this->usuariomodel->update($id, $dataUser);
-    // Actualiza los datos personales
-    $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id);
-    $id_dataPersonal = $datosPersonales->first()->id;
-    $this->datosPersonalesModel->update($id_dataPersonal, $dataPersonal);
+    {
+        // Datos personales
+        $dataPersonal = [
+            'nombre' => $_POST['Nombre'][0], // Supongo que solo hay un campo 'Nombre' en el formulario
+            'a_paterno' => $_POST['Apellido_p'][0], // Supongo que solo hay un campo 'Apellido_p' en el formulario
+            'a_materno' => $_POST['Apellido_m'][0], // Supongo que solo hay un campo 'Apellido_m' en el formulario
+            'fecha_nacimiento' => $_POST['FechaNacimiento'][0], // Supongo que solo hay un campo 'FechaNacimiento' en el formulario
+            'descripcion' => $_POST['Descripcion'][0], // Supongo que solo hay un campo 'Descripcion' en el formulario
+            // 'urlFoto' => $_POST['urlFoto'], // Asegúrate de que el formulario tenga un campo 'urlFoto'
+        ];
+        // Datos de usuario
+        if ($_POST['estatusHidden']) {
+            $estatus = 0;
+        } else {
+            $estatus = 9;
+        }
+        $dataUser = [
+            'correo' => $_POST['correo'],
+            'estatus_user' => $estatus,
+        ];
+        // Actualiza los datos del usuario
+        $this->usuariomodel->update($id, $dataUser);
+        // Actualiza los datos personales
+        $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id);
+        $id_dataPersonal = $datosPersonales->first()->id;
+        $this->datosPersonalesModel->update($id_dataPersonal, $dataPersonal);
 
-    return redirect()->to('/usuariosLista');
-}
+        return redirect()->to('/usuariosLista');
+    }
 
     public function eliminarusario($id)
     {
@@ -178,7 +178,7 @@ class Admin extends BaseController
     {
         $usuario = $this->usuariomodel->find($id);
         if (!$usuario) {
-            return redirect()->to(base_url('/artistasLista')); // Reemplaza 'ruta_de_redirección' con la URL adecuada.
+            return redirect()->to(base_url('/artistasLista'));
         }
         $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id)->findAll();
         $Menu = [
@@ -189,8 +189,8 @@ class Admin extends BaseController
         ];
         $Contenido = [
             'titulo' => 'GOTA DE ARTE | Actualizar datos de artista',
-            'usuario' => $usuario, // Pasamos el usuario específico, no un arreglo de resultados
-            'datosPersonales' => $datosPersonales, // Pasamos los datos personales
+            'usuario' => $usuario,
+            'datosPersonales' => $datosPersonales,
         ];
         $PiePagina = [
             'fecha' => date('Y'),
@@ -202,17 +202,17 @@ class Admin extends BaseController
     {
         // Datos personales
         $dataPersonal = [
-            'nombre' => $_POST['Nombre'][0], // Supongo que solo hay un campo 'Nombre' en el formulario
-            'a_paterno' => $_POST['Apellido_p'][0], // Supongo que solo hay un campo 'Apellido_p' en el formulario
-            'a_materno' => $_POST['Apellido_m'][0], // Supongo que solo hay un campo 'Apellido_m' en el formulario
-            'fecha_nacimiento' => $_POST['FechaNacimiento'][0], // Supongo que solo hay un campo 'FechaNacimiento' en el formulario
-            'descripcion' => $_POST['Descripcion'][0], // Supongo que solo hay un campo 'Descripcion' en el formulario
+            'nombre' => $_POST['Nombre'][0],
+            'a_paterno' => $_POST['Apellido_p'][0],
+            'a_materno' => $_POST['Apellido_m'][0],
+            'fecha_nacimiento' => $_POST['FechaNacimiento'][0],
+            'descripcion' => $_POST['Descripcion'][0],
             // 'urlFoto' => $_POST['urlFoto'], // Asegúrate de que el formulario tenga un campo 'urlFoto'
         ];
         // Datos de usuario
-        if($_POST['estatusHidden']){
+        if ($_POST['estatusHidden']) {
             $estatus = 0;
-        }else{
+        } else {
             $estatus = 9;
         }
         $dataUser = [
