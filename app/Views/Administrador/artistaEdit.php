@@ -8,7 +8,7 @@
                 <a href="<?php echo base_url('/inicioadmin') ?>">Inicio</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="<?php echo base_url('/artistasLista') ?>">Lista de usuarios</a>
+                <a href="<?php echo base_url('/artistasLista') ?>">Lista de artistas</a>
             </li>
             <li class="breadcrumb-item active">
                 <a href="<?php echo base_url('/artistasLista') ?>">Editar artista</a>
