@@ -92,29 +92,30 @@ class Artista extends BaseController
         $imgid = $idImg->id + 1;
         $ruta = $direccion.$nombre."_".$imgid.".".$tipoImg;
         if($tipoImg == "jpg" or $tipoImg == "jpeg" or $tipoImg == "png"){
-
+            
             if(move_uploaded_file($imagen,$ruta)){
-
-                    $data = [
-                        'nombre' => $nombre,
-                        'foto' => $ruta,
-                        'descripcion' => $descrip ,
-                        'precio' => $precio,
-                        'medidas' => $medidas,
-                        'estatus_subasta' => $status,
-                        'fk_usuario_artista'=> $idU,
-                        'fecha_creacion'=> $fecha
-                    ];
-        
+                
+                $data = [
+                    'nombre' => $nombre,
+                    'foto' => $ruta,
+                    'descripcion' => $descrip ,
+                    'precio' => $precio,
+                    'medidas' => $medidas,
+                    'estatus_subasta' => $status,
+                    'fk_usuario_artista'=> $idU,
+                    'fecha_creacion'=> $fecha
+                ];
+                
                 if($status == 1 ){
-        
+                    
                     $this->obrasArtista->insert($data);
                     $id_fk = $this->obrasArtista->getInsertID();
-        
+                    
+                    $precioSubatas = $_POST['Psubasta'];
                     $dataSubes = [
                         'nombre' => $nombre,
                         'fotos' => $ruta,
-                        'precioInicial' => $precio,
+                        'precioInicial' => $precioSubatas,
                         'precioPagado' => 0,
                         'fk_obra' => $id_fk,
                         'fk_usuario' => $idU,
@@ -143,6 +144,8 @@ class Artista extends BaseController
     /* Transaccion basica para agregar resgistros */
     public function consultarObra($id){
         $results = $this->obrasArtista->find($id);
+        $idObra = $results->id;
+        $subasta = $this->subasta->where('fk_obra',$idObra)->first();
 
 
 
@@ -155,6 +158,7 @@ class Artista extends BaseController
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Formulario publicación',
             'publicacion' => $results,
+            'subasta' => $subasta
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -223,13 +227,14 @@ class Artista extends BaseController
         $direccion = "img/galeria/";
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
+        $precioSubatas = $_POST['Psubasta'];
         $status = $_POST['status'];
         $descrip = $_POST['descripcion'];
         $medidas = $_POST['medidas'];
         $ruta = $direccion.$nombre."_".$id.".".$tipoImg;
 
-        
-        if(!empty($imagen)){
+        //echo print_r($_POST);
+         if(!empty($imagen)){
             $fotUrl = $ruta;
             $data = [
                 'nombre' => $nombre,
@@ -244,8 +249,7 @@ class Artista extends BaseController
             $dataSubes = [
                 'nombre' => $nombre,
                 'fotos' => $fotUrl,
-                'precioInicial' => $precio,
-                'precioPagado' => 0,
+                'precioInicial' => $precioSubatas,
                 'fk_obra' => $id,
                 'fk_usuario' => $idU,
                 'fechaSubasta' => '',
@@ -320,7 +324,7 @@ class Artista extends BaseController
             $dataSubes = [
                 'nombre' => $nombre,
                 'fotos' => $fotUrl,
-                'precioInicial' => $precio,
+                'precioInicial' => $precioSubatas,
                 'precioPagado' => 0,
                 'fk_obra' => $id,
                 'fk_usuario' => $idU,
@@ -365,7 +369,7 @@ class Artista extends BaseController
             }
             
         }
-
+ 
     }
     public function EliminarArtista($id){
 
@@ -403,14 +407,14 @@ class Artista extends BaseController
             $datosPersonales = $this->datosPersonalesModel->where('id', $subastas['fk_usuario'])->findAll();
             $dataDatosPersonales[$subastas['fk_usuario']] = $datosPersonales;
         }
-        $dataMenu = [
+        $dataMenu = [ 
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión', 
             'url' => base_url('/'),   
             'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
-            'titulo' => 'GOTA DE ARTE | Mis Subastas',
+            'titulo' => 'GOTA DE A RTE | Mis Subastas',
             'subastas' => $results,
             'datosPersonales' => $dataDatosPersonales
 
@@ -463,8 +467,11 @@ class Artista extends BaseController
     }
 
     public function eliminarSubasta($id)
-    {
-
+    {       
+            $results = $this->subasta->find($id);
+            $idO = $results['fk_obra'];
+            $subes = ['estatus_subasta' => 0];
+            $this->obrasArtista->update($idO, $subes);
             $this->subasta->delete($id);            
             return redirect()->to('Artista/subastaArt');
     }

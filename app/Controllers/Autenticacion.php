@@ -122,7 +122,7 @@ class Autenticacion extends BaseController
         if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '2') {
             $session = session();
             $session->set('user_id', $usuario->id);
-            return redirect()->to('/inicioartista');
+            return redirect()->to('Artista/publicacionesArtista');
         } else {
             return redirect()->to('/login_art')->with('error', 'Credenciales incorrectas o no tienes el rol adecuado. Por favor, inténtalo de nuevo.');
         }

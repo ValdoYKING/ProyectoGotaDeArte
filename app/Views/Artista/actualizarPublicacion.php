@@ -71,38 +71,50 @@
                             if($publicacion->estatus_subasta == 1){
                             ?>
                                 <div class="form-check mt-3">
-                                <input name="status" class="form-check-input" type="radio" value="1" id="status" checked/>
+                                <input name="status" class="form-check-input" type="radio" value="1" id="status"  onclick="mostrarPreguntaR()" checked/>
                                 <label class="form-check-label" for="defaultRadio1">
                                     Si
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input name="status" class="form-check-input" type="radio" value="0" id="status" />
+                                <input name="status" class="form-check-input" type="radio" value="0" id="status"  onclick="ocultarPreguntaR()"/>
                                 <label class="form-check-label" for="defaultRadio2">
                                     No
                                 </label>
                             </div>
+                            <div id="preguntaR" class="mb-3 hidden">
+                                <label class="form-label" for="basic-icon-default-company">
+                                    ¿Qué precio deseas que tu obra inicie en la subasta?
+                                </label>
+                                <input type="number" class="form-control" name="Psubasta" id="Psubasta" value="<?php echo $subasta['precioInicial'] ?>"  readonly>
+                            </div>
                             <?php
                             } else if ($publicacion->estatus_subasta == 0){
                             ?>
-                                                            <div class="form-check mt-3">
-                                    <input name="status" class="form-check-input" type="radio" value="1" id="status" />
+                                <div class="form-check mt-3">
+                                    <input name="status" class="form-check-input" type="radio" value="1" id="status"  onclick="mostrarPregunta()"/>
                                     <label class="form-check-label" for="defaultRadio1">
                                         Si
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input name="status" class="form-check-input" type="radio" value="0" id="status" checked/>
+                                    <input name="status" class="form-check-input" type="radio" value="0" id="status" onclick="ocultarPregunta()" checked/>
                                     <label class="form-check-label" for="defaultRadio2">
                                         No
                                     </label>
                                 </div>
+                            <div id="pregunta" class="mb-3 hidden">
+                                    <label class="form-label" for="basic-icon-default-company">
+                                        ¿Qué precio deseas que tu obra inicie en la subasta?
+                                    </label>
+                                    <input type="number" class="form-control" name="Psubasta" id="Psubasta" value="" required>
+                            </div>
                             <?php   
                             }
                             ?>
                             </div>
                             <button type="submit" class="btn btn-primary">Publicar</button>
-                            <a href="<?php echo base_url('/publicacionesartista')?>" class="btn btn-danger">Cancelar</a>
+                            <a href="<?php echo base_url('Artista/publicacionesArtista')?>" class="btn btn-danger">Cancelar</a>
 
                         </form>
                     </div>
@@ -118,4 +130,5 @@
 <!--<script>
 </script>
 -->
+
 <?php echo $this->endSection(); ?>

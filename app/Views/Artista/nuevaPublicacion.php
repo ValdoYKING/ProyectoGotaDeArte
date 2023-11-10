@@ -1,5 +1,6 @@
 <?php echo $this->extend('Plantilla/disenioArtista'); ?>
 <?php echo $this->section('contenido'); ?>
+
 <br>
 <div class="container">
     <nav class="breadcrumb  mb-5 segundo-navbar">
@@ -32,7 +33,6 @@
                                 <div class="input-group">
                                     <span id="foto2" class="input-group-text"><i class="bx bx-image"></i></span>
                                     <input type="file" class="form-control" id="foto" name="foto" aria-describedby="fotos" aria-label="Cargar">
-                                    <button class="btn btn-outline-primary"  type="button" id="fotos">Subir</button>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -46,7 +46,7 @@
                                 <label for="html5-text-input" class="col-md-2 col-form-label">Descripción</label>
                                 <div class="input-group input-group-merge">
                                     <span id="descripcion2" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describa su obra" aria-label="Describa su obra" aria-describedby="basic-icon-default-message2"></textarea>
+                                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describa su obra" aria-label="Describa su obra" ></textarea>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -68,21 +68,28 @@
                             <div class="mb-3">
                                 <small class="text-light fw-medium">¿Disponible para subasta?</small>
                                 <div class="form-check mt-3">
-                                    <input name="status" class="form-check-input" type="radio" value="1" id="status" />
+                                    <input name="status" class="form-check-input" type="radio" value="1" id="status" onclick="mostrarPregunta()"/>
                                     <label class="form-check-label" for="defaultRadio1">
                                         Si
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input name="status" class="form-check-input" type="radio" value="0" id="status" />
+                                    <input name="status" class="form-check-input" type="radio" value="0" id="status" onclick="ocultarPregunta()"/>
                                     <label class="form-check-label" for="defaultRadio2">
                                         No
                                     </label>
                                 </div>
+                                <div id="pregunta" class="mb-3 hidden">
+                                    <label>
+                                        ¿Qué precio deseas que tu obra inicie en la subasta?
+                                    </label>
+                                    <input type="number" class="form-control" name="Psubasta" value="" requerid>
+                                </div>
+
                             </div>
                             <button type="submit" class="btn btn-primary">Publicar</button>
 
-                            <a href="<?php echo base_url('/publicacionesartista')?>" class="btn btn-danger">Cancelar</a>
+                            <a href="<?php echo base_url('Artista/publicacionesArtista')?>" class="btn btn-danger">Cancelar</a>
 
                         </form>
                     </div>

@@ -58,5 +58,10 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <?php echo $this->renderSection("scripts"); ?>
+  <style>
+    .hidden {
+        display: none;
+    }
+</style>
 </body>
 </html>

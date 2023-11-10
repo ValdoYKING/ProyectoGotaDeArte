@@ -42,12 +42,11 @@
         
 
         <?php if ($publicaciones->estatus_subasta == 0){ ?>
-            <button class="btn btn-outline-warning">Carrito</button>
-            <button class="btn btn-outline-success">Hacer oferta</button>
+            <button class="btn btn-outline-warning">Adquirir Obra</button>
+            <button class="btn btn-outline-success">Pregunta para subastar</button>
         <?php } else {?>
             <h3>Esa obra estara en subasta</h3>
             <button class="btn btn-outline-warning">Ver subasta</button>
-            <button class="btn btn-outline-success">Ver subasta</button>
             <?php } ?>
             
     </aside>
