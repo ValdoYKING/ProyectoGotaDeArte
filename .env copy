@@ -30,13 +30,13 @@ app.baseURL = 'http://localhost/ProyectoGotaDeArte/public/'
 # DATABASE
 #--------------------------------------------------------------------
 
-database.default.hostname = localhost
+database.default.hostname = 162.241.62.50
 database.default.database = gotadear_test
-database.default.username = root
-database.default.password =
+database.default.username = gotadear_project
+database.default.password = 2OvCFK3ZU1b5
 database.default.DBDriver = MySQLi
 # database.default.DBPrefix =
- database.default.port = 8080
+# database.default.port = 3306
 
 # database.tests.hostname = localhost
 # database.tests.database = ci4_test

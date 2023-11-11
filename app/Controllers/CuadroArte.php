@@ -59,4 +59,29 @@ class CuadroArte extends BaseController{
         return view('Artista/inicioArtistashow',$data);
     }
 
+    public function obraCliente($id){
+
+        $results = $this->obrasArtista->find($id);
+        $fkid = $results->fk_usuario_artista;
+        $datoArtista = $this->personal->find($fkid);
+
+
+        $dataMenu = [
+            'userName' => $this->userName,
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'urlSalir' => base_url('/'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
+            'publicaciones' => $results,
+            'datosart' => $datoArtista
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('CuadroArte/obra',$data);
+    }
+
 }

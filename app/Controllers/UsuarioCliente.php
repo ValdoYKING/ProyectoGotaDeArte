@@ -16,12 +16,13 @@ class UsuarioCliente extends BaseController
         $results = $query->getResult(); */
 
         $obraArteModel = new ObrasArtista();
-        $results = $obraArteModel->findAll();
+        $results = $obraArteModel->where('estatus_subasta', 0)->findAll();
 
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
+            'urlSalir' => base_url('/'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];

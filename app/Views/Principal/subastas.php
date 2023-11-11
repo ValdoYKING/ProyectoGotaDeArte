@@ -27,7 +27,7 @@
         <?php foreach($subastas as $subastas): ?>
                 <div class="col-auto">
                     <div class="card h-100" style="width: 18rem;">
-                        <img src="<?php echo base_url($subastas['fotos'])?>" class="card-img-top" alt="imagenPublicacion">
+                        <img src="<?php echo base_url($subastas['fotos'])?>" height="250" width="200" class="card-img-top" alt="imagenPublicacion">
                         <div class="card-body">
                             <h5 class="card-title bg-black"><?php echo $subastas['nombre'] ?></h5>
                             <p class="card-text bg-black">Arte abstracto</p>
@@ -39,8 +39,7 @@
                             <a href="#" class="list-group-item">Artista Gota</a>
                         </ul>
                         <div class="card-body">
-                            <a href="<?php echo base_url('/inicioartista/'.$subastas['id'])?>" class="card-link">Ver</a>
-                            <a href="#" class="card-link">Ingresar</a>
+                        <a href="<?php echo base_url('/inicioartista/obraArtista/'.$subastas['fk_obra'])?>" class="card-link">Ver</a>
 
                         </div>
                     </div>
