@@ -71,6 +71,8 @@ class CuadroArte extends BaseController{
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
             'urlSalir' => base_url('/'),
+            'canastaUrl' => base_url('/canasta'),
+            'guardadosUrl' => base_url('/guardados')
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',

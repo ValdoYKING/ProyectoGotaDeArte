@@ -46,7 +46,7 @@
                                 <label for="html5-text-input" class="col-md-2 col-form-label">Descripción</label>
                                 <div class="input-group input-group-merge">
                                     <span id="descripcion2" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describa su obra"  aria-label="Describa su obra" aria-describedby="basic-icon-default-message2"> <?php echo $publicacion->descripcion ?> </textarea>
+                                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describa su obra"  aria-label="Describa su obra" aria-describedby="basic-icon-default-message2"><?php echo $publicacion->descripcion ?></textarea>
                                 </div>
                             </div>
                             <div class="mb-3">
