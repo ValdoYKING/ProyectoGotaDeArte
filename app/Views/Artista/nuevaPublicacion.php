@@ -41,14 +41,14 @@
                                 <label class="form-label" for="basic-icon-default-fullname">Nombre de la obra</label>
                                 <div class="input-group input-group-merge">
                                     <span id="nombre2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Mi obra" pattern="[A-Za-z ]+" aria-label="Mi obra" aria-describedby="basic-icon-default-fullname2" required >
+                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Mi obra" pattern="[A-Za-záéíóúüÁÉÍÓÚÜ ]+" aria-label="Mi obra" aria-describedby="basic-icon-default-fullname2" required >
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="html5-text-input" class="col-md-2 col-form-label">Descripción</label>
                                 <div class="input-group input-group-merge">
                                     <span id="descripcion2" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describa su obra" pattern="[A-Za-z ]+" aria-label="Describa su obra" required></textarea>
+                                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describa su obra" pattern="[A-Za-záéíóúüÁÉÍÓÚÜ ]+" aria-label="Describa su obra" required></textarea>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -81,11 +81,11 @@
                                         No
                                     </label>
                                 </div>
-                                <div id="pregunta" class="mb-3 none">
+                                <div id="pregunta" class="mb-3 hidden">
                                     <label>
                                         ¿Qué precio deseas que tu obra inicie en la subasta?
                                     </label>
-                                    <input type="number" class="form-control" name="Psubasta" value="" required>
+                                    <input type="number" class="form-control" name="Psubasta" value="" >
                                 </div>
 
                             </div>

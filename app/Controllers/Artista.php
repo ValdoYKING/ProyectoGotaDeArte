@@ -60,7 +60,7 @@ class Artista extends BaseController
         }
 
         $dataMenu = [
-            'userName' => $this->idUser,
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/salirArtista'),
             // 'url' => base_url('/salir'),
@@ -200,7 +200,7 @@ class Artista extends BaseController
     public function nuevaPublicacion(): string{
 
         $dataMenu = [
-            'userName' => $this->idUser,
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
 

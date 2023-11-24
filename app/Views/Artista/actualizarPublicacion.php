@@ -39,14 +39,14 @@
                                 <label class="form-label" for="basic-icon-default-fullname">Nombre de la obra</label>
                                 <div class="input-group input-group-merge">
                                     <span id="nombre2" class="input-group-text"><i class="bx bx-user"></i></span>
-                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Mi obra" value="<?php echo $publicacion->nombre ?>" aria-label="Mi obra" aria-describedby="basic-icon-default-fullname2" />
+                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Mi obra" value="<?php echo $publicacion->nombre ?>" aria-label="Mi obra" pattern="[A-Za-záéíóúüÁÉÍÓÚÜ ]+" aria-describedby="basic-icon-default-fullname2" required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="html5-text-input" class="col-md-2 col-form-label">Descripción</label>
                                 <div class="input-group input-group-merge">
                                     <span id="descripcion2" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describa su obra"  aria-label="Describa su obra" aria-describedby="basic-icon-default-message2"><?php echo $publicacion->descripcion ?></textarea>
+                                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Describa su obra"  aria-label="Describa su obra" aria-describedby="basic-icon-default-message2" required><?php echo $publicacion->descripcion ?></textarea>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -54,14 +54,14 @@
                                 <div class="input-group input-group-merge">
                                     <span id="medidas2" class="input-group-text"><i class="bx bx-buildings"></i></span>
                                     <!-- <input type="text" id="basic-icon-default-company" class="form-control" placeholder="Alto x largo x ancho" aria-label="Alto x largo x ancho" aria-describedby="basic-icon-default-company2" /> -->
-                                    <input class="form-control" type="text" name="medidas" id="medidas" placeholder="Alto x largo x ancho" value="<?php echo $publicacion->medidas ?>" aria-label="Alto x largo x ancho" />
+                                    <input class="form-control" type="text" name="medidas" id="medidas" placeholder="Alto x largo x ancho" value="<?php echo $publicacion->medidas ?>" aria-label="Alto x largo x ancho" pattern="[CMXcmx0-9 ]+" required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="basic-icon-default-company">Precio</label>
                                 <div class="input-group input-group-merge">
                                     <span id="precio2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                    <input class="form-control" type="number" name="precio" id="precio" placeholder="Valor estimado" value="<?php echo $publicacion->precio ?>" aria-label="Valor estimado..." />
+                                    <input class="form-control" type="number" name="precio" id="precio" placeholder="Valor estimado" value="<?php echo $publicacion->precio ?>" aria-label="Valor estimado..." pattern="[0-9]+" required>
                                     <span class="input-group-text">.00</span>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                                     <label class="form-label" for="basic-icon-default-company">
                                         ¿Qué precio deseas que tu obra inicie en la subasta?
                                     </label>
-                                    <input type="number" class="form-control" name="Psubasta" id="Psubasta" value="" required>
+                                    <input type="number" class="form-control" pattern="[0-9]+" name="Psubasta" id="Psubasta" value="">
                             </div>
                             <?php   
                             }
