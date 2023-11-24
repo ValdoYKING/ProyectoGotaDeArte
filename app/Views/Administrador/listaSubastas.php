@@ -1,5 +1,6 @@
 <?php echo $this->extend('Plantilla/disenioAdmin'); ?>
 <?php echo $this->section('contenido'); ?>
+
 <div class="container">
     <nav class="breadcrumb  mb-5 segundo-navbar">
         <ol class="breadcrumb">
@@ -15,8 +16,23 @@
         </ol>
     </nav>
 </div>
-
 <section>
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if (session()->has('message-update')) { ?>
+                    <div class="alert alert-primary">
+                        <?php echo session('message-update'); ?>
+                    </div>
+                <?php } else if(session()->has('message-delete')){?>
+                    <div class="alert alert-danger">
+                        <?php echo session('message-delete'); ?>
+                    </div>
+                <?php } ?> 
+                    
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div>
             <h2 class="mb-2">Lista de Subastas | Gota de Arte</h2>

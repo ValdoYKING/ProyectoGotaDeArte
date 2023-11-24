@@ -350,14 +350,14 @@ class Admin extends BaseController
                                 $this->obrasArtista->update($id, $data);
                                 $this->subastas->insert($Subasta);
 
-                                return redirect()->to('/publicacionesLista');
+                                return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra y la subasta fue registrada exitosamente.');
                             } else {
                                 $fk = $sub['id'];
 
                                 $this->subastas->update($fk, $dataSubes);
 
                                 $this->obrasArtista->update($id, $data);
-                                return redirect()->to('/publicacionesLista');
+                                return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra exitosamente.');
                             }
                         } else if ($status == 0) {
 
@@ -366,18 +366,18 @@ class Admin extends BaseController
                                 $this->subastas->where('fk_obra', $fk)->delete();
                                 $this->obrasArtista->update($id, $data);
 
-                                return redirect()->to('/publicacionesLista');
+                                return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra y la subasta fue eliminada exitosamente.');
                             } else {
 
                                 $this->obrasArtista->update($id, $data);
 
-                                return redirect()->to('/publicacionesLista');
+                                return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra exitosamente.');
                             }
                         }
                     }
                 }
             } else {
-                echo 'archivo no encontrado';
+                return redirect()->to('/Artista/publicacionesArtista')->with('error', 'Archivo no encontrado');
             }
         } else {
             $fotUrl =  $dircFoto->foto;
@@ -407,14 +407,14 @@ class Admin extends BaseController
                     $this->obrasArtista->update($id, $data);
                     $this->subastas->insert($Subasta);
 
-                    return redirect()->to('/publicacionesLista');
+                    return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizar la obra y la subasta se registro exitosamente.');
                 } else {
                     $fk = $sub['id'];
 
                     $this->subastas->update($fk, $dataSubes);
 
                     $this->obrasArtista->update($id, $data);
-                    return redirect()->to('/publicacionesLista');
+                    return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra exitosamente.');
                 }
             } else if ($status == 0) {
 
@@ -423,12 +423,12 @@ class Admin extends BaseController
                     $this->subastas->where('fk_obra', $fk)->delete();
                     $this->obrasArtista->update($id, $data);
 
-                    return redirect()->to('/publicacionesLista');
+                    return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra y la subasta se elimino exitosamente.');
                 } else {
 
                     $this->obrasArtista->update($id, $data);
 
-                    return redirect()->to('/publicacionesLista');
+                    return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra exitosamente.');
                 }
             }
         }
@@ -450,7 +450,7 @@ class Admin extends BaseController
 
             $this->subastas->delete($fk);
             $this->obrasArtista->delete($id);
-            return redirect()->to('/publicacionesLista');
+            return redirect()->to('/publicacionesLista')->with('message-delete', 'Se elmino la obra y la subasta exitosamente.');
         } else {
             try {
                 unlink($url);
@@ -458,7 +458,7 @@ class Admin extends BaseController
                 //throw $th;
             }
             $this->obrasArtista->delete($id);
-            return redirect()->to('/publicacionesLista');
+            return redirect()->to('/publicacionesLista')->with('message-delete', 'Se elmino la obra exitosamente.');
         }
     }
 
@@ -522,13 +522,13 @@ class Admin extends BaseController
 
         $this->subastas->update($id, $subastaData);
 
-        return redirect()->to('/subastasLista');
+        return redirect()->to('/subastasLista')->with('message-update', 'Se actualizo la obra exitosamente.');
     }
 
     public function eliminarSubasta($id)
     {
         $this->subastas->delete($id);
-        return redirect()->to('/subastasLista');
+        return redirect()->to('/subastasLista')->with('message-delete', 'Se elmino la subasta exitosamente.');
     }
 
 
@@ -556,6 +556,6 @@ class Admin extends BaseController
 
         $this->contactosModel->delete($id);
 
-        return redirect()->to('/contactosLista');
+        return redirect()->to('/contactosLista')->with('message-delete', 'Se elmino el contacto exitosamente.');
     }
 }

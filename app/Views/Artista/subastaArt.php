@@ -15,6 +15,23 @@
 </div>
 
 <section>
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php 
+                     if (session()->has('message-update')) { ?>
+                    <div class="alert alert-primary">
+                        <?php echo session('message-update'); ?>
+                    </div>
+                <?php } else if(session()->has('message-delete')){?>
+                    <div class="alert alert-danger">
+                        <?php echo session('message-delete'); ?>
+                    </div>
+                <?php } ?> 
+                    
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div>
             <h2 class="mb-2">Subastas</h2>
@@ -31,7 +48,7 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <p></p>
-                            <li class="list-group-item"><?php echo $subastas['precioInicial'] ?></li>
+                            <li class="list-group-item">$<?php echo $subastas['precioInicial'] ?>.00</li>
                             <li class="list-group-item"><?php echo $subastas['fechaSubasta'] ?></li>
                             <a href="#" class="list-group-item">
                             <?php if (isset($datosPersonales[$subastas['fk_usuario']])) : ?>
