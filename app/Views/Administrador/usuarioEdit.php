@@ -63,7 +63,7 @@
                                                 }
                                                 echo $rutaU; ?>" alt="Fotografía" width="180" height="180" /><br>
                                     <input class="form-control" type="file" id="userFoto" name="userFoto">
-                                    <input type="hidden" name="UrlPhotoUser" value="<?php
+                                    <input type="hidden" name="UrlPhotoUser[]" value="<?php
                                                 if ($datoPersonal->foto == " " || empty($datoPersonal->foto)) {
                                                     $urlUserF = " ";
                                                 } else {

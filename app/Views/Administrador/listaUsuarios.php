@@ -14,6 +14,24 @@
     </nav>
 </div>
 
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php
+                if (session()->has('message-update')) { ?>
+                    <div class="alert alert-primary">
+                        <?php echo session('message-update'); ?>
+                    </div>
+                <?php } else if (session()->has('message-delete')) { ?>
+                    <div class="alert alert-danger">
+                        <?php echo session('message-delete'); ?>
+                    </div>
+                <?php } ?>
+
+            </div>
+        </div>
+    </div>
+
 <section>
     <div class="container">
         <div>
@@ -76,7 +94,7 @@
                                                             $rutaU = base_url('img/usuarios/'.$datoPersonal->foto);
                                                         }
                                                         echo $rutaU;
-                                                        ?>" alt="Fotografía" height="50" width="50" />
+                                                        ?>" alt="Fotografía" class="rounded-circle" />
                                         <?php endforeach; ?>      
                                         <?php endif; ?>                                  
                                             <!-- <img src="<?php echo base_url('img/avatars/5.png') ?>" alt="Avatar" class="rounded-circle"> -->

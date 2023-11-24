@@ -116,18 +116,19 @@ class Admin extends BaseController
     {
         $nuevo_nombre = base_url('img/avatars/userGA.png');
 
-        if(isset($_FILES["userFoto"])){
+        if (isset($_FILES["userFoto"]) && $_POST["UrlPhotoUser"][0] == " ") {
             $extension = pathinfo($_FILES["userFoto"]["name"], PATHINFO_EXTENSION);
             $nuevo_nombre = rand() . '.' . $extension;
             $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;        
             move_uploaded_file($_FILES["userFoto"]["tmp_name"], $ubicacion);
-        }
-
-        if(empty($_POST['UrlPhotoUser'][0])){
-            
-        }else{
-            $nuevo_nombre= $_POST['UrlPhotoUser'][0];    
-        }
+        } elseif ($_POST['UrlPhotoUser'][0] != " ") {
+            $nuevo_nombre = $_POST['UrlPhotoUser'][0];
+        }/* elseif (isset($_FILES["userFoto"]) && $_POST["UrlPhotoUser"][0] != " ") {
+            $extension = pathinfo($_FILES["userFoto"]["name"], PATHINFO_EXTENSION);
+            $nuevo_nombre = rand() . '.' . $extension;
+            $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;        
+            move_uploaded_file($_FILES["userFoto"]["tmp_name"], $ubicacion);
+        } */
         // Datos personales
         $dataPersonal = [
             'nombre' => $_POST['Nombre'][0],
@@ -135,8 +136,7 @@ class Admin extends BaseController
             'a_materno' => $_POST['Apellido_m'][0],
             'fecha_nacimiento' => $_POST['FechaNacimiento'][0],
             'descripcion' => $_POST['Descripcion'][0],
-            // 'estatus_user' => $_POST['estatus'],
-            'foto' => $nuevo_nombre, // Asegúrate de que el formulario tenga un campo 'urlFoto'
+            'foto' => $nuevo_nombre,
         ];
         // Datos de usuario
         if ($_POST['estatusHidden']) {
@@ -148,21 +148,21 @@ class Admin extends BaseController
             'correo' => $_POST['correo'],
             'estatus_user' => $_POST['estatus'],
         ];
-        // Actualiza los datos del usuario
         $this->usuariomodel->update($id, $dataUser);
-        // Actualiza los datos personales
         $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id);
         $id_dataPersonal = $datosPersonales->first()->id;
         $this->datosPersonalesModel->update($id_dataPersonal, $dataPersonal);
-
         return redirect()->to('/usuariosLista');
     }
 
+
     public function eliminarusario($id)
-    {
-        $this->usuariomodel->where('')->find($id);
+    {   
+        $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id);
+        $id_dataPersonal = $datosPersonales->first()->id;
+        $this->datosPersonalesModel->delete($id_dataPersonal);
         $this->usuariomodel->delete($id);
-        return redirect()->to('/usuariosLista');
+        return redirect()->to('/usuariosLista')->with('message-delete', 'Se elmino el usuario '.$id.' exitosamente.');
     }
 
     public function listaArtistas(): string
