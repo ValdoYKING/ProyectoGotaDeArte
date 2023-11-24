@@ -12,9 +12,9 @@ $routes->get('/inicio', 'Principal::inicio', ['filter' => 'auth']);
 $routes->get('/info', 'Principal::sobreNosotros');
 $routes->get('/tyc', 'Principal::terminosCondiciones');
 $routes->get('/politicadeprivacidad', 'Principal::politicaPrivacidad');
-$routes->get('/obras', 'UsuarioCliente::iniciObras');
-$routes->get('/canasta', 'Principal::canasta');
-$routes->get('/guardados', 'Principal::guardados');
+$routes->get('/obras', 'UsuarioCliente::iniciObras', ['filter' => 'auth']);
+$routes->get('/canasta', 'Principal::canasta', ['filter' => 'auth']);
+$routes->get('/guardados', 'Principal::guardados', ['filter' => 'auth']);
 
 $routes->get('/login', 'Autenticacion::loginUsuario');
 $routes->post('/autenticarInicio', 'Autenticacion::autenticarInicioUsuario');
@@ -30,8 +30,8 @@ $routes->get('/salir', 'Autenticacion::salirUsuario');
 $routes->get('/salirArtista', 'Autenticacion::salirArtista');
 $routes->get('/salirAdmin', 'Autenticacion::salirAdmin');
 
-$routes->get('/subasta', 'Subasta::listaSubastas');
-$routes->get('/subastas', 'Subasta::subastas');
+$routes->get('/subasta', 'Subasta::listaSubastas', ['filter' => 'auth']);
+$routes->get('/subastas', 'Subasta::subastas', ['filter' => 'auth']);
 // $routes->get('/subastas', 'Subasta::subastas', ['filter' => 'SessionFilter']);
 
 

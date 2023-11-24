@@ -8,17 +8,16 @@ class Principal extends BaseController
 
     public function __construct()
     {
-
-    if (session()->has('user_id')) {
-        $userNameSession = session()->get('user_id');
-        $datosPersonalesModel = new \App\Models\datosPersonalesModel();
-        $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
-        if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
-            $this->userName = $datosUsuario->nombre;
+        if (session()->has('user_id')) {
+            $userNameSession = session()->get('user_id');
+            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
+            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+            if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
+                $this->userName = $datosUsuario->nombre;
+            }
+        } else {
+            $this->userName = 'Usuario Gota';
         }
-    } else {
-        $this->userName = 'Usuario Gota';
-    }
         helper(['url', 'form']);
     }
     public function index(): string
@@ -37,7 +36,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/paginaInicial', $data);
+        return view('Principal/paginaSinIngresar', $data);
     }
 
     public function inicio(): string

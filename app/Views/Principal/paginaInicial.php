@@ -10,7 +10,7 @@
     </ol>
     <div class="carousel-inner">
         <div id="caruselL" class="carousel-item active">
-            <img class="d-block w-100" src="<?php echo base_url('img/elements/pintura/galerías2.jpg'); ?>" alt="First slide" />
+            <img class="d-block w-100" src="<?php echo base_url('img/elements/pintura/galerias2.jpg'); ?>" alt="First slide"width='90%'/>
             <div class="carousel-caption d-none d-md-block">
                 <h2>Pablo Picasso</h2>
                 <p>El arte lava del alma el polvo de la vida cotidiana.</p>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div id="caruselL" class="carousel-item">
-            <img class="d-block w-100" src="<?php echo base_url('img/elements/pintura/galeria.jpg'); ?>" alt="Second slide" />
+            <img class="d-block w-100" src="<?php echo base_url('img/elements/pintura/galeria.jpg'); ?>" alt="Second slide" width='90%'/>
             <div class="carousel-caption d-none d-md-block">
                 <h2>Frida Kahlo</h2>
                 <p>El arte es la manera más intensa de vivir; es la vida más completa que una persona puede experimentar</p>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div id="caruselL" class="carousel-item">
-            <img class="d-block w-100" src="<?php echo base_url('img/elements/pintura/imagen33.jpg'); ?>" alt="Third slide" />
+            <img class="d-block w-100" src="<?php echo base_url('img/elements/pintura/imagen33.jpg'); ?>" alt="Third slide" width='90%'/>
             <div class="carousel-caption d-none d-md-block">
                 <h2>Vincent van Gogh</h2>
                 <p>El arte es el espejo de la vida, nunca se detiene, nunca engaña.</p>

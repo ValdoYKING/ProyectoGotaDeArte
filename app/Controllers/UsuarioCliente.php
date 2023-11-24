@@ -21,7 +21,7 @@ class UsuarioCliente extends BaseController
         $dataMenu = [
             'userName' => 'Pepito',
             'sesion' => 'Cerrar sesión',
-            'url' => base_url('/'),
+            'urlSalir' => base_url('/'),
             'canastaUrl' => base_url('/canasta'),
             'guardadosUrl' => base_url('/guardados'),
         ];
