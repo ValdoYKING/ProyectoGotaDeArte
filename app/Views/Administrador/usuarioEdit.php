@@ -56,20 +56,20 @@
                                     <label class="form-label" for="basic-icon-default-fullname">Fotografía</label>
                                     <!-- <img src="< ?php echo base_url($datoPersonal->foto) ?>" alt="Imagen Obra" height="200" width="200"> -->
                                     <img src="<?php
-                                                if ($datoPersonal->foto== " " || empty($datoPersonal->foto)) {
+                                                if ($datoPersonal->foto == " " || empty($datoPersonal->foto)) {
                                                     $rutaU = base_url('img/avatars/userGA.png');
                                                 } else {
-                                                    $rutaU = base_url('img/usuarios/'.$datoPersonal->foto);
+                                                    $rutaU = base_url('img/usuarios/' . $datoPersonal->foto);
                                                 }
                                                 echo $rutaU; ?>" alt="Fotografía" width="180" height="180" /><br>
                                     <input class="form-control" type="file" id="userFoto" name="userFoto">
                                     <input type="hidden" name="UrlPhotoUser[]" value="<?php
-                                                if ($datoPersonal->foto == " " || empty($datoPersonal->foto)) {
-                                                    $urlUserF = " ";
-                                                } else {
-                                                    $urlUserF = $datoPersonal->foto;
-                                                }
-                                                echo $urlUserF; ?>">
+                                                                                        if ($datoPersonal->foto == " " || empty($datoPersonal->foto)) {
+                                                                                            $urlUserF = " ";
+                                                                                        } else {
+                                                                                            $urlUserF = $datoPersonal->foto;
+                                                                                        }
+                                                                                        echo $urlUserF; ?>">
                                 </div>
                             <?php endforeach; ?>
                             <div class="mb-3">
@@ -78,8 +78,6 @@
                                     <option value="1" <?php echo ($usuario->estatus_user == 1) ? 'selected' : ''; ?>>Activo</option>
                                     <option value="0" <?php echo ($usuario->estatus_user == 0) ? 'selected' : ''; ?>>Inactivo</option>
                                 </select>
-                                <!-- Campo oculto para almacenar el valor seleccionado -->
-                                <input type="hidden" id="estatusHidden" name="estatusHidden">
                             </div>
 
                             <div class="mb-3">

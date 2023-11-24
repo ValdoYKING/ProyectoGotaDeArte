@@ -77,6 +77,7 @@ $routes->get('/usuariosLista', 'Admin::listaUsuarios', ['filter' => 'auth']);
 $routes->get('/get_usuario/(:num)', 'Admin::get_data_usuario/$1');
 $routes->post('/actualizarUsuario/(:num)', 'Admin::actualizarusario/$1');
 $routes->get('/Admin/eliminarusario/(:num)', 'Admin::eliminarusario/$1');
+$routes->get('/Admin/eliminarartista/(:num)', 'Admin::eliminarArtista/$1');
 $routes->get('/artistasLista', 'Admin::listaArtistas', ['filter' => 'auth']);
 $routes->get('/get_artista/(:num)', 'Admin::get_data_artista/$1', ['filter' => 'auth']);
 $routes->post('/actualizarArtista/(:num)', 'Admin::actualizarArtista/$1');
