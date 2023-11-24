@@ -40,10 +40,6 @@ class CuadroArte extends BaseController{
         $fkid = $results->fk_usuario_artista;
         $datoArtista = $this->personal->where('fk_usuario',$fkid)->first();
 
-        if($datoArtista){
-            echo 'error';
-        }
-
         $dataMenu = [
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',

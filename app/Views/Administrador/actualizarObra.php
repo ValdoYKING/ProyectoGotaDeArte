@@ -1,4 +1,4 @@
-<?php echo $this->extend('Plantilla/disenioArtista'); ?>
+<?php echo $this->extend('Plantilla/disenioAdmin'); ?>
 <?php echo $this->section('contenido'); ?>
 <br>
 <div class="container">

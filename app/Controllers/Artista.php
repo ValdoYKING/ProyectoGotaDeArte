@@ -128,13 +128,13 @@ class Artista extends BaseController
         
                     $this->subasta->insert($dataSubes);            
         
-                    return redirect()->to('/Artista/publicacionesArtista')->with('message', 'Se registro la obra exitosamente.');
+                    return redirect()->to('/Artista/publicacionesArtista')->with('message', 'Se registro la obra y la subasta exitosamente.');
         
                 } else {
                     
                     $this->obrasArtista->insert($data);
         
-                    return redirect()->to('/Artista/publicacionesArtista');
+                    return redirect()->to('/Artista/publicacionesArtista')->with('message', 'Se registro la obra y exitosamente.');
                 }
             }
             
@@ -279,7 +279,7 @@ class Artista extends BaseController
                         $this->obrasArtista->update($id, $data);
                         $this->subasta->insert($Subasta);            
                 
-                        return redirect()->to('/Artista/publicacionesArtista');
+                        return redirect()->to('/Artista/publicacionesArtista')->with('message-update', 'Se actualizo la obra y la subasta se registro exitosamente.');
                     
                         } else {
                             $fk = $sub['id'];
@@ -287,7 +287,7 @@ class Artista extends BaseController
                             $this->subasta->update($fk,$dataSubes);
                 
                             $this->obrasArtista->update($id, $data);
-                            return redirect()->to('/Artista/publicacionesArtista');
+                            return redirect()->to('/Artista/publicacionesArtista')->with('message-update', 'Se actualizo la obra exitosamente.');
                         }
                             
                     } else if ($status == 0) {
@@ -297,13 +297,13 @@ class Artista extends BaseController
                             $this->subasta->where('fk_obra',$fk)->delete(); 
                             $this->obrasArtista->update($id, $data);
                 
-                            return redirect()->to('/Artista/publicacionesArtista');
+                            return redirect()->to('/Artista/publicacionesArtista')->with('message-update', 'Se actualizo la obra y la subasta se elimino exitosamente.');
                     
                         } else {
                 
                             $this->obrasArtista->update($id, $data);
                         
-                            return redirect()->to('/Artista/publicacionesArtista');
+                            return redirect()->to('/Artista/publicacionesArtista')->with('message-update', 'Se actualizo la obra  exitosamente.');
                         }
                     }
     
@@ -311,7 +311,7 @@ class Artista extends BaseController
     
                 }
             } else {
-                return redirect()->to('/Artista/publicacionesArtista');
+                return redirect()->to('/Artista/publicacionesArtista')->with('error', 'Archivo no encontrado');
             }
         } else {
             $fotUrl =  $dircFoto->foto;
@@ -343,7 +343,7 @@ class Artista extends BaseController
                 $this->obrasArtista->update($id, $data);
                 $this->subasta->insert($Subasta);            
         
-                return redirect()->to('/Artista/publicacionesArtista');
+                return redirect()->to('/Artista/publicacionesArtista')->with('message-update', 'Se actualiza la obra y la subasta se registro exitosamente.');
             
                 } else {
                     $fk = $sub['id'];
@@ -351,7 +351,7 @@ class Artista extends BaseController
                     $this->subasta->update($fk,$dataSubes);
         
                     $this->obrasArtista->update($id, $data);
-                    return redirect()->to('/Artista/publicacionesArtista');
+                    return redirect()->to('/Artista/publicacionesArtista')->with('message-update', 'Se actualizo la obra exitosamente.');
                 }
                     
             } else if ($status == 0) {
@@ -361,13 +361,13 @@ class Artista extends BaseController
                     $this->subasta->where('fk_obra',$fk)->delete(); 
                     $this->obrasArtista->update($id, $data);
         
-                    return redirect()->to('/Artista/publicacionesArtista');
+                    return redirect()->to('/Artista/publicacionesArtista')->with('message-update', 'Se actualizo la obra y la subasta fue elminida exitosamente.');
             
                 } else {
         
                     $this->obrasArtista->update($id, $data);
                 
-                    return redirect()->to('/Artista/publicacionesArtista');
+                    return redirect()->to('/Artista/publicacionesArtista')->with('message-update', 'Se actualizo la obra exitosamente.');
                 }
             }
             
@@ -391,7 +391,7 @@ class Artista extends BaseController
     
             $this->subasta->delete($fk);            
             $this->obrasArtista->delete($id);
-            return redirect()->to('/Artista/publicacionesArtista');
+            return redirect()->to('/Artista/publicacionesArtista')->with('message-delete', 'Se elmino la obra y la subasta exitosamente.');
         } else {
             try {
                 unlink($url);
@@ -399,7 +399,7 @@ class Artista extends BaseController
                 //throw $th;
             }
             $this->obrasArtista->delete($id);
-            return redirect()->to('/Artista/publicacionesArtista');
+            return redirect()->to('/Artista/publicacionesArtista')->with('message-delete', 'Se elimino la obra exitosamente.');
         }
     }  
     
@@ -466,7 +466,7 @@ class Artista extends BaseController
 
         $this->subasta->update($id,$subastaData);
 
-        return redirect()->to('Artista/subastaArt');
+        return redirect()->to('Artista/subastaArt')->with('message-update', 'Se actualizo la subasta exitosamente.');
     }
 
     public function eliminarSubasta($id)
@@ -476,7 +476,7 @@ class Artista extends BaseController
             $subes = ['estatus_subasta' => 0];
             $this->obrasArtista->update($idO, $subes);
             $this->subasta->delete($id);            
-            return redirect()->to('Artista/subastaArt');
+            return redirect()->to('Artista/subastaArt')->with('message-delete', 'Se elimino la subasta exitosamente.');
     }
 }
     
