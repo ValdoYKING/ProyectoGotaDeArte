@@ -46,6 +46,7 @@ $routes->get('/Contactos/eliminarcontacto/(:num)', 'Contacto::eliminarcontacto/$
 //
 $routes->get('/canasta_prueba', 'Canasta::index');
 $routes->post('/UsuarioCanasta/edit', 'Canasta::edit');
+$routes->get('/CuadroArte/obraCliente/(:num)', 'CuadroArte::obraCliente/$1');
 
 
 $routes->get('/biografia_Art', 'Artista::biografia');

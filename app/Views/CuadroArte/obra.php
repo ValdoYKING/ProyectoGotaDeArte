@@ -1,4 +1,4 @@
-<?php echo $this->extend('Plantilla/disenioArtista'); ?>
+<?php echo $this->extend('Plantilla/disenio'); ?>
 <?php echo $this->section('contenido'); ?>
 <br>
 <div class="container">
@@ -23,14 +23,14 @@
         
         <div>
             <img src="<?php echo base_url($publicaciones->foto)?>" width="600" alt="imagenPublicacion">
-        </div>
+                    </div>
     </section>
 </div>
 <div class="col-4">
     <aside>
         <h2><?php echo $publicaciones->nombre?></h2>
         <p><?php echo $publicaciones->descripcion?></p>
-        <h3><?php echo $datosarte->a_paterno ."," . $datosarte->nombre ?></h3>
+        <h3><?php echo $datosart->a_paterno."," .$datosart->nombre ?></h3>
         <?php $fecha = explode(' ',$publicaciones->fecha_creacion)?>
         <h3>
             <?php echo $fecha[0] ?>

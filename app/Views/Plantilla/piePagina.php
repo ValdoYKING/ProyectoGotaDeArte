@@ -46,6 +46,22 @@
           <script>
         document.write(new Date().getFullYear())
         </script> © <a href="<?php echo base_url('/login_admin')?>">PixelFusion</a> / © <a href="https://themeselection.com/">Sneat</a>
-      </p>
+        <script>
+          function mostrarPregunta() {
+            document.getElementById('pregunta').classList.remove('hidden');
+          }
+
+          function ocultarPregunta() {
+            document.getElementById('pregunta').classList.add('hidden');
+          }
+          function mostrarPreguntaR() {
+            document.getElementById('preguntaR').classList.remove('hidden');
+          }
+
+          function ocultarPreguntaR() {
+            document.getElementById('preguntaR').classList.add('hidden');
+          }
+        </script>  
+    </p>
   </div>
 </div>

@@ -53,7 +53,7 @@
                                 <label for="html5-text-input" class="col-md-2 col-form-label">¿Cuándo quieres que sea tu subasta?</label>
                                 <div class="input-group input-group-merge">
                                     <span id="subasta" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                    <input type="datetime-local" id="subasta" name="subasta" class="form-control" aria-describedby="basic-icon-default-message2" value="<?php echo $subasta['fechaSubasta'] ?>">
+                                    <input type="datetime-local" id="subasta" name="subasta" class="form-control" aria-describedby="basic-icon-default-message2" value="<?php echo $subasta['fechaSubasta'] ?>" required>
                                 </div>
                             </div>
 

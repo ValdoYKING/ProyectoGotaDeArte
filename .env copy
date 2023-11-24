@@ -13,14 +13,14 @@
 #--------------------------------------------------------------------
 # ENVIRONMENT
 #--------------------------------------------------------------------
-#production
+
 CI_ENVIRONMENT = development
 
 #--------------------------------------------------------------------
 # APP
 #--------------------------------------------------------------------
 
-app.baseURL = 'http://localhost/GotaDeArte/public/'
+app.baseURL = 'http://localhost/ProyectoGotaDeArte/public/'
 # If you have trouble with `.`, you could also use `_`.
 # app_baseURL = ''
 # app.forceGlobalSecureRequests = false
@@ -30,14 +30,6 @@ app.baseURL = 'http://localhost/GotaDeArte/public/'
 # DATABASE
 #--------------------------------------------------------------------
 
-#database.default.hostname = localhost
-#database.default.database = gotadear_test
-#database.default.username = root
-#database.default.password =
-#database.default.DBDriver = MySQLi
-#database.default.DBPrefix =
-#database.default.port = 8080
-
 database.default.hostname = 162.241.62.50
 database.default.database = gotadear_test
 database.default.username = gotadear_project
@@ -45,6 +37,14 @@ database.default.password = 2OvCFK3ZU1b5
 database.default.DBDriver = MySQLi
 # database.default.DBPrefix =
 # database.default.port = 3306
+
+# database.tests.hostname = localhost
+# database.tests.database = ci4_test
+# database.tests.username = root
+# database.tests.password = root
+# database.tests.DBDriver = MySQLi
+# database.tests.DBPrefix =
+# database.tests.port = 3306
 
 #--------------------------------------------------------------------
 # CONTENT SECURITY POLICY

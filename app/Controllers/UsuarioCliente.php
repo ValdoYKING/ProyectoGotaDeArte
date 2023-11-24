@@ -27,7 +27,7 @@ class UsuarioCliente extends BaseController
         $results = $query->getResult(); */
 
         $obraArteModel = new ObrasArtista();
-        $results = $obraArteModel->findAll();
+        $results = $obraArteModel->where('estatus_subasta', 0)->findAll();
 
         $dataMenu = [
             'userName' => $this->userName,

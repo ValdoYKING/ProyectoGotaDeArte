@@ -255,6 +255,8 @@ class Admin extends BaseController
     public function mostrarObra($id)
     {
         $results = $this->obrasArtista->find($id);
+        $idObra = $results->id;
+        $subasta = $this->subastas->where('fk_obra',$idObra)->first();
 
         $Menu = [
             'userName' => $this->userName,
@@ -265,6 +267,7 @@ class Admin extends BaseController
         $Contenido = [
             'titulo' => 'GOTA DE ARTE | Actualizar publicacion',
             'publicacion' => $results,
+            'subasta' => $subasta
         ];
         $PiePagina = [
             'fecha' => date('Y'),
