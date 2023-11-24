@@ -7,7 +7,7 @@
             <li class="breadcrumb-item active">
                 <a href="<?php echo base_url('/inicioartista')?>">/Inicio</a>
             </li>
-            <li class="breadcrumb-item active">
+            <li class="breadcrumb-item active"></li>
                 <a href="<?php echo base_url('/inicioartista/obraArtista/'.$publicaciones->id)?>">Obra</a>
             </li>
         </ol>
@@ -55,8 +55,8 @@
 
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
-<script>
+<!-- <script>
 
-</script>
+</script> -->
 
 <?php echo $this->endSection(); ?>

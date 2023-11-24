@@ -128,7 +128,7 @@ class Artista extends BaseController
         
                     $this->subasta->insert($dataSubes);            
         
-                    return redirect()->to('/Artista/publicacionesArtista');
+                    return redirect()->to('/Artista/publicacionesArtista')->with('message', 'Se registro la obra exitosamente.');
         
                 } else {
                     

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="/assets/" data-template="vertical-menu-template-free">
+<html lang="es" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"  data-template="vertical-menu-template-free">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -17,7 +17,7 @@
   <!-- Core CSS -->
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/core.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/theme-default.css'); ?>">
-  <link rel="stylesheet" href="<?= base_url('css/demo.css'); ?>">
+  <!-- <link rel="stylesheet" href="<?= base_url('css/demo.css'); ?>"> -->
   <!-- Estilos particular -->
   <link rel="stylesheet" href="<?= base_url('vendorTemplate/css/estilosPropios.css'); ?>">
   <!-- Vendors CSS -->
@@ -31,6 +31,11 @@
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="<?= base_url('js/config.js'); ?>"></script>
 </head>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
 <body>
   <!-- Navbar de la pagina -->
   <?php echo $this->include("Plantilla/menuArtista"); ?>
@@ -58,10 +63,6 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <?php echo $this->renderSection("scripts"); ?>
-  <style>
-    .hidden {
-        display: none;
-    }
-</style>
+
 </body>
 </html>

@@ -13,6 +13,17 @@
         </ol>
     </nav>
 </div>
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if (session()->has('message')) : ?>
+                    <div class="alert alert-success">
+                        <?php echo session('message'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
 
 <section>
     <div class="container">
