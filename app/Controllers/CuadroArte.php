@@ -26,7 +26,7 @@ class CuadroArte extends BaseController{
             $datosUsuario = $this->personal->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
-                $this->idUser = $datosUsuario->id;
+                $this->idUser = $datosUsuario->fk_usuario;
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -38,8 +38,11 @@ class CuadroArte extends BaseController{
 
         $results = $this->obrasArtista->find($id);
         $fkid = $results->fk_usuario_artista;
-        $datoArtista = $this->personal->find($fkid);
+        $datoArtista = $this->personal->where('fk_usuario',$fkid)->first();
 
+        if($datoArtista){
+            echo 'error';
+        }
 
         $dataMenu = [
             'userName' => $this->userName,
@@ -50,7 +53,7 @@ class CuadroArte extends BaseController{
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
             'publicaciones' => $results,
-            'datosart' => $datoArtista
+            'datosarte' => $datoArtista
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),

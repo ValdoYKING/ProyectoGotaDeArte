@@ -3,6 +3,8 @@ namespace App\Controllers;
 use App\Models\ObrasArtista;
 use App\Models\subastasModelo;
 use App\Models\datosPersonalesModel;
+use App\Models\usuariosModel;
+
 
 
 class Artista extends BaseController
@@ -10,6 +12,7 @@ class Artista extends BaseController
     private $obrasArtista;
     private $subasta;
     protected $datosPersonalesModel;
+    protected $usuario;
 
     private $userName;
     private $idUser;
@@ -18,15 +21,15 @@ class Artista extends BaseController
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
         $this->subasta = new subastasModelo();
+        $this->usuario = new usuariosModel();
         $this->datosPersonalesModel = new datosPersonalesModel();
 
         if (session()->has('user_id')) {
             $userNameSession = session()->get('user_id');
-            //$datosPersonalesModel = new \App\Models\datosPersonalesModel();
             $datosUsuario = $this->datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
-                $this->idUser = $datosUsuario->id;
+                $this->idUser = $datosUsuario->fk_usuario;
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -57,7 +60,7 @@ class Artista extends BaseController
         }
 
         $dataMenu = [
-            'userName' => $this->userName,
+            'userName' => $this->idUser,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/salirArtista'),
             // 'url' => base_url('/salir'),
@@ -87,7 +90,6 @@ class Artista extends BaseController
         $medidas = $_POST['medidas'];
         $fecha = Date('Y-m-d H:i:s');
         $idU = $this->idUser;
-
         $idImg = $this->obrasArtista->orderBy('id','desc')->first();
         $imgid = $idImg->id + 1;
         $ruta = $direccion.$nombre."_".$imgid.".".$tipoImg;
@@ -170,8 +172,8 @@ class Artista extends BaseController
 
 
     public function publicacionesArtista(): string{
-        $usID = $this->idUser;
-        $results = $this->obrasArtista->where('fk_usuario_artista',$usID )->findAll();
+        $idU = $this->idUser;
+        $results = $this->obrasArtista->where('fk_usuario_artista',$idU )->findAll();
         foreach ($results as $publicaciones) {
             $datosPersonales = $this->datosPersonalesModel->where('id', $publicaciones->fk_usuario_artista)->findAll();
             $dataDatosPersonales[$publicaciones->fk_usuario_artista] = $datosPersonales;
@@ -198,7 +200,7 @@ class Artista extends BaseController
     public function nuevaPublicacion(): string{
 
         $dataMenu = [
-            'userName' => $this->userName,
+            'userName' => $this->idUser,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
 
@@ -220,6 +222,7 @@ class Artista extends BaseController
         $sub = $this->subasta->where('fk_obra', $id)->first();
         $dircFoto = $this->obrasArtista->find($id);
         $idU = $this->idUser;
+
         $fecha = Date('Y-m-d H:i:s');
         $imagen = $_FILES['foto']['tmp_name'];
         $nombreImg = $_FILES['foto']['name'];
@@ -276,7 +279,7 @@ class Artista extends BaseController
                         $this->obrasArtista->update($id, $data);
                         $this->subasta->insert($Subasta);            
                 
-                        return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se actualizo');
+                        return redirect()->to('/Artista/publicacionesArtista');
                     
                         } else {
                             $fk = $sub['id'];
@@ -284,7 +287,7 @@ class Artista extends BaseController
                             $this->subasta->update($fk,$dataSubes);
                 
                             $this->obrasArtista->update($id, $data);
-                            return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se actualizo');
+                            return redirect()->to('/Artista/publicacionesArtista');
                         }
                             
                     } else if ($status == 0) {
@@ -294,13 +297,13 @@ class Artista extends BaseController
                             $this->subasta->where('fk_obra',$fk)->delete(); 
                             $this->obrasArtista->update($id, $data);
                 
-                            return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se actualizo');
+                            return redirect()->to('/Artista/publicacionesArtista');
                     
                         } else {
                 
                             $this->obrasArtista->update($id, $data);
                         
-                            return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se actualizo');
+                            return redirect()->to('/Artista/publicacionesArtista');
                         }
                     }
     
@@ -308,7 +311,7 @@ class Artista extends BaseController
     
                 }
             } else {
-                return redirect()->to('/Artista/publicacionesArtista')->with('error','No ha ingresado ninguna imagen');
+                return redirect()->to('/Artista/publicacionesArtista');
             }
         } else {
             $fotUrl =  $dircFoto->foto;
@@ -340,7 +343,7 @@ class Artista extends BaseController
                 $this->obrasArtista->update($id, $data);
                 $this->subasta->insert($Subasta);            
         
-                return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se actualizo');
+                return redirect()->to('/Artista/publicacionesArtista');
             
                 } else {
                     $fk = $sub['id'];
@@ -348,7 +351,7 @@ class Artista extends BaseController
                     $this->subasta->update($fk,$dataSubes);
         
                     $this->obrasArtista->update($id, $data);
-                    return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se actualizo');
+                    return redirect()->to('/Artista/publicacionesArtista');
                 }
                     
             } else if ($status == 0) {
@@ -358,13 +361,13 @@ class Artista extends BaseController
                     $this->subasta->where('fk_obra',$fk)->delete(); 
                     $this->obrasArtista->update($id, $data);
         
-                    return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se actualizo');
+                    return redirect()->to('/Artista/publicacionesArtista');
             
                 } else {
         
                     $this->obrasArtista->update($id, $data);
                 
-                    return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se actualizo');
+                    return redirect()->to('/Artista/publicacionesArtista');
                 }
             }
             
@@ -388,7 +391,7 @@ class Artista extends BaseController
     
             $this->subasta->delete($fk);            
             $this->obrasArtista->delete($id);
-            return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se elimino y en subasta');
+            return redirect()->to('/Artista/publicacionesArtista');
         } else {
             try {
                 unlink($url);
@@ -396,13 +399,13 @@ class Artista extends BaseController
                 //throw $th;
             }
             $this->obrasArtista->delete($id);
-            return redirect()->to('/Artista/publicacionesArtista')->with('message','La obra se elimano');
+            return redirect()->to('/Artista/publicacionesArtista');
         }
     }  
     
     public function publicacionesSubastas(){
-        $usID = $this->idUser;
-        $results = $this->subasta->where('fk_usuario', $usID)->findAll();
+        $idU = $this->idUser;
+        $results = $this->subasta->where('fk_usuario', $idU)->findAll();
         foreach ($results as $subastas) {
             $datosPersonales = $this->datosPersonalesModel->where('id', $subastas['fk_usuario'])->findAll();
             $dataDatosPersonales[$subastas['fk_usuario']] = $datosPersonales;
@@ -463,7 +466,7 @@ class Artista extends BaseController
 
         $this->subasta->update($id,$subastaData);
 
-        return redirect()->to('Artista/subastaArt')->with('message','La subasta fue actualizada');
+        return redirect()->to('Artista/subastaArt');
     }
 
     public function eliminarSubasta($id)
@@ -473,7 +476,7 @@ class Artista extends BaseController
             $subes = ['estatus_subasta' => 0];
             $this->obrasArtista->update($idO, $subes);
             $this->subasta->delete($id);            
-            return redirect()->to('Artista/subastaArt')->with('message','La subasta fue eliminada');
+            return redirect()->to('Artista/subastaArt');
     }
 }
     
