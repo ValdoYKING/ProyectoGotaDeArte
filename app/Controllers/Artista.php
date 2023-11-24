@@ -26,7 +26,7 @@ class Artista extends BaseController
             $datosUsuario = $this->datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
-                $this->idUser = $datosUsuario->id;
+                $this->idUser = $datosUsuario->fk_usuario;
             }
         } else {
             $this->userName = 'Usuario Gota';

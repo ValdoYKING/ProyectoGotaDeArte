@@ -5,9 +5,19 @@ use App\Models\subastasModelo;
 class Subasta extends BaseController
 {
     private $obraSubasta;
-
+    protected $userName;
     public function __construct(){
         $this->obraSubasta = new subastasModelo();
+        if (session()->has('user_id')) {
+            $userNameSession = session()->get('user_id');
+            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
+            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+            if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
+                $this->userName = $datosUsuario->nombre;
+            }
+        } else {
+            $this->userName = 'Usuario Gota';
+        }
     }
 
     public function index(): string{
@@ -31,7 +41,7 @@ class Subasta extends BaseController
         $results = $subasta->findAll();
 
         $dataMenu = [
-            'userName' => 'maria',
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/canasta'),

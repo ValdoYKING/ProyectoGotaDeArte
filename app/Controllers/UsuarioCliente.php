@@ -5,8 +5,19 @@ use App\Models\ObrasArtista;
 class UsuarioCliente extends BaseController
 {
     private $obrasArtista;
+    protected $userName;
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
+        if (session()->has('user_id')) {
+            $userNameSession = session()->get('user_id');
+            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
+            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+            if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
+                $this->userName = $datosUsuario->nombre;
+            }
+        } else {
+            $this->userName = 'Usuario Gota';
+        }
     }
  
     public function iniciObras(): string{
@@ -19,7 +30,7 @@ class UsuarioCliente extends BaseController
         $results = $obraArteModel->findAll();
 
         $dataMenu = [
-            'userName' => 'Pepito',
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/'),
             'canastaUrl' => base_url('/canasta'),
