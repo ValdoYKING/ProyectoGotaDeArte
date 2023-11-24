@@ -114,14 +114,29 @@ class Admin extends BaseController
 
     public function actualizarusario($id)
     {
+        $nuevo_nombre = base_url('img/avatars/userGA.png');
+
+        if(isset($_FILES["userFoto"])){
+            $extension = pathinfo($_FILES["userFoto"]["name"], PATHINFO_EXTENSION);
+            $nuevo_nombre = rand() . '.' . $extension;
+            $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;        
+            move_uploaded_file($_FILES["userFoto"]["tmp_name"], $ubicacion);
+        }
+
+        if(empty($_POST['UrlPhotoUser'][0])){
+            
+        }else{
+            $nuevo_nombre= $_POST['UrlPhotoUser'][0];    
+        }
         // Datos personales
         $dataPersonal = [
-            'nombre' => $_POST['Nombre'][0], // Supongo que solo hay un campo 'Nombre' en el formulario
-            'a_paterno' => $_POST['Apellido_p'][0], // Supongo que solo hay un campo 'Apellido_p' en el formulario
-            'a_materno' => $_POST['Apellido_m'][0], // Supongo que solo hay un campo 'Apellido_m' en el formulario
-            'fecha_nacimiento' => $_POST['FechaNacimiento'][0], // Supongo que solo hay un campo 'FechaNacimiento' en el formulario
-            'descripcion' => $_POST['Descripcion'][0], // Supongo que solo hay un campo 'Descripcion' en el formulario
-            // 'urlFoto' => $_POST['urlFoto'], // Asegúrate de que el formulario tenga un campo 'urlFoto'
+            'nombre' => $_POST['Nombre'][0],
+            'a_paterno' => $_POST['Apellido_p'][0],
+            'a_materno' => $_POST['Apellido_m'][0],
+            'fecha_nacimiento' => $_POST['FechaNacimiento'][0],
+            'descripcion' => $_POST['Descripcion'][0],
+            // 'estatus_user' => $_POST['estatus'],
+            'foto' => $nuevo_nombre, // Asegúrate de que el formulario tenga un campo 'urlFoto'
         ];
         // Datos de usuario
         if ($_POST['estatusHidden']) {
@@ -131,7 +146,7 @@ class Admin extends BaseController
         }
         $dataUser = [
             'correo' => $_POST['correo'],
-            'estatus_user' => $estatus,
+            'estatus_user' => $_POST['estatus'],
         ];
         // Actualiza los datos del usuario
         $this->usuariomodel->update($id, $dataUser);
@@ -256,7 +271,7 @@ class Admin extends BaseController
     {
         $results = $this->obrasArtista->find($id);
         $idObra = $results->id;
-        $subasta = $this->subastas->where('fk_obra',$idObra)->first();
+        $subasta = $this->subastas->where('fk_obra', $idObra)->first();
 
         $Menu = [
             'userName' => $this->userName,

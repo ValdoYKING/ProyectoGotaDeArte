@@ -14,7 +14,7 @@ class usuariosModel extends Model{
     protected $returnType     = 'object';  //array
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id', 'correo','contrasenia','salt','fk_rol','fecha_creacion'];
+    protected $allowedFields = ['id', 'correo','contrasenia','salt','fk_rol','estatus_user','fecha_creacion'];
 
     // Dates
     protected $useTimestamps = false;

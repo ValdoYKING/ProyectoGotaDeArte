@@ -89,7 +89,7 @@
         var camposCompletos = true;
 
         // Validación de nombre
-        if (nombre.value.trim() === '' || !/^[a-zA-Z]+$/.test(nombre.value) || nombre.value.length > 18) {
+        if (nombre.value.trim() === '' || !/^[a-zA-ZáéíóúüÁÉÍÓÚÜ\s]+$/.test(nombre.value) || nombre.value.length > 18) {
             nombre.style.border = '1px solid red';
             camposCompletos = false;
         } else {
@@ -97,7 +97,7 @@
         }
 
         // Validación de apellidos (permite letras y espacios)
-        var apellidosRegex = /^[a-zA-Z\s]+$/;
+        var apellidosRegex = /^[a-zA-ZáéíóúüÁÉÍÓÚÜ\s]+$/;
         if (!apellidosRegex.test(apellidos.value.trim()) || apellidos.value.length > 80) {
             apellidos.style.border = '1px solid red';
             camposCompletos = false;

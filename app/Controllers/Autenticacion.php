@@ -31,7 +31,7 @@ class Autenticacion extends BaseController
 
         $usuario = $this->usuariosModel->where('correo', $correoUsername)->first();
 
-        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '1') {
+        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '1' && $usuario->estatus_user === '1') {
             $session = session();
             $session->set('user_id', $usuario->id);
             return redirect()->to('/inicio');
@@ -73,6 +73,7 @@ class Autenticacion extends BaseController
                 'contrasenia' => $hashedPassword,
                 'salt' => $salt,
                 'fk_rol' => 1,
+                'estatus_user' => '1',
             ];
             $this->usuariosModel->insert($dataUsuarios);
 
@@ -119,7 +120,7 @@ class Autenticacion extends BaseController
 
         $usuario = $this->usuariosModel->where('correo', $correoUsername)->first();
 
-        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '2') {
+        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '2' && $usuario->estatus_user === '1') {
             $session = session();
             $session->set('user_id', $usuario->id);
             return redirect()->to('Artista/publicacionesArtista');
@@ -161,6 +162,7 @@ class Autenticacion extends BaseController
                 'contrasenia' => $hashedPassword,
                 'salt' => $salt,
                 'fk_rol' => 2,
+                'estatus_user' => '1',
             ];
             $this->usuariosModel->insert($dataUsuarios);
 
@@ -207,7 +209,7 @@ class Autenticacion extends BaseController
 
         $usuario = $this->usuariosModel->where('correo', $correoUsername)->first();
 
-        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '3') {
+        if ($usuario && property_exists($usuario, 'contrasenia') && property_exists($usuario, 'salt') && password_verify($contrasenia . $usuario->salt, $usuario->contrasenia) && $usuario->fk_rol === '3' && $usuario->estatus_user === '1') {
             $session = session();
             $session->set('user_id', $usuario->id);
             return redirect()->to('/publicacionesLista');
