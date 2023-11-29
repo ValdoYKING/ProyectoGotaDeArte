@@ -305,7 +305,39 @@ class Admin extends BaseController
 
     public function actualizarPublicacion($id)
     {
-        $sub = $this->subastas->where('fk_obra', $id)->first();
+        $results = $this->obrasArtista->find($id);
+        $fecha = Date('Y-m-d H:i:s');  
+        //$status = $_POST['status'];
+        if( $results->estatus_subasta == 0){
+            $subasta = [ 
+                'nombre'=> $results->nombre,
+                'fotos'=> $results->foto,
+                'precioInicial'=> 0,
+                'precioPagado'=> 0,
+                'fk_obra'=> $results->id,
+                'fk_usuario'=> $results->fk_usuario_artista,
+                'fechaSubasta'=>'',
+                'fecha_creacion'=>$fecha,
+
+
+            ];
+            $data = ['estatus_subasta' => 1 ];
+            $this->obrasArtista->update($id,$data);
+            $this->subastas->insert($subasta);
+            
+            return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra y la subasta se registro exitosamente.');
+        } else if($results->estatus_subasta == 1){
+            
+            $data = ['estatus_subasta' => 0 ];
+            $this->subastas->where('fk_obra', $id)->delete();
+            $this->obrasArtista->update($id,$data);
+            return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra y la subasta se elimino exitosamente.');
+        }
+
+
+        
+        
+       /*  $sub = $this->subastas->where('fk_obra', $id)->first();
         $dircFoto = $this->obrasArtista->find($id);
         $fecha = Date('Y-m-d H:i:s');
         $imagen = $_FILES['foto']['tmp_name'];
@@ -314,7 +346,6 @@ class Admin extends BaseController
         $direccion = "img/galeria/";
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
-        $status = $_POST['status'];
         $descrip = $_POST['descripcion'];
         $medidas = $_POST['medidas'];
         $ruta = $direccion . $nombre . "_" . $id . "." . $tipoImg;
@@ -442,7 +473,7 @@ class Admin extends BaseController
                     return redirect()->to('/publicacionesLista')->with('message-update', 'Se actualizo la obra exitosamente.');
                 }
             }
-        }
+        } */
     }
 
     public function eliminarPublicacion($id)
@@ -536,8 +567,11 @@ class Admin extends BaseController
         return redirect()->to('/subastasLista')->with('message-update', 'Se actualizo la obra exitosamente.');
     }
 
-    public function eliminarSubasta($id)
-    {
+    public function eliminarSubasta($id){
+        $results = $this->subastas->find($id);
+        $idO = $results['fk_obra'];
+        $subes = ['estatus_subasta' => 0];
+        $this->obrasArtista->update($idO, $subes);
         $this->subastas->delete($id);
         return redirect()->to('/subastasLista')->with('message-delete', 'Se elmino la subasta exitosamente.');
     }

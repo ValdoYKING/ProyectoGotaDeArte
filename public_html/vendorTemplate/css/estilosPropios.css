@@ -99,7 +99,7 @@ ul>li>a:hover {
     height: 650px;
     border-radius: 15px;
     padding: 30px;
-    background-color: #ecdfc3;
+    background-color: rgb(97, 84, 155);
     margin-top: auto; /* Ancla el footer en la parte inferior */
 }
 

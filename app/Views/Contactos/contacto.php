@@ -46,8 +46,16 @@
                 <div class="mb-3 row">
                     <label for="asunto" class="col-md-2 col-form-label">Asunto </label>
                     <div class="col-md-10">
-                    <input class="form-control" type="text" value="" placeholder="Agregar Asunto " name="asunto"  id="asunto" required />
-                    </div>
+                        <select class="input-group-text" name="asunto" for="grupoasusntos" required>
+                            <option selected>Selecciona un asunto</option>
+                            <option value="1">Informes de Artista</option>
+                            <option value="2">Informe del envio de la obra</option>
+                            <option value="3">Contactar algun artista</option>
+                            <option value="4">Como entrar a una subasta</option>
+                            <option value="5">Ser parte de Gota de Arte </option>
+                        </select>
+<!--                     <input class="form-control" type="text" value="" placeholder="Agregar Asunto " name="asunto"  id="asunto" required />
+ -->                    </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="mensaje" class="form-label">Mensaje que desee enviar</label>

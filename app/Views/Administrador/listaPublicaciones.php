@@ -63,32 +63,20 @@
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <span class="fw-medium"><?php echo $publicacion->nombre ?></span></td>
                             <td><img src="<?php echo base_url($publicacion->foto)?>" width="50" height="50" alt="Avatar" class="rounded-circle"></td>
-                            <td><?php echo $publicacion->descripcion?>
-<!--                                 <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                    <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                                        <img src="<?php echo base_url('img/avatars/5.png')?>" alt="Avatar" class="rounded-circle">
-                                    </li>
-                                    <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
-                                        <img src="<?php echo base_url('img/avatars/6.png')?>" alt="Avatar" class="rounded-circle">
-                                    </li>
-                                    <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
-                                        <img src="<?php echo base_url('img/avatars/7.png')?>" alt="Avatar" class="rounded-circle">
-                                    </li>
-                                </ul> -->
-                            </td>
+                            <td><?php echo $publicacion->descripcion?></td>
                             <td><?php echo $publicacion->medidas ?></td>
                             <td>$<?php echo $publicacion->precio ?>.00</td>
-                            <td>      
+                            <td><a class="dropdown-item" method="POST" href="<?php echo base_url('/Admin/actualizarPublicacion/'.$publicacion->id) ?>">
                             <?php if($publicacion->estatus_subasta == 1){
 
-                                echo '<span class="badge bg-label-warning me-1">En subasta</span>';
+                            echo '<span class="badge bg-label-warning me-1">En subasta</span>';
                             } else if($publicacion->estatus_subasta == 0) {
-                                
-                                echo '<span class="badge bg-label-primary me-1">Publicado</span>';
+
+                            echo '<span class="badge bg-label-primary me-1">Publicado</span>';
                             }
                             ?>
+                            </a></td>
 
-                            </td>
                             <td>
                                     <?php if (isset($datosPersonales[$publicacion->fk_usuario_artista])) : ?>
                                         <?php foreach ($datosPersonales[$publicacion->fk_usuario_artista] as $datoPersonal) : ?>
@@ -103,7 +91,7 @@
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="<?php echo base_url('/Admin/mostrarObra/'.$publicacion->id) ?>"><i class="bx bx-edit-alt me-1"></i>Editar</a>
+                                        <!--<a class="dropdown-item" href="<?php echo base_url('/Admin/mostrarObra/'.$publicacion->id) ?>"><i class="bx bx-edit-alt me-1"></i>Editar</a>-->                                        
                                         <a class="dropdown-item" href="<?php echo base_url('/Admin/eliminarPublicacion/'.$publicacion->id) ?>"><i class="bx bx-trash me-1"></i>Eliminar</a>
                                     </div>
                                 </div>
@@ -114,7 +102,7 @@
                     </tbody>
                 </table>
             </div>
-            <!-- fin tabkle -->
+            <!-- fin table -->
         </div>
     </div>
 </section>

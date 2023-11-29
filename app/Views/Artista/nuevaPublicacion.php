@@ -85,7 +85,7 @@
                                     <label>
                                         ¿Qué precio deseas que tu obra inicie en la subasta?
                                     </label>
-                                    <input type="number" class="form-control" name="Psubasta" value="" >
+                                    <input type="number" onclick="procesarFormulario()" class="form-control" id='botonEnviar' name="Psubasta" value="" >
                                 </div>
 
                             </div>
@@ -104,7 +104,10 @@
 
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
-<!--<script>
+<script>
+    function procesarFormulario() {
+        // Deshabilitar el botón después de hacer clic
+        document.getElementById('botonEnviar').disabled = true;
+    }
 </script>
--->
 <?php echo $this->endSection(); ?>

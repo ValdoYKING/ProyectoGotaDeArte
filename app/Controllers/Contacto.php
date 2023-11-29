@@ -61,11 +61,24 @@ class Contacto extends BaseController
 
     public function insertar() {
         $fecha = Date('Y-m-d H:i:s');
+        $asunto = '';
+
+    if($_POST['asunto'] == 1){
+        $asunto = 'Informes de Artista';
+    } else if($_POST['asunto'] == 2){
+        $asunto = 'Informe del envio de la obra';
+    } else if($_POST['asunto'] == 3){
+        $asunto = 'Contactar algun artista';
+    } else if($_POST['asunto'] == 4){
+        $asunto = 'Como entrar a una subasta';
+    } else if($_POST['asunto'] == 5){
+        $asunto = 'Ser parte de Gota de Arte';
+    } 
     $data = [
         'nombre_contacto' => $_POST['nombre'],
         'correo_contacto' => $_POST['email'],
-        'asunto_contacto' => $_POST['asunto'],
         'comentario_contacto' => $_POST['mensaje'],
+        'asunto_contacto' => $asunto,
         'fk_rol' => 1,
         'fecha_creacion' => $fecha,
         

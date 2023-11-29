@@ -85,7 +85,7 @@ $routes->get('/publicacionesLista', 'Admin::listaPublicaciones', ['filter' => 'a
 $routes->get('/subastasLista', 'Admin::listaSubastas', ['filter' => 'auth']);
 $routes->get('/contactosLista', 'Contacto::listaContactos', ['filter' => 'auth']);
 $routes->get('/Admin/mostrarObra/(:num)', 'Admin::mostrarObra/$1', ['filter' => 'auth']);
-$routes->post('/Admin/actualizarPublicacion/(:num)', 'Admin::actualizarPublicacion/$1');
+$routes->get('/Admin/actualizarPublicacion/(:num)', 'Admin::actualizarPublicacion/$1');
 $routes->get('/Admin/eliminarPublicacion/(:num)', 'Admin::eliminarPublicacion/$1');
 $routes->get('/Admin/mostrarSubasta/(:num)', 'Admin::mostrarSubasta/$1', ['filter' => 'auth']);
 $routes->post('/Admin/actualizarSubasta/(:num)', 'Admin::actualizarSubasta/$1');
