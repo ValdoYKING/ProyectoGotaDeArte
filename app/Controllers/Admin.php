@@ -567,6 +567,6 @@ class Admin extends BaseController
 
         $this->contactosModel->delete($id);
 
-        return redirect()->to('/contactosLista')->with('message-delete', 'Se elmino el contacto exitosamente.');
+        return redirect()->to('/contactosLista')->with('message-delete', 'Se elimino el mensaje exitosamente.');
     }
 }
