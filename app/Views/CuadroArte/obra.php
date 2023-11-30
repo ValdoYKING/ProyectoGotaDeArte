@@ -41,6 +41,7 @@
 
         <?php if ($publicaciones->estatus_subasta == 0){ ?>
             <button class="btn btn-outline-warning">Adquirir Obra</button>
+            <button class="btn btn-outline-warning">Canasta</button>
             <button class="btn btn-outline-success">Pregunta para subastar</button>
         <?php } else {?>
             <h3>Esa obra estara en subasta</h3>

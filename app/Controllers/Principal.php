@@ -181,4 +181,5 @@ class Principal extends BaseController
         $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
         return view('Principal/estilodisenio', $data);
     }
+    
 }

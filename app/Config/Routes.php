@@ -13,7 +13,7 @@ $routes->get('/info', 'Principal::sobreNosotros');
 $routes->get('/tyc', 'Principal::terminosCondiciones');
 $routes->get('/politicadeprivacidad', 'Principal::politicaPrivacidad');
 $routes->get('/obras', 'UsuarioCliente::iniciObras', ['filter' => 'auth']);
-$routes->get('/canasta', 'Principal::canasta', ['filter' => 'auth']);
+$routes->get('/canasta', 'Principal::canasta');
 $routes->get('/guardados', 'Principal::guardados', ['filter' => 'auth']);
 
 $routes->get('/login', 'Autenticacion::loginUsuario');
@@ -93,7 +93,7 @@ $routes->get('/Admin/eliminarSubasta/(:num)', 'Admin::eliminarSubasta/$1');
 
 $routes->get('/Admin/eliminarContacto/(:num)', 'Admin::eliminarContacto/$1');
 
-
+$routes->get('/TerminosYCondiciones/TerminosyCondiciones', 'TerminosYCondiciones::terminos');
 
 /* TESTS */
 $routes->get('/prueba', 'Principal::index');
