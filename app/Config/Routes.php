@@ -67,6 +67,7 @@ $routes->post('/Artista/ActualizarArtista/(:num)', 'Artista::ActualizarArtista/$
 $routes->get('/Artista/EliminarArtista/(:num)', 'Artista::EliminarArtista/$1');
 
 $routes->get('/Artista/eliminarSubasta/(:num)', 'Artista::eliminarSubasta/$1');
+$routes->get('/Artista/perfil/(:num)', 'Artista::perfil/$1');
 
 
 $routes->get('/comprarObra', 'Pagos::compraObra');

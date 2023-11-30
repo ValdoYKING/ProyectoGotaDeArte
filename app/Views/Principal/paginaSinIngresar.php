@@ -172,7 +172,7 @@
                             <h5>"Desatando el arte, inspirando el mundo."</h5>
                         </div>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <a href="<?php echo base_url('/registrar') ?>" class="btn btn-secondary btn-lg">REGRISTRATE</a>
+                            <a href="<?php echo base_url('/registrar') ?>" class="btn btn-secondary btn-lg">REGISTRATE</a>
 
                         </div>
                     </div>
