@@ -146,6 +146,7 @@ class Artista extends BaseController
 
     /* Transaccion basica para agregar resgistros */
     public function consultarObra($id){
+        $userSession = session()->get('user_id');
         $results = $this->obrasArtista->find($id);
         $idObra = $results->id;
         $subasta = $this->subasta->where('fk_obra',$idObra)->first();
@@ -156,6 +157,7 @@ class Artista extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$userSession),
             'urlSalir' => base_url('/'),
         ];
         $dataContenido = [
@@ -173,6 +175,7 @@ class Artista extends BaseController
 
 
     public function publicacionesArtista(): string{
+        $userSession = session()->get('user_id');
         $idU = $this->idUser;
         $results = $this->obrasArtista->where('fk_usuario_artista',$idU )->findAll();
         if(!empty($results)){
@@ -189,6 +192,7 @@ class Artista extends BaseController
             'sesion' => 'Cerrar sesión', 
             'url' => base_url('/'),   
             'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$userSession),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi publicacion',
@@ -488,6 +492,25 @@ class Artista extends BaseController
             $this->obrasArtista->update($idO, $subes);
             $this->subasta->delete($id);            
             return redirect()->to('Artista/subastaArt')->with('message-delete', 'Se elimino la subasta exitosamente.');
+    }
+
+    public function perfil($id):string{
+        $idU = $this->idUser;
+        $dataMenu = [ 
+            'userName' => $this->userName,
+            'sesion' => 'Cerrar sesión', 
+            'url' => base_url('/'),   
+            'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$idU),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE A RTE | Mis perfil',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Artista/perfil',$data);
     }
 }
     

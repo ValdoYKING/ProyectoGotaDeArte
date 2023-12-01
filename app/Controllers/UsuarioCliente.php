@@ -6,6 +6,7 @@ class UsuarioCliente extends BaseController
 {
     private $obrasArtista;
     protected $userName;
+    private $idUser;
     public function __construct(){
         $this->obrasArtista = new ObrasArtista();
         if (session()->has('user_id')) {
@@ -14,6 +15,7 @@ class UsuarioCliente extends BaseController
             $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
+                $this->idUser = $datosUsuario->fk_usuario;
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -33,8 +35,8 @@ class UsuarioCliente extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Publicaciones',

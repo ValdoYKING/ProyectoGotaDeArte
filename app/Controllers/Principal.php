@@ -8,6 +8,7 @@ class Principal extends BaseController
     private $userName;
     private $obras;
 
+    private $idUser;
     public function __construct()
     {
         $this->obras = new ObrasArtista();
@@ -17,6 +18,7 @@ class Principal extends BaseController
             $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
+                $this->idUser = $datosUsuario->fk_usuario;
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -51,8 +53,8 @@ class Principal extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
@@ -70,8 +72,8 @@ class Principal extends BaseController
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Obras',
@@ -108,8 +110,8 @@ class Principal extends BaseController
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi canasta',
@@ -127,8 +129,8 @@ class Principal extends BaseController
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Guardados',
@@ -186,4 +188,5 @@ class Principal extends BaseController
         $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
         return view('Principal/estilodisenio', $data);
     }
+    
 }

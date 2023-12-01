@@ -13,7 +13,7 @@ $routes->get('/info', 'Principal::sobreNosotros');
 $routes->get('/tyc', 'Principal::terminosCondiciones');
 $routes->get('/politicadeprivacidad', 'Principal::politicaPrivacidad');
 $routes->get('/obras', 'UsuarioCliente::iniciObras', ['filter' => 'auth']);
-$routes->get('/canasta', 'Principal::canasta', ['filter' => 'auth']);
+$routes->get('/canasta', 'Principal::canasta');
 $routes->get('/guardados', 'Principal::guardados', ['filter' => 'auth']);
 
 $routes->get('/login', 'Autenticacion::loginUsuario');
@@ -48,6 +48,15 @@ $routes->get('/canasta_prueba', 'Canasta::index');
 $routes->post('/UsuarioCanasta/edit', 'Canasta::edit');
 $routes->get('/CuadroArte/obraCliente/(:num)', 'CuadroArte::obraCliente/$1');
 
+$routes->post('/guardarobra/(:num)', 'UsuarioGuardados::guardarObra/$1');
+$routes->get('/obrasguardadas/(:num)', 'UsuarioGuardados::guardadoUsuario/$1');
+$routes->post('/eliminaobraguardado/(:num)', 'UsuarioGuardados::eliminarObraGuardado/$1');
+
+$routes->post('/agregarcanasta/(:num)', 'Canasta::canastaObra/$1');
+$routes->post('/agregarcanastaGuardado/(:num)', 'Canasta::canastaObraGuardado/$1');
+$routes->get('/listacanasta/(:num)', 'Canasta::canastaUsuario/$1');
+$routes->post('/eliminaobracanasta/(:num)', 'Canasta::eliminarObraCanasta/$1');
+
 
 $routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/inicioartista', 'Artista::incioArtista');
@@ -67,6 +76,7 @@ $routes->post('/Artista/ActualizarArtista/(:num)', 'Artista::ActualizarArtista/$
 $routes->get('/Artista/EliminarArtista/(:num)', 'Artista::EliminarArtista/$1');
 
 $routes->get('/Artista/eliminarSubasta/(:num)', 'Artista::eliminarSubasta/$1');
+$routes->get('/Artista/perfil/(:num)', 'Artista::perfil/$1');
 
 
 $routes->get('/comprarObra', 'Pagos::compraObra');
@@ -93,7 +103,7 @@ $routes->get('/Admin/eliminarSubasta/(:num)', 'Admin::eliminarSubasta/$1');
 
 $routes->get('/Admin/eliminarContacto/(:num)', 'Admin::eliminarContacto/$1');
 
-
+$routes->get('/TerminosYCondiciones/TerminosyCondiciones', 'TerminosYCondiciones::terminos');
 
 /* TESTS */
 $routes->get('/prueba', 'Principal::index');
