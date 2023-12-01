@@ -48,6 +48,9 @@ $routes->get('/canasta_prueba', 'Canasta::index');
 $routes->post('/UsuarioCanasta/edit', 'Canasta::edit');
 $routes->get('/CuadroArte/obraCliente/(:num)', 'CuadroArte::obraCliente/$1');
 
+$routes->post('/guardarobra/(:num)', 'UsuarioGuardados::guardarObra/$1');
+$routes->get('/obrasguardadas/(:num)', 'UsuarioGuardados::guardadoUsuario/$1');
+
 
 $routes->get('/biografia_Art', 'Artista::biografia');
 $routes->get('/inicioartista', 'Artista::incioArtista');
