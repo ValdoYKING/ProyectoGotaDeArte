@@ -59,8 +59,18 @@
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <span class="fw-medium"><?php echo $subasta['nombre'] ?></span></td>
                             <td><img src="<?php echo base_url($subasta['fotos'])?>" width="50" height="50" alt="Avatar" class="rounded-circle"></td>
-                            <td>$<?php echo $subasta['precioInicial'] ?>.00</td>
-                            <td>$<?php echo $subasta['precioPagado'] ?>.00</td>
+                            <td><?php if($subasta['precioInicial'] <= 0)
+                            {echo '<p>N/A</p>'; }
+                            else {
+                                echo $subasta['precioInicial'];
+                            }?>
+                            </td>
+                            <td><?php if($subasta['precioPagado'] <= 0)
+                            {echo '<p>N/A</p>'; 
+                            }  else {
+                                echo $subasta['precioPagado'];
+                            } ?>
+                            </td>
                             <td>
                                 <?php if (isset($datosPersonales[$subasta['fk_usuario']])) : ?>
                                     <?php foreach ($datosPersonales[$subasta['fk_usuario']] as $datoPersonal) : ?>

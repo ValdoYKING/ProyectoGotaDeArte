@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\ObrasArtista;
 
 class Principal extends BaseController
 {
     private $userName;
+    private $obras;
 
     public function __construct()
     {
+        $this->obras = new ObrasArtista();
         if (session()->has('user_id')) {
             $userNameSession = session()->get('user_id');
             $datosPersonalesModel = new \App\Models\datosPersonalesModel();
@@ -22,6 +25,7 @@ class Principal extends BaseController
     }
     public function index(): string
     {
+        $obras = $this->obras->limit(6)->find();
         $dataMenu = [
             'userName' => 'Iniciar sesión',
             'sesion' => 'Iniciar sesión',
@@ -31,6 +35,7 @@ class Principal extends BaseController
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'obras' => $obras
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),

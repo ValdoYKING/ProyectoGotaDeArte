@@ -59,18 +59,22 @@
 <!--Galeria-->
 
 <div id="confom" class="row row-cols-1 row-cols-md-3 g-4">
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/ImagenesReales/Real1.jpg'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Obra 1</h5>
-                <p class="card-text">Una sinfonía de formas y texturas que se fusionan en una obra maestra de abstracción, donde cada mirada descubre un nuevo significado</p>
-                <p class="card-text"></p>
-                <a href="#" class="btn btn-primary">Saber más</a>
-            </div>
+    <?php foreach($obras as $obra):
+?>
+<div id="galeria" class="col">
+    <div class="card bg-dark text-white">
+        <img src="<?php echo base_url($obra->foto); ?>" class="card-img" alt="..." width="300" height="300"> 
+        <div class="card-img-overlay">
+            <h5 class="card-title"><?php echo $obra->nombre ?></h5>
+            <p class="card-text">Una sinfonía de formas y texturas que se fusionan en una obra maestra de abstracción, donde cada mirada descubre un nuevo significado</p>
+            <p class="card-text"></p>
+            <a href="<?php echo base_url('/registrar') ?>" class="btn btn-primary">Saber más</a>
         </div>
     </div>
-    <div id="galeria" class="col">
+</div>
+<?php endforeach; ?>
+
+    <!-- <div id="galeria" class="col">
         <div class="card bg-dark text-white">
             <img src="<?php echo base_url('img/elements/ImagenesReales/Real2.JPG'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
@@ -85,7 +89,7 @@
         <div class="card bg-dark text-white">
             <img src="<?php echo base_url('img/elements/ImagenesReales/Real3.JPG'); ?>" class="card-img" alt="...">
             <div class="card-img-overlay">
-                <h5 class="card-title">Obra 3</h5>
+                <h5 class="card-title"></h5>
                 <p class="card-text">Los colores se entrelazan en una danza sin fin, creando un paisaje abstracto que invita a la reflexión.</p>
                 <p class="card-text"></p>
                 <a href="#" class="btn btn-primary">Saber más</a>
@@ -125,7 +129,7 @@
                 <a href="#" class="btn btn-primary">Saber más </a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- <div id="galeria" class="col">
         <div class="card bg-dark text-white">
             <img src="<?php echo base_url('img/elements/ImagenesReales/Real7.jpg'); ?>" class="card-img" alt="...">
