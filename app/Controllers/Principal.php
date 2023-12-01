@@ -9,12 +9,10 @@ use App\Models\ObrasArtista;
 class Principal extends BaseController
 {
     private $userName;
-<<<<<<<<< Temporary merge branch 1
-=========
+
     private $idUser;
     protected $usuario;
     protected $datosPersonalesModel;
->>>>>>>>> Temporary merge branch 2
     private $obras;
 
     public function __construct()
