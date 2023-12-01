@@ -64,6 +64,7 @@ class Artista extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/salirArtista'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
             // 'url' => base_url('/salir'),
         ];
         $dataContenido = [
@@ -146,6 +147,7 @@ class Artista extends BaseController
 
     /* Transaccion basica para agregar resgistros */
     public function consultarObra($id){
+        $userSession = session()->get('user_id');
         $results = $this->obrasArtista->find($id);
         $idObra = $results->id;
         $subasta = $this->subasta->where('fk_obra',$idObra)->first();
@@ -156,7 +158,9 @@ class Artista extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$userSession),
             'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Formulario publicación',
@@ -173,6 +177,7 @@ class Artista extends BaseController
 
 
     public function publicacionesArtista(): string{
+        $userSession = session()->get('user_id');
         $idU = $this->idUser;
         $results = $this->obrasArtista->where('fk_usuario_artista',$idU )->findAll();
         if(!empty($results)){
@@ -189,6 +194,7 @@ class Artista extends BaseController
             'sesion' => 'Cerrar sesión', 
             'url' => base_url('/'),   
             'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$userSession),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi publicacion',
@@ -209,7 +215,7 @@ class Artista extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
-
+            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
             'urlSalir' => base_url('/salir'),
         ];
         $dataContenido = [
@@ -426,6 +432,7 @@ class Artista extends BaseController
             'sesion' => 'Cerrar sesión', 
             'url' => base_url('/'),   
             'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE A RTE | Mis Subastas',
@@ -449,6 +456,7 @@ class Artista extends BaseController
             'sesion' => 'Cerrar sesión', 
             'url' => base_url('/'),   
             'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Formualrio Subasta',
@@ -488,6 +496,68 @@ class Artista extends BaseController
             $this->obrasArtista->update($idO, $subes);
             $this->subasta->delete($id);            
             return redirect()->to('Artista/subastaArt')->with('message-delete', 'Se elimino la subasta exitosamente.');
+    }
+
+    public function perfil($id):string{
+        $usuario = $this->usuario->find($id);
+        if (!$usuario) {
+            return redirect()->to(base_url('/usuariosLista'));
+        }
+        $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id)->findAll();
+        $dataMenu = [
+            'userName' => $this->userName,
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Mi perfil',
+            'usuario' => $usuario,
+            'datosPersonales' => $datosPersonales,
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Artista/perfil',$data);
+    }
+
+    public function actualizarDatosArtista($id)
+    {
+        $nuevo_nombre = base_url('img/avatars/userGA.png');
+
+        if (isset($_FILES["userFoto"]) && $_POST["UrlPhotoUser"][0] == " ") {
+            $extension = pathinfo($_FILES["userFoto"]["name"], PATHINFO_EXTENSION);
+            $nuevo_nombre = rand() . '.' . $extension;
+            $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;        
+            move_uploaded_file($_FILES["userFoto"]["tmp_name"], $ubicacion);
+        } elseif ($_POST['UrlPhotoUser'][0] != " ") {
+            $nuevo_nombre = $_POST['UrlPhotoUser'][0];
+        }/* elseif (isset($_FILES["userFoto"]) && $_POST["UrlPhotoUser"][0] != " ") {
+            $extension = pathinfo($_FILES["userFoto"]["name"], PATHINFO_EXTENSION);
+            $nuevo_nombre = rand() . '.' . $extension;
+            $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;        
+            move_uploaded_file($_FILES["userFoto"]["tmp_name"], $ubicacion);
+        } */
+        // Datos personales
+        $dataPersonal = [
+            'nombre' => $_POST['Nombre'][0],
+            'a_paterno' => $_POST['Apellido_p'][0],
+            'a_materno' => $_POST['Apellido_m'][0],
+            'fecha_nacimiento' => $_POST['FechaNacimiento'][0],
+            'descripcion' => $_POST['Descripcion'][0],
+            'foto' => $nuevo_nombre,
+        ];
+        // Datos de usuario
+        $dataUser = [
+            'correo' => $_POST['correo'],
+        ];
+        $this->usuario->update($id, $dataUser);
+        $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id);
+        $id_dataPersonal = $datosPersonales->first()->id;
+        $this->datosPersonalesModel->update($id_dataPersonal, $dataPersonal);
+        return redirect()->to('/Artista/perfil/'.$this->idUser)->with('message-update', 'Se actualizaron tus datos exitosamente.');
     }
 }
     

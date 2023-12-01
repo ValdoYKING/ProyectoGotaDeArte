@@ -22,7 +22,7 @@
       <div class="col-12 col-sm-4 col-md-2">
         <h5 class="footerW" >Servicios del Sitio</h5>
         <ul class="list-unstyled">
-        <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Terminos y condiciones</a></li>
+        <li><a href="<?php echo base_url('/TerminosYCondiciones/TerminosyCondiciones') ?>" class="footer-link d-block pb-2">Terminos y condiciones</a></li>
           <li><a href="javascript:void(0)" class="footer-link d-block pb-2">Politicas del sitio Web</a></li>
       </div>
       <div class="col-12 col-sm-4 col-md-2">
