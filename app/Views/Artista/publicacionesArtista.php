@@ -45,7 +45,13 @@
         </div>
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">
-            <?php foreach($publicaciones as $publicacion): ?>
+            <?php if($publicaciones  == 'vacio'): ?>
+            
+                <h5 class="card-title bg-dark">No cuentas con una obra </h5>
+
+            <?php else : ?>
+            
+                <?php foreach($publicaciones as $publicacion): ?>
                 <div class="col-auto">
                     <div class="card h-100" style="width: 18rem;">
                         <img src="<?php echo base_url($publicacion->foto)?>" height="250" width="200" class="card-img-top" alt="imagenPublicacion">
@@ -57,10 +63,11 @@
                             <li class="list-group-item">$<?php echo $publicacion->precio ?>.00</li>
                             <li class="list-group-item"><?php echo $publicacion->medidas ?></li>
                             <a href="#" class="list-group-item">
-                                <?php if (isset($datosPersonales[$publicacion->fk_usuario_artista])) : ?>
+                                <?php if ($datosPersonales) : ?>
                                     <?php foreach ($datosPersonales[$publicacion->fk_usuario_artista] as $datoPersonal) : ?>
                                         <?php echo $datoPersonal->nombre ?>
                                     <?php endforeach; ?>
+
                                 <?php endif; ?>
                             </a>
                             <?php if($publicacion->estatus_subasta == 1){
@@ -79,9 +86,9 @@
                     </div>
                 </div>
                 <?php endforeach; ?>
-
             
-        </div>
+            <?php endif; ?>
+            </div>
     </div>
 </section>
 <hr>

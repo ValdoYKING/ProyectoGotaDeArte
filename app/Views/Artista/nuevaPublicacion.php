@@ -85,14 +85,23 @@
                                     <label>
                                         ¿Qué precio deseas que tu obra inicie en la subasta?
                                     </label>
-                                    <input type="number" onclick="procesarFormulario()" class="form-control" id='botonEnviar' name="Psubasta" value="" >
+                                    <input type="number" class="form-control" name="Psubasta" value="" >
                                 </div>
 
                             </div>
-                            <button type="submit" class="btn btn-primary">Publicar</button>
+                            <button type="submit" id="botonEnviar" class="btn btn-primary" >Publicar</button>
 
                             <a href="<?php echo base_url('Artista/publicacionesArtista')?>" class="btn btn-danger">Cancelar</a>
 
+                            <script>
+        
+                                // Deshabilitar el botón después de hacer clic
+                                //document.getElementById('botonEnviar').disabled = true;
+                                document.getElementById('form').addEventListener('submit', function(){
+                                    document.getElementById('botonEnviar').disabled = true;
+                                });
+
+                            </script>
                         </form>
                     </div>
                 </div>
@@ -104,10 +113,5 @@
 
 <?php echo $this->endSection(); ?>
 <?php echo $this->section('scripts'); ?>
-<script>
-    function procesarFormulario() {
-        // Deshabilitar el botón después de hacer clic
-        document.getElementById('botonEnviar').disabled = true;
-    }
-</script>
+
 <?php echo $this->endSection(); ?>

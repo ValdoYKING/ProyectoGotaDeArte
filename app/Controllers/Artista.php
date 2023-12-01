@@ -13,7 +13,7 @@ class Artista extends BaseController
     private $subasta;
     protected $datosPersonalesModel;
     protected $usuario;
-
+    private $idpersonal;
     private $userName;
     private $idUser;
 
@@ -30,6 +30,7 @@ class Artista extends BaseController
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
                 $this->idUser = $datosUsuario->fk_usuario;
+                $this->idpersonal = $datosUsuario->id;
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -55,7 +56,7 @@ class Artista extends BaseController
 
         $results = $this->obrasArtista->findAll();
         foreach ($results as $publicaciones) {
-            $datosPersonales = $this->datosPersonalesModel->where('id', $publicaciones->fk_usuario_artista)->findAll();
+            $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $publicaciones->fk_usuario_artista)->findAll();
             $dataDatosPersonales[$publicaciones->fk_usuario_artista] = $datosPersonales;
         }
 
@@ -174,9 +175,14 @@ class Artista extends BaseController
     public function publicacionesArtista(): string{
         $idU = $this->idUser;
         $results = $this->obrasArtista->where('fk_usuario_artista',$idU )->findAll();
-        foreach ($results as $publicaciones) {
-            $datosPersonales = $this->datosPersonalesModel->where('id', $publicaciones->fk_usuario_artista)->findAll();
-            $dataDatosPersonales[$publicaciones->fk_usuario_artista] = $datosPersonales;
+        if(!empty($results)){
+            foreach ($results as $publicaciones) {
+                $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $publicaciones->fk_usuario_artista)->findAll();
+                $dataDatosPersonales[$publicaciones->fk_usuario_artista] = $datosPersonales;
+            }
+        } else {
+            $results = 'vacio';
+            $dataDatosPersonales = 'vacio';
         }
         $dataMenu = [
             'userName' => $this->userName,
@@ -406,9 +412,14 @@ class Artista extends BaseController
     public function publicacionesSubastas(){
         $idU = $this->idUser;
         $results = $this->subasta->where('fk_usuario', $idU)->findAll();
-        foreach ($results as $subastas) {
-            $datosPersonales = $this->datosPersonalesModel->where('id', $subastas['fk_usuario'])->findAll();
-            $dataDatosPersonales[$subastas['fk_usuario']] = $datosPersonales;
+        if(!empty($results)){
+            foreach ($results as $publicaciones) {
+                $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $publicaciones->fk_usuario_artista)->findAll();
+                $dataDatosPersonales[$publicaciones->fk_usuario_artista] = $datosPersonales;
+            }
+        } else {
+            $results = 'vacio';
+            $dataDatosPersonales = 'vacio';
         }
         $dataMenu = [ 
             'userName' => $this->userName,

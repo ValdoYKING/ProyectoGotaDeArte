@@ -38,7 +38,11 @@
         </div>
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">
+        <?php if($subastas  == 'vacio'): ?>
+            
+            <h5 class="card-title bg-dark">No cuentas con una subasta </h5>
 
+        <?php else : ?>
             <?php foreach ($subastas as $subastas) : ?>
                 <div class="col-auto">
                     <div class="card h-100" style="width: 18rem;">
@@ -67,7 +71,7 @@
                     </div>
                 </div>
             <?php endforeach; ?>
-
+        <?php endif; ?>
 
         </div>
     </div>
