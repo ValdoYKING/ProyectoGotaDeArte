@@ -37,6 +37,7 @@ class UsuarioCliente extends BaseController
             'urlSalir' => base_url('/'),
             'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
+            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Publicaciones',
