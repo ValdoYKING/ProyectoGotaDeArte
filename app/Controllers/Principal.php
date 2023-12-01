@@ -1,21 +1,28 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\usuariosModel;
+use App\Models\datosPersonalesModel;
 use App\Models\ObrasArtista;
 
 class Principal extends BaseController
 {
     private $userName;
-    private $obras;
 
     private $idUser;
+    protected $usuario;
+    protected $datosPersonalesModel;
+
+    private $obras;
+
     public function __construct()
     {
+        $this->usuario = new usuariosModel();
+        $this->datosPersonalesModel = new datosPersonalesModel();
         $this->obras = new ObrasArtista();
         if (session()->has('user_id')) {
             $userNameSession = session()->get('user_id');
-            $datosPersonalesModel = new \App\Models\datosPersonalesModel();
-            $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
+            $datosUsuario = $this->datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
                 $this->idUser = $datosUsuario->fk_usuario;
@@ -55,6 +62,7 @@ class Principal extends BaseController
             'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
@@ -74,6 +82,7 @@ class Principal extends BaseController
             'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Obras',
@@ -112,6 +121,7 @@ class Principal extends BaseController
             'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi canasta',
@@ -131,6 +141,7 @@ class Principal extends BaseController
             'urlSalir' => base_url('/salir'),
             'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Guardados',
@@ -140,6 +151,70 @@ class Principal extends BaseController
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('Principal/guardados', $data);
+    }
+
+    public function perfil($id):string{
+        $usuario = $this->usuario->find($id);
+        if (!$usuario) {
+            return redirect()->to(base_url('/usuariosLista'));
+        }
+        $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id)->findAll();
+        $dataMenu = [
+            'userName' => $this->userName,
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
+            'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Mi perfil',
+            'usuario' => $usuario,
+            'datosPersonales' => $datosPersonales,
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Principal/perfil',$data);
+    }
+
+    public function actualizarDatosUsuario($id)
+    {
+        $nuevo_nombre = base_url('img/avatars/userGA.png');
+
+        if (isset($_FILES["userFoto"]) && $_POST["UrlPhotoUser"][0] == " ") {
+            $extension = pathinfo($_FILES["userFoto"]["name"], PATHINFO_EXTENSION);
+            $nuevo_nombre = rand() . '.' . $extension;
+            $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;        
+            move_uploaded_file($_FILES["userFoto"]["tmp_name"], $ubicacion);
+        } elseif ($_POST['UrlPhotoUser'][0] != " ") {
+            $nuevo_nombre = $_POST['UrlPhotoUser'][0];
+        }/* elseif (isset($_FILES["userFoto"]) && $_POST["UrlPhotoUser"][0] != " ") {
+            $extension = pathinfo($_FILES["userFoto"]["name"], PATHINFO_EXTENSION);
+            $nuevo_nombre = rand() . '.' . $extension;
+            $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;        
+            move_uploaded_file($_FILES["userFoto"]["tmp_name"], $ubicacion);
+        } */
+        // Datos personales
+        $dataPersonal = [
+            'nombre' => $_POST['Nombre'][0],
+            'a_paterno' => $_POST['Apellido_p'][0],
+            'a_materno' => $_POST['Apellido_m'][0],
+            'fecha_nacimiento' => $_POST['FechaNacimiento'][0],
+            'descripcion' => $_POST['Descripcion'][0],
+            'foto' => $nuevo_nombre,
+        ];
+        // Datos de usuario
+        $dataUser = [
+            'correo' => $_POST['correo'],
+        ];
+        $this->usuario->update($id, $dataUser);
+        $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id);
+        $id_dataPersonal = $datosPersonales->first()->id;
+        $this->datosPersonalesModel->update($id_dataPersonal, $dataPersonal);
+        return redirect()->to('/Usuario/perfil/'.$this->idUser)->with('message-update', 'Se actualizaron tus datos exitosamente.');
     }
 
     public function pruebaruta(): string

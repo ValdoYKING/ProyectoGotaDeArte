@@ -1,11 +1,11 @@
-<?php echo $this->extend('Plantilla/disenioArtista'); ?>
+<?php echo $this->extend('Plantilla/disenio'); ?>
 <?php echo $this->section('contenido'); ?>
 <br>
 <div class="container">
     <nav class="breadcrumb  mb-5 segundo-navbar">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active">
-                <a href="<?php echo base_url('/inicioartista') ?>">/Inicio</a>
+                <a href="<?php echo base_url('/inicio') ?>">/Inicio</a>
             </li>
         </ol>
     </nav>
@@ -31,7 +31,7 @@
                 <div class="card mb-4">
                     <h5 class="card-header">Detalles del perfil</h5>
                     <div class="card-body">
-                        <form id="form" method="POST" action="<?php echo base_url('/actualizarPerfilArtista/' . $usuario->id) ?>" enctype="multipart/form-data">
+                        <form id="form" method="POST" action="<?php echo base_url('/actualizarPerfilUsuario/' . $usuario->id) ?>" enctype="multipart/form-data">
                             <?php foreach ($datosPersonales as $datoPersonal) : ?>
                                 <div class="row">
                                     <div class="card-body">
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Guardar cambios</button>
-                                    <button type="reset" class="btn btn-outline-secondary"><a href="<?php echo base_url('/inicioartista') ?>">Cancelar y salir</a></button>
+                                    <button type="reset" class="btn btn-outline-secondary"><a href="<?php echo base_url('/inicio') ?>">Cancelar y salir</a></button>
                                 </div>
                         </form>
                     </div>

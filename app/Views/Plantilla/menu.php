@@ -39,6 +39,7 @@
                         <?php echo $userName; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="<?php echo $urlPerfil; ?>">Mi perfil</a></li>
                         <li><a class="dropdown-item" href="<?php echo $canastaUrl; ?>">Mi canasta</a></li>
                         <li><a class="dropdown-item" href="<?php echo $guardadosUrl; ?>">Guardados</a></li>
                         <li>
