@@ -25,11 +25,11 @@ class Contacto extends BaseController
     public function index(): string{
 
         $dataMenu = [
-            'userName' => $this->userName,
+            'userName' => 'Iniciar sesión',
             'sesion' => 'Iniciar sesión',
-            'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'urlSalir' => base_url('/login'),
+            'canastaUrl' => base_url('/login'),
+            'guardadosUrl' => base_url('/login'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Contacto',

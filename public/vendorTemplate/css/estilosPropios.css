@@ -259,3 +259,10 @@ h1 {
 .colorButtonError{
     color: #FF3E1D;
 }
+
+.centered-containerX {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura según sea necesario */
+  }

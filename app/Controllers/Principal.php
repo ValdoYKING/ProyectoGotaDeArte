@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\usuariosModel;
 use App\Models\datosPersonalesModel;
 use App\Models\ObrasArtista;
@@ -8,11 +9,12 @@ use App\Models\ObrasArtista;
 class Principal extends BaseController
 {
     private $userName;
-
+<<<<<<<<< Temporary merge branch 1
+=========
     private $idUser;
     protected $usuario;
     protected $datosPersonalesModel;
-
+>>>>>>>>> Temporary merge branch 2
     private $obras;
 
     public function __construct()
@@ -55,17 +57,19 @@ class Principal extends BaseController
 
     public function inicio(): string
     {
+        $obras = $this->obras->limit(6)->find();
 
         $dataMenu = [
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
-            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
-            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
+            'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/' . $this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'obras' => $obras
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
@@ -80,9 +84,9 @@ class Principal extends BaseController
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
-            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
-            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
+            'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/' . $this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Obras',
@@ -97,11 +101,11 @@ class Principal extends BaseController
     public function sobreNosotros(): string
     {
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
-            'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'userName' => 'Iniciar sesión',
+            'sesion' => 'Iniciar de sesión',
+            'urlSalir' => base_url('/login'),
+            'canastaUrl' => base_url('/login'),
+            'guardadosUrl' => base_url('/login'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Sobre nosotros',
@@ -119,9 +123,9 @@ class Principal extends BaseController
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
-            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
-            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
+            'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/' . $this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi canasta',
@@ -139,9 +143,9 @@ class Principal extends BaseController
             'userName' => 'Usuario Gota PRUEBA',
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
-            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
-            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
+            'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/' . $this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Guardados',
@@ -153,7 +157,8 @@ class Principal extends BaseController
         return view('Principal/guardados', $data);
     }
 
-    public function perfil($id):string{
+    public function perfil($id): string
+    {
         $usuario = $this->usuario->find($id);
         if (!$usuario) {
             return redirect()->to(base_url('/usuariosLista'));
@@ -163,10 +168,10 @@ class Principal extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
-            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
-            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
+            'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
             'urlSalir' => base_url('/'),
-            'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
+            'urlPerfil' => base_url('/Artista/perfil/' . $this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi perfil',
@@ -177,7 +182,7 @@ class Principal extends BaseController
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
-        return view('Principal/perfil',$data);
+        return view('Principal/perfil', $data);
     }
 
     public function actualizarDatosUsuario($id)
@@ -187,7 +192,7 @@ class Principal extends BaseController
         if (isset($_FILES["userFoto"]) && $_POST["UrlPhotoUser"][0] == " ") {
             $extension = pathinfo($_FILES["userFoto"]["name"], PATHINFO_EXTENSION);
             $nuevo_nombre = rand() . '.' . $extension;
-            $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;        
+            $ubicacion = FCPATH . 'img/usuarios/' . $nuevo_nombre;
             move_uploaded_file($_FILES["userFoto"]["tmp_name"], $ubicacion);
         } elseif ($_POST['UrlPhotoUser'][0] != " ") {
             $nuevo_nombre = $_POST['UrlPhotoUser'][0];
@@ -214,8 +219,102 @@ class Principal extends BaseController
         $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id);
         $id_dataPersonal = $datosPersonales->first()->id;
         $this->datosPersonalesModel->update($id_dataPersonal, $dataPersonal);
-        return redirect()->to('/Usuario/perfil/'.$this->idUser)->with('message-update', 'Se actualizaron tus datos exitosamente.');
+        return redirect()->to('/Usuario/perfil/' . $this->idUser)->with('message-update', 'Se actualizaron tus datos exitosamente.');
     }
+
+    public function actualizarContrasennaUsuario($id)
+    {
+        $dataMenu = [
+            'userName' => $this->userName,
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
+            'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/' . $this->idUser),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Actualizar contraseña',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Principal/actualizarContrasenia', $data);
+    }
+
+    public function actualizaPassUser()
+    {
+        $contraseñaAnterior = $_POST['passwordAnterior'];
+        $contrasennaNueva = $_POST['passwordNuevo'];
+
+        $usuario = $this->usuario->find($this->idUser);
+
+        if (!$usuario) {
+            return redirect()->to('/Usuario/perfil/' . $this->idUser)->with('message-update_pass', 'Usuario no encontrado.');
+        }
+
+        if (!password_verify($contraseñaAnterior . $usuario->salt, $usuario->contrasenia)) {
+            return redirect()->to('/Usuario/perfil/' . $this->idUser)->with('message-update_pass', 'Contraseña anterior incorrecta.');
+        }
+
+        $nuevaContraseñaHasheada = $this->usuario->setPassword($contrasennaNueva, $usuario->salt);
+
+        $data = [
+            'contrasenia' => $nuevaContraseñaHasheada,
+        ];
+        $this->usuario->update($this->idUser, $data);
+
+        return redirect()->to('/Usuario/perfil/' . $this->idUser)->with('message-update_pass', 'Contraseña actualizada con éxito.');
+    }
+
+    public function actualizarContrasennaArtista($id)
+    {
+        $dataMenu = [
+            'userName' => $this->userName,
+            'sesion' => 'Cerrar sesión',
+            'url' => base_url('/'),
+            'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
+            'urlSalir' => base_url('/'),
+            'urlPerfil' => base_url('/Artista/perfil/' . $this->idUser),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Actualizar contraseña',
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('Artista/actualizarContrasenia', $data);
+    }
+
+    public function actualizaPassArtista()
+    {
+        $contraseñaAnterior = $_POST['passwordAnterior'];
+        $contrasennaNueva = $_POST['passwordNuevo'];
+
+        $usuario = $this->usuario->find($this->idUser);
+
+        if (!$usuario) {
+            return redirect()->to('/Artista/perfil/' . $this->idUser)->with('message-update_pass', 'Usuario no encontrado.');
+        }
+
+        if (!password_verify($contraseñaAnterior . $usuario->salt, $usuario->contrasenia)) {
+            return redirect()->to('/Artista/perfil/' . $this->idUser)->with('message-update_pass', 'Contraseña anterior incorrecta.');
+        }
+
+        $nuevaContraseñaHasheada = $this->usuario->setPassword($contrasennaNueva, $usuario->salt);
+
+        $data = [
+            'contrasenia' => $nuevaContraseñaHasheada,
+        ];
+        $this->usuario->update($this->idUser, $data);
+
+        return redirect()->to('/Artista/perfil/' . $this->idUser)->with('message-update_pass', 'Contraseña actualizada con éxito.');
+    }
+
+
 
     public function pruebaruta(): string
     {
@@ -263,5 +362,4 @@ class Principal extends BaseController
         $data = $dataMenuDisenio + $dataContenido + $dataPiePagina;
         return view('Principal/estilodisenio', $data);
     }
-    
 }
