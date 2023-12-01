@@ -17,6 +17,8 @@ $routes->get('/canasta', 'Principal::canasta',['filter' => 'auth']);
 $routes->get('/guardados', 'Principal::guardados', ['filter' => 'auth']);
 $routes->get('/Usuario/perfil/(:num)', 'Principal::perfil/$1');
 $routes->post('/actualizarPerfilUsuario/(:num)', 'Principal::actualizarDatosUsuario/$1');
+$routes->get('/actualizarContrasennaUsuario/(:num)', 'Principal::actualizarContrasennaUsuario/$1');
+$routes->post('/actualizaPassUser', 'Principal::actualizaPassUser/$1');
 
 $routes->get('/login', 'Autenticacion::loginUsuario');
 $routes->post('/autenticarInicio', 'Autenticacion::autenticarInicioUsuario');
@@ -66,6 +68,8 @@ $routes->get('/inicioartista/obraArtista/(:num)', 'CuadroArte::obraArtista/$1', 
 $routes->get('/inicioartista/consultarObra/(:num)', 'Artista::consultarObra/$1', ['filter' => 'auth']);
 $routes->get('/inicioartista/consultarSubasta/(:num)', 'Artista::consultarSubasta/$1');
 $routes->post('/Artista/actualizarSubasta/(:num)', 'Artista::actualizarSubasta/$1');
+$routes->get('/actualizarContrasennaArtista/(:num)', 'Principal::actualizarContrasennaArtista/$1');
+$routes->post('/actualizaPassArtista', 'Principal::actualizaPassArtista/$1');
 
 
 //$routes->get('/nuevapublicacion/insertarObra', 'Artista::insertarObra');
