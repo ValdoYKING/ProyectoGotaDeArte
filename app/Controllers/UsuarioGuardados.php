@@ -45,44 +45,13 @@ class UsuarioGuardados extends BaseController
     public function guardarObra($id){  
         $dataGuardado = [
             'fk_obra' => $id,
-            'fk_usuario_guardado' => $this->userNameSession,
+            'fk_usuario_guardado' => $this->idUser,
         ];
-
         $this->usuarioGuardado->insert($dataGuardado);
-        /* $dataMenu = [
-            'userName' => $this->userName,
-            'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
-        ];
-        $dataContenido = [
-            'titulo' => 'GOTA DE ARTE | Publicaciones',
-        ];
-        $dataPiePagina = [
-            'fecha' => date('Y'),
-        ];
-        $data = $dataMenu + $dataContenido + $dataPiePagina; */
-        // return view('Principal/guardadkos', $data);
-        // return view('Principal/obras',$data);
         return redirect()->to('/obras')->with('mensaje-guardado', 'Obra guardada exitosamente');
-
     }
 
-    public function guardadoUsuario($id){  
-        $obrasGuardadas = $this->usuarioGuardado->where('fk_usuario_guardado', $id)->findAll();
-        $dataobrasUsuario = array();
-        foreach ($obrasGuardadas as $obraGuardada) {
-            // Obtener la información de la obra de arte usando el modelo obrasArtista
-            // $obraArtista = $this->obrasArtista->find($obraGuardada->fk_obra);
-            $obraArtista = $this->obrasArtista->where('id', $obraGuardada->fk_obra)->findAll();
-            // Verificar si la obra de arte existe antes de agregarla a $dataobrasUsuario
-            if ($obraArtista) {
-                $dataobrasUsuario[$obraGuardada->id] = $obraArtista;
-            }
-        }        
-        
-
+    public function guardadoUsuario2($id){  
         $dataMenu = [
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
@@ -92,15 +61,40 @@ class UsuarioGuardados extends BaseController
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Publicaciones',
-            'obrasGuardadas' => $dataobrasUsuario,
-            'dataObraGuardado' => $dataobrasUsuario,
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
         ];
         $data = $dataMenu + $dataContenido + $dataPiePagina;
         return view('usuarioGuardado/listaGuardado',$data);
+    }
 
+    public function guardadoUsuario($id) {
+        $obrasGuardadas = $this->usuarioGuardado->where('fk_usuario_guardado', $id)->findAll();
+        $fkObras = array_column($obrasGuardadas, 'fk_obra');
+        $obrasDetalles = $this->obrasArtista->whereIn('id', $fkObras)->findAll();
+        $dataMenu = [
+            'userName' => $this->userName,
+            'sesion' => 'Cerrar sesión',
+            'urlSalir' => base_url('/'),
+            'canastaUrl' => base_url('/canasta'),
+            'guardadosUrl' => base_url('/guardados'),
+        ];
+        $dataContenido = [
+            'titulo' => 'GOTA DE ARTE | Obras Guardadas',
+            'obrasDetalles' => $obrasDetalles,
+        ];
+        $dataPiePagina = [
+            'fecha' => date('Y'),
+        ];
+        $data = $dataMenu + $dataContenido + $dataPiePagina;
+        return view('usuarioGuardado/listaGuardado', $data);
+    }
+    
+
+    public function eliminarObraGuardado($id){  
+        $this->usuarioGuardado->where('fk_obra', $id)->delete();
+        return redirect()->to('/obrasguardadas/'.$this->idUser)->with('mensaje-eliminar', 'Obra eliminada exitosamente');
     }
 
     public function create()

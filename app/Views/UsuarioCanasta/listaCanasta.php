@@ -27,19 +27,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <?php if (session()->has('mensaje-canasta-guaradado')) : ?>
-                    <div class="alert alert-success">
-                        <?php echo session('mensaje-canasta-guaradado'); ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-    <div class="container">
         <div>
-            <h2 class="mb-2">Obras Guardadas</h2>
+            <h2 class="mb-2">Mi canasta (conteo)(3)</h2>
         </div>
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">
@@ -60,12 +49,11 @@
                         </ul>
                         <div class="card-body">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('/CuadroArte/obraCliente/' . $obra->id) ?>" class="card-link">Ver</a><br>
-                            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url('/eliminaobraguardado/' . $obra->id) ?>" class="card-link colorButtonError">Eliminar</a><br> -->
-                            <form action="<?= base_url('/eliminaobraguardado/' . $obra->id) ?>" method="post">
+                            <form action="<?= base_url('/eliminaobracanasta/' . $obra->id) ?>" method="post">
                                 <button type="submit" class="btn card-link colorButtonError">Eliminar</button>
                             </form>
-                            <form action="<?= base_url('/agregarcanastaGuardado/' . $obra->id) ?>" method="post">
-                                <button type="submit" class="btn card-link colorButton">Agregar a mi canasta</button>
+                            <form action="<?= base_url('/agregarcanasta/' . $obra->id) ?>" method="post">
+                                <button type="submit" class="btn card-link colorButton">Comprar</button>
                             </form>
                         </div>
                     </div>

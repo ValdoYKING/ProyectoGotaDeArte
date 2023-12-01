@@ -35,7 +35,7 @@ class UsuarioCliente extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/'),
-            'canastaUrl' => base_url('/canasta'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [

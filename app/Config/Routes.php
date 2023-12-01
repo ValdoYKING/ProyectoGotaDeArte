@@ -50,6 +50,12 @@ $routes->get('/CuadroArte/obraCliente/(:num)', 'CuadroArte::obraCliente/$1');
 
 $routes->post('/guardarobra/(:num)', 'UsuarioGuardados::guardarObra/$1');
 $routes->get('/obrasguardadas/(:num)', 'UsuarioGuardados::guardadoUsuario/$1');
+$routes->post('/eliminaobraguardado/(:num)', 'UsuarioGuardados::eliminarObraGuardado/$1');
+
+$routes->post('/agregarcanasta/(:num)', 'Canasta::canastaObra/$1');
+$routes->post('/agregarcanastaGuardado/(:num)', 'Canasta::canastaObraGuardado/$1');
+$routes->get('/listacanasta/(:num)', 'Canasta::canastaUsuario/$1');
+$routes->post('/eliminaobracanasta/(:num)', 'Canasta::eliminarObraCanasta/$1');
 
 
 $routes->get('/biografia_Art', 'Artista::biografia');

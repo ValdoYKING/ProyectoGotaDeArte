@@ -255,3 +255,7 @@ h1 {
 .colorButton{
     color: #696CFF;
 }
+
+.colorButtonError{
+    color: #FF3E1D;
+}

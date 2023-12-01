@@ -27,6 +27,17 @@
         </div>
     </div>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if (session()->has('mensaje-canasta')) : ?>
+                    <div class="alert alert-success">
+                        <?php echo session('mensaje-canasta'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <div class="container">
         <div>
             <h2 class="mb-2">Obras Publicadas recientemente</h2>
         </div>
@@ -52,7 +63,7 @@
                             <form action="<?= base_url('/guardarobra/' . $publicacion->id) ?>" method="post">
                                 <button type="submit" class="btn card-link colorButton">Guardar</button>
                             </form>
-                            <form action="<?= base_url('/canastaobra/' . $publicacion->id) ?>" method="post">
+                            <form action="<?= base_url('/agregarcanasta/' . $publicacion->id) ?>" method="post">
                                 <button type="submit" class="btn card-link colorButton">Agregar a mi canasta</button>
                             </form>
                         </div>
