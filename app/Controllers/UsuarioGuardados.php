@@ -79,6 +79,7 @@ class UsuarioGuardados extends BaseController
             'urlSalir' => base_url('/'),
             'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
+            'urlPerfil' => base_url('/Usuario/perfil/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Obras Guardadas',
@@ -97,23 +98,4 @@ class UsuarioGuardados extends BaseController
         return redirect()->to('/obrasguardadas/'.$this->idUser)->with('mensaje-eliminar', 'Obra eliminada exitosamente');
     }
 
-    public function create()
-    {
-        // Código para crear un nuevo registro
-    }
-
-    public function edit($id)
-    {
-        // Código para editar un registro específico
-    }
-
-    public function update($id)
-    {
-        // Código para actualizar un registro específico
-    }
-
-    public function delete($id)
-    {
-        // Código para eliminar un registro específico
-    }
 }

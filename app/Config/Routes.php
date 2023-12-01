@@ -15,6 +15,8 @@ $routes->get('/politicadeprivacidad', 'Principal::politicaPrivacidad');
 $routes->get('/obras', 'UsuarioCliente::iniciObras', ['filter' => 'auth']);
 $routes->get('/canasta', 'Principal::canasta');
 $routes->get('/guardados', 'Principal::guardados', ['filter' => 'auth']);
+$routes->get('/Usuario/perfil/(:num)', 'Principal::perfil/$1');
+$routes->post('/actualizarPerfilUsuario/(:num)', 'Principal::actualizarDatosUsuario/$1');
 
 $routes->get('/login', 'Autenticacion::loginUsuario');
 $routes->post('/autenticarInicio', 'Autenticacion::autenticarInicioUsuario');
@@ -74,9 +76,9 @@ $routes->get('/Artista/subastaArt', 'Artista::publicacionesSubastas', ['filter' 
 
 $routes->post('/Artista/ActualizarArtista/(:num)', 'Artista::ActualizarArtista/$1');
 $routes->get('/Artista/EliminarArtista/(:num)', 'Artista::EliminarArtista/$1');
-
 $routes->get('/Artista/eliminarSubasta/(:num)', 'Artista::eliminarSubasta/$1');
 $routes->get('/Artista/perfil/(:num)', 'Artista::perfil/$1');
+$routes->post('/actualizarPerfilArtista/(:num)', 'Artista::actualizarDatosArtista/$1');
 
 
 $routes->get('/comprarObra', 'Pagos::compraObra');
