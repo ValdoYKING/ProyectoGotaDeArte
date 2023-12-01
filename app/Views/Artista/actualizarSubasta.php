@@ -44,7 +44,7 @@
                                 <label class="form-label" for="basic-icon-default-fullname">Precio de la obra</label>
                                 <div class="input-group input-group-merge">
                                     <span id="precio2" class="input-group-text">$</span>
-                                    <input type="number" class="form-control" name="precio" id="precio" value="<?php echo $subasta['precioInicial'] ?>" aria-label="Mi obra" aria-describedby="basic-icon-default-fullname2"  readonly >
+                                    <input type="number" class="form-control" name="precio" id="precio" value="<?php echo $subasta['precioInicial'] ?>" aria-label="Mi obra" aria-describedby="basic-icon-default-fullname2" >
                                     <span id="precio2" class="input-group-text">.00</span>
 
                                 </div>
@@ -53,7 +53,7 @@
                                 <label for="html5-text-input" class="col-md-2 col-form-label">¿Cuándo quieres que sea tu subasta?</label>
                                 <div class="input-group input-group-merge">
                                     <span id="subasta" class="input-group-text"><i class="bx bx-comment"></i></span>
-                                    <input type="datetime-local" id="subasta" name="subasta" class="form-control" aria-describedby="basic-icon-default-message2" value="<?php echo $subasta['fechaSubasta'] ?>" required>
+                                    <input type="datetime-local" id="subasta" min="<?php echo Date('Y-m-d H:i') ?>" name="subasta" class="form-control" aria-describedby="basic-icon-default-message2" value="<?php echo $subasta['fechaSubasta'] ?>" required>
                                 </div>
                             </div>
 

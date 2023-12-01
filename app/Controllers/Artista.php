@@ -419,9 +419,9 @@ class Artista extends BaseController
         $idU = $this->idUser;
         $results = $this->subasta->where('fk_usuario', $idU)->findAll();
         if(!empty($results)){
-            foreach ($results as $publicaciones) {
-                $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $publicaciones->fk_usuario_artista)->findAll();
-                $dataDatosPersonales[$publicaciones->fk_usuario_artista] = $datosPersonales;
+            foreach ($results as $subasta) {
+                $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $subasta['fk_usuario'])->findAll();
+                $dataDatosPersonales[$subasta['fk_usuario']] = $datosPersonales;
             }
         } else {
             $results = 'vacio';
@@ -435,7 +435,7 @@ class Artista extends BaseController
             'urlPerfil' => base_url('/Artista/perfil/'.$this->idUser),
         ];
         $dataContenido = [
-            'titulo' => 'GOTA DE A RTE | Mis Subastas',
+            'titulo' => 'GOTA DE ARTE | Mis Subastas',
             'subastas' => $results,
             'datosPersonales' => $dataDatosPersonales
 

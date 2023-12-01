@@ -58,104 +58,23 @@
 <br>
 <!--Galeria-->
 
-<div id="confom" class="row row-cols-1 row-cols-md-3 g-4" >
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real1.jpg'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Obra 1</h5>
-                <p class="card-text">Una sinfonía de formas y texturas que se fusionan en una obra maestra de abstracción, donde cada mirada descubre un nuevo significado</p>
-                <p class="card-text"></p>
-                <a href="#" class="btn btn-primary">Saber más</a>
-            </div>
+<div id="confom" class="row row-cols-1 row-cols-md-3 g-4">
+    <?php foreach($obras as $obra):
+?>
+<div id="galeria" class="col">
+    <div class="card bg-dark text-white">
+        <img src="<?php echo base_url($obra->foto); ?>" class="card-img" alt="..." width="300" height="300"> 
+        <div class="card-img-overlay">
+            <h5 class="card-title bg-dark"><?php echo $obra->nombre ?></h5>
+            <p class="card-text"></p>
+            <!-- <a href="<?php echo base_url('/registrar') ?>" class="btn btn-primary">Saber más</a> -->
+            <a href="<?php echo base_url('/CuadroArte/obraCliente/' . $obra->id) ?>" class="btn btn-primary">Saber más</a>
         </div>
-    </div> 
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real2.JPG'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Obra 2</h5>
-                <p class="card-text">La pintura se desliza entre la realidad y el sueño, revelando un mundo abstracto donde la imaginación vuela libre.</p>
-                <p class="card-text"></p>
-                <a href="#" class="btn btn-primary">Saber más</a>
-            </div>
-        </div>
-    </div> 
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real3.JPG'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Obra 3</h5>
-                <p class="card-text">Los colores se entrelazan en una danza sin fin, creando un paisaje abstracto que invita a la reflexión.</p>
-                <p class="card-text"></p>
-                <a href="#" class="btn btn-primary">Saber más</a>
-            </div>
-        </div>
-    </div> 
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/ImagenesReales/Real13.jpeg'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Obra 4</h5>
-                <p class="card-text">Una explosión de energía y movimiento capturada en pinceladas abstractas, como un suspiro de la creatividad.</p>
-                <p class="card-text"></p>
-                <a href="#" class="btn btn-primary">Saber más</a>
-            </div>
-        </div>
-    </div> 
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/ImagenesReales/Real10.jpeg'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Obra 5</h5>
-                <p class="card-text">Una danza de colores y formas, donde la abstracción cobra vida en un torbellino de emociones.</p>
-                <p class="card-text"></p>
-                <a href="#" class="btn btn-primary">Saber más</a>
-            </div>
-        </div>
-    </div> 
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/ImagenesReales/Real11.jpeg'); ?> " class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Obra 6</h5>
-                <p class="card-text">El lienzo se convierte en un universo de caos y orden, donde la abstracción se comunica sin palabras.</p>
-                <p class="card-text"></p>
-                
-                <a href="#" class="btn btn-primary">Saber más </a>
-            </div>
-        </div>
-    </div> 
-    <!-- <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img src="<?php echo base_url('img/elements/ImagenesReales/Real7.jpg'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-            </div>
-        </div>
-    </div> 
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img  src="<?php echo base_url('img/elements/ImagenesReales/Real11.jpg'); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-            </div>
-        </div>
-    </div> 
-    <div id="galeria" class="col">
-        <div class="card bg-dark text-white">
-            <img src="<?php echo base_url(''); ?>" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-            </div>
-        </div>
-    </div>  -->
+    </div>
+</div>
+<?php endforeach; ?>
+
+    
 </div>
 <br>
 <div class="conteiner">

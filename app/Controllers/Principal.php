@@ -53,6 +53,7 @@ class Principal extends BaseController
 
     public function inicio(): string
     {
+        $obras = $this->obras->limit(6)->find();
 
         $dataMenu = [
             'userName' => $this->userName,
@@ -64,6 +65,7 @@ class Principal extends BaseController
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
+            'obras' => $obras
         ];
         $dataPiePagina = [
             'fecha' => date('Y'),
