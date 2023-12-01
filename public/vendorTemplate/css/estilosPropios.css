@@ -251,3 +251,11 @@ h1 {
     background-color: #333;
     color: #fff;
 }
+
+.colorButton{
+    color: #696CFF;
+}
+
+.colorButtonError{
+    color: #FF3E1D;
+}
