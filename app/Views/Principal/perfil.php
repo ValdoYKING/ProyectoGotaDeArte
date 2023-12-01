@@ -21,6 +21,17 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if (session()->has('message-update_pass')) : ?>
+                    <div class="alert alert-success">
+                        <?php echo session('message-update_pass'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
 
 <div class="content-wrapper">
     <!-- Content -->
@@ -95,6 +106,12 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="correo" class="form-label">Correo electronico</label>
                                     <input type="email" class="form-control" id="correo" name="correo" placeholder="correo@mail.com" value="<?php echo $usuario->correo; ?>" />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                <a href="<?php echo base_url('/actualizarContrasennaUsuario/' . $usuario->id) ?>">Cambiar contraseña</a>
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Guardar cambios</button>

@@ -44,7 +44,7 @@
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
-                            <th>id</th>
+                            <!-- <th>id</th> -->
                             <th>Nombre</th>
                             <th>Apellidos</th>
                             <th>Correo</th>
@@ -57,7 +57,7 @@
                     <?php foreach($usuarios as $usuario): ?>
 
                         <tr>
-                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <span class="fw-medium"><?php echo $usuario->id ?></span></td>
+                            <!-- <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <span class="fw-medium"><?php echo $usuario->id ?></span></td> -->
                             <td>
                             <?php if(isset($datosPersonales[$usuario->id])): ?>
                                 <?php foreach($datosPersonales[$usuario->id] as $datoPersonal): ?>
@@ -100,20 +100,23 @@
                                         </li>
                                     </ul>
                                 </td>
-                            <td>
-                            <?php if($usuario->estatus_user == 1){
-                                echo '<span class="badge bg-label-primary me-1">Activo</span>';
-                            } else if($usuario->estatus_user == 0) {
-                                echo '<span class="badge bg-label-danger me-1">Inactivo</span>';
-                            }
-                            ?>
-                            </td>
+                           
+                            <td><a class="dropdown-item" method="POST" href="<?php echo base_url('/Admin/actualizarEstatusArtista/' . $usuario->id) ?>">
+                                        <?php if ($usuario->estatus_user == 1) {
+
+                                            echo '<span class="badge bg-label-primary me-1">Activo</span>';
+                                        } else if ($usuario->estatus_user == 0) {
+
+                                            echo '<span class="badge bg-label-danger me-1">Inactivo</span>';
+                                        }
+                                        ?>
+                                    </a></td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="<?php echo base_url('/get_artista/'.$usuario->id)?>"><i class="bx bx-edit-alt me-1"></i>Edit</a>
-                                        <a class="dropdown-item" href="<?php echo base_url('/Admin/eliminarartista/'.$usuario->id)?>"><i class="bx bx-trash me-1"></i>Delete</a>                                    
+                                        <!-- <a class="dropdown-item" href="< ?php echo base_url('/get_artista/'.$usuario->id)?>"><i class="bx bx-edit-alt me-1"></i>Editar</a> -->
+                                        <a class="dropdown-item" href="<?php echo base_url('/Admin/eliminarartista/'.$usuario->id)?>"><i class="bx bx-trash me-1"></i>Eliminar</a>                                    
                                     </div>
                                 </div>
                             </td>

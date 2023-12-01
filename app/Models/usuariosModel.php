@@ -19,5 +19,9 @@ class usuariosModel extends Model{
     // Dates
     protected $useTimestamps = false;
 
+    public function setPassword(string $password, string $salt)
+    {
+        return password_hash($password . $salt, PASSWORD_DEFAULT);
+    }
 
 }

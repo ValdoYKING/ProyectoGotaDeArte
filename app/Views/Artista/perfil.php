@@ -96,9 +96,14 @@
                                     <label for="correo" class="form-label">Correo electronico</label>
                                     <input type="email" class="form-control" id="correo" name="correo" placeholder="correo@mail.com" value="<?php echo $usuario->correo; ?>" />
                                 </div>
+                                <div class="mb-3 col-md-6">                                
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                <a href="<?php echo base_url('/actualizarContrasennaArtista/' . $usuario->id) ?>">Cambiar contraseña</a>
+                                </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Guardar cambios</button>
-                                    <button type="reset" class="btn btn-outline-secondary"><a href="<?php echo base_url('/inicioartista') ?>">Cancelar y salir</a></button>
+                                    <button type="reset" class="btn btn-outline-secondary"><a href="<?php echo base_url('/Artista/publicacionesArtista') ?>">Cancelar y salir</a></button>
                                 </div>
                         </form>
                     </div>
