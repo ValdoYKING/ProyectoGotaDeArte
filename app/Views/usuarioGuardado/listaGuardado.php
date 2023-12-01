@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-md-12">
                 <?php if (session()->has('mensaje-canasta-guaradado')) : ?>
-                    <div class="alert alert-success">
+                    <div class="alert alert-info">
                         <?php echo session('mensaje-canasta-guaradado'); ?>
                     </div>
                 <?php endif; ?>
@@ -71,8 +71,6 @@
                     </div>
                 </div>
             <?php endforeach; ?>
-
-
         </div>
     </div>
 </section>

@@ -6,6 +6,7 @@ class Subasta extends BaseController
 {
     private $obraSubasta;
     protected $userName;
+    protected $idUser;
     public function __construct(){
         $this->obraSubasta = new subastasModelo();
         if (session()->has('user_id')) {
@@ -14,6 +15,7 @@ class Subasta extends BaseController
             $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
+                $this->idUser = $datosUsuario->fk_usuario;
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -44,8 +46,8 @@ class Subasta extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Subastas',

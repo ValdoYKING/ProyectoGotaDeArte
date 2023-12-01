@@ -56,8 +56,8 @@ class UsuarioGuardados extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Publicaciones',
@@ -77,8 +77,8 @@ class UsuarioGuardados extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'canastaUrl' => base_url('/listacanasta/'.$this->idUser),
+            'guardadosUrl' => base_url('/obrasguardadas/'.$this->idUser),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Obras Guardadas',
