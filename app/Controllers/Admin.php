@@ -151,6 +151,24 @@ class Admin extends BaseController
         return redirect()->to('/usuariosLista')->with('message-update', 'Se actualizo el usuario '.$id.' exitosamente.');
     }
 
+    public function actualizarEstatusUsuario($id)
+    {
+        $results = $this->usuariomodel->find($id);
+        $fecha = Date('Y-m-d H:i:s');  
+        //$status = $_POST['status'];
+        if( $results->estatus_user == 0){
+            $dataUser = [
+                'estatus_user' => '0',
+            ];
+            $this->usuariomodel->update($id, $dataUser);
+            return redirect()->to('/usuariosLista')->with('message-update', 'Se actualizo el usuario '.$id.' exitosamente.');
+        } else if($results->estatus_user == 1){            
+            $dataUser = ['estatus_user' => 0 ];
+            $this->usuariomodel->update($id, $dataUser);
+            return redirect()->to('/usuariosLista')->with('message-update', 'Se actualizo el usuario '.$id.' exitosamente.');
+        }
+    }
+
     public function eliminarusario($id)
     {   
         $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $id);
@@ -245,6 +263,23 @@ class Admin extends BaseController
         $id_dataPersonal = $datosPersonales->first()->id;
         $this->datosPersonalesModel->update($id_dataPersonal, $dataPersonal);
         return redirect()->to('/artistasLista')->with('message-update', 'Se actualizo el artista '.$id.' exitosamente.');
+    }
+    public function actualizarEstatusArtista($id)
+    {
+        $results = $this->usuariomodel->find($id);
+        $fecha = Date('Y-m-d H:i:s');  
+        //$status = $_POST['status'];
+        if( $results->estatus_user == 0){
+            $dataUser = [
+                'estatus_user' => '0',
+            ];
+            $this->usuariomodel->update($id, $dataUser);
+            return redirect()->to('/artistasLista')->with('message-update', 'Se actualizo el artista '.$id.' exitosamente.');
+        } else if($results->estatus_user == 1){            
+            $dataUser = ['estatus_user' => 0 ];
+            $this->usuariomodel->update($id, $dataUser);
+            return redirect()->to('/artistasLista')->with('message-update', 'Se actualizo el artista '.$id.' exitosamente.');
+        }
     }
     public function eliminarArtista($id)
     {   

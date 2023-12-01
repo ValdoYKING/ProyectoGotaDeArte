@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Guardar cambios</button>
-                                    <button type="reset" class="btn btn-outline-secondary"><a href="<?php echo base_url('/inicioartista') ?>">Cancelar y salir</a></button>
+                                    <button type="reset" class="btn btn-outline-secondary"><a href="<?php echo base_url('/Artista/publicacionesArtista') ?>">Cancelar y salir</a></button>
                                 </div>
                         </form>
                     </div>

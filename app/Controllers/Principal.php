@@ -95,11 +95,11 @@ class Principal extends BaseController
     public function sobreNosotros(): string
     {
         $dataMenu = [
-            'userName' => 'Usuario Gota PRUEBA',
-            'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/salir'),
-            'canastaUrl' => base_url('/canasta'),
-            'guardadosUrl' => base_url('/guardados'),
+            'userName' => 'Iniciar sesión',
+            'sesion' => 'Iniciar de sesión',
+            'urlSalir' => base_url('/login'),
+            'canastaUrl' => base_url('/login'),
+            'guardadosUrl' => base_url('/login'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Sobre nosotros',
