@@ -13,6 +13,8 @@ class Principal extends BaseController
     protected $usuario;
     protected $datosPersonalesModel;
     private $obras;
+    private $fotoUser;
+    private $urlFoto;
 
     public function __construct()
     {
@@ -25,6 +27,12 @@ class Principal extends BaseController
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
                 $this->idUser = $datosUsuario->fk_usuario;
+                $this->fotoUser = $datosUsuario->foto;
+                if ($this->fotoUser == " " || empty($this->fotoUser)) {
+                    $this->urlFoto = base_url('img/avatars/userGA.png');
+                } else {
+                    $this->urlFoto = base_url('img/usuarios/' . $this->fotoUser);
+                }
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -63,6 +71,7 @@ class Principal extends BaseController
             'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
             'urlPerfil' => base_url('/Usuario/perfil/' . $this->idUser),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE - Galería de arte | Subasta de cuadros',
@@ -84,6 +93,7 @@ class Principal extends BaseController
             'canastaUrl' => base_url('/listacanasta/' . $this->idUser),
             'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
             'urlPerfil' => base_url('/Usuario/perfil/' . $this->idUser),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Obras',
@@ -103,6 +113,7 @@ class Principal extends BaseController
             'urlSalir' => base_url('/login'),
             'canastaUrl' => base_url('/login'),
             'guardadosUrl' => base_url('/login'),
+            'urlPhoto' => base_url('/login'),
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Sobre nosotros',
@@ -169,6 +180,7 @@ class Principal extends BaseController
             'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
             'urlSalir' => base_url('/'),
             'urlPerfil' => base_url('/Artista/perfil/' . $this->idUser),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Mi perfil',
@@ -229,6 +241,7 @@ class Principal extends BaseController
             'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
             'urlSalir' => base_url('/'),
             'urlPerfil' => base_url('/Artista/perfil/' . $this->idUser),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Actualizar contraseña',
@@ -275,6 +288,7 @@ class Principal extends BaseController
             'guardadosUrl' => base_url('/obrasguardadas/' . $this->idUser),
             'urlSalir' => base_url('/'),
             'urlPerfil' => base_url('/Artista/perfil/' . $this->idUser),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Actualizar contraseña',

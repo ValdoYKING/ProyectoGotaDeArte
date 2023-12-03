@@ -17,7 +17,7 @@
 <section>
     <div class="container">
         <div>
-            <h2 class="mb-2">Obras guardadas</h2>
+            <h2 class="mb-2">Obras Guardadas</h2>
         </div>
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">

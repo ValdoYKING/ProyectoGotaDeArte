@@ -7,6 +7,8 @@ class Contacto extends BaseController
     private $contactosModel;
     protected $helpers = ['form'];
     protected $userName;
+    protected $fotoUser;
+    protected $urlFoto;
 
     public function __construct(){
         $this->contactosModel = new contactosModel();
@@ -17,6 +19,12 @@ class Contacto extends BaseController
             $datosUsuario = $datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
+                $this->fotoUser = $datosUsuario->foto;
+                if ($this->fotoUser == " " || empty($this->fotoUser)) {
+                    $this->urlFoto = base_url('img/avatars/admin.png');
+                } else {
+                    $this->urlFoto = base_url('img/usuarios/' . $this->fotoUser);
+                }
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -97,9 +105,10 @@ class Contacto extends BaseController
 
 
         $dataMenu = [
-            'userName' => 'Administrador',
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/'),
+            'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de Contactos',
