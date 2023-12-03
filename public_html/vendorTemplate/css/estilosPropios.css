@@ -99,7 +99,7 @@ ul>li>a:hover {
     height: 650px;
     border-radius: 15px;
     padding: 30px;
-    background-color: rgb(97, 84, 155);
+    background-color: #ecdfc3;
     margin-top: auto; /* Ancla el footer en la parte inferior */
 }
 
@@ -224,7 +224,6 @@ h1 {
 
     width:"50px"
 }
-
 /* Estilos personalizados para los botones de paginación */
 .pagination {
     display: flex;
@@ -252,3 +251,82 @@ h1 {
     background-color: #333;
     color: #fff;
 }
+
+.colorButton{
+    color: #696CFF;
+}
+
+.colorButtonError{
+    color: #FF3E1D;
+}
+
+.centered-containerX {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura según sea necesario */
+  }
+/* Terminos y condiciones */
+/* Estilos para el cuerpo de la página */
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  } */
+  
+  /* Estilos para el contenedor de los términos y condiciones */
+  .terminos-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para el encabezado (Título) */
+  .terminos-title {
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  /* Estilos para las secciones y párrafos */
+  .terminos-content ol,
+  .terminos-content li,
+  .terminos-content p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .terminos-content ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+  }
+  
+  .terminos-content li {
+    margin-bottom: 10px;
+  }
+  
+  .terminos-content strong {
+    color: #007bff;
+  }
+  
+  /* Estilos para las fechas y enlaces */
+  .terminos-content p {
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para los enlaces */
+  .terminos-content a {
+    color: #007bff;
+    text-decoration: none;
+    border-bottom: 1px solid #007bff;
+  }
+  
+  .terminos-content a:hover {
+    color: #0056b3;
+    border-bottom-color: #0056b3;
+  }
+  
