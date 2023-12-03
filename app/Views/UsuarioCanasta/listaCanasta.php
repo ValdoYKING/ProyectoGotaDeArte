@@ -28,7 +28,7 @@
     </div>
     <div class="container">
         <div>
-            <h2 class="mb-2">Mi canasta (conteo)(3)</h2>
+            <h2 class="mb-2">Mi canasta</h2>
         </div>
         <hr class="dropdown-divider" />
         <div class="row row-cols-2 row-cols-md-4 g-5">

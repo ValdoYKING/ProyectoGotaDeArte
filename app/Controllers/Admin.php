@@ -17,7 +17,8 @@ class Admin extends BaseController
     private $usuariomodel;
     protected $userName;
     protected $datosPersonalesModel;
-
+    protected $fotoUser;
+    protected $urlFoto;
 
     public function __construct()
     {
@@ -32,6 +33,12 @@ class Admin extends BaseController
             $datosUsuario = $this->datosPersonalesModel->where('fk_usuario', $userNameSession)->first();
             if ($datosUsuario && property_exists($datosUsuario, 'nombre')) {
                 $this->userName = $datosUsuario->nombre;
+                $this->fotoUser = $datosUsuario->foto;
+                if ($this->fotoUser == " " || empty($this->fotoUser)) {
+                    $this->urlFoto = base_url('img/avatars/admin.png');
+                } else {
+                    $this->urlFoto = base_url('img/usuarios/' . $this->fotoUser);
+                }
             }
         } else {
             $this->userName = 'Usuario Gota';
@@ -72,6 +79,7 @@ class Admin extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de usuarios',
@@ -99,6 +107,7 @@ class Admin extends BaseController
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
             'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $Contenido = [
             'titulo' => 'GOTA DE ARTE | Actualizar datos de usuario',
@@ -158,14 +167,14 @@ class Admin extends BaseController
         //$status = $_POST['status'];
         if( $results->estatus_user == 0){
             $dataUser = [
-                'estatus_user' => '0',
+                'estatus_user' => '1',
             ];
             $this->usuariomodel->update($id, $dataUser);
             return redirect()->to('/usuariosLista')->with('message-update', 'Se actualizo el usuario '.$id.' exitosamente.');
         } else if($results->estatus_user == 1){            
-            $dataUser = ['estatus_user' => 0 ];
+            $dataUser = ['estatus_user' => '0' ];
             $this->usuariomodel->update($id, $dataUser);
-            return redirect()->to('/usuariosLista')->with('message-update', 'Se actualizo el usuario '.$id.' exitosamente.');
+            return redirect()->to('/usuariosLista')->with('message-update', 'Se actualizo el usuario 2'.$id.' exitosamente.');
         }
     }
 
@@ -190,6 +199,7 @@ class Admin extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de artistas',
@@ -214,6 +224,7 @@ class Admin extends BaseController
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
             'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $Contenido = [
             'titulo' => 'GOTA DE ARTE | Actualizar datos de artista',
@@ -271,12 +282,12 @@ class Admin extends BaseController
         //$status = $_POST['status'];
         if( $results->estatus_user == 0){
             $dataUser = [
-                'estatus_user' => '0',
+                'estatus_user' => '1',
             ];
             $this->usuariomodel->update($id, $dataUser);
             return redirect()->to('/artistasLista')->with('message-update', 'Se actualizo el artista '.$id.' exitosamente.');
         } else if($results->estatus_user == 1){            
-            $dataUser = ['estatus_user' => 0 ];
+            $dataUser = ['estatus_user' => '0' ];
             $this->usuariomodel->update($id, $dataUser);
             return redirect()->to('/artistasLista')->with('message-update', 'Se actualizo el artista '.$id.' exitosamente.');
         }
@@ -300,6 +311,7 @@ class Admin extends BaseController
             'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
             'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de publicaciones',
@@ -324,6 +336,7 @@ class Admin extends BaseController
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
             'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $Contenido = [
             'titulo' => 'GOTA DE ARTE | Actualizar publicacion',
@@ -547,9 +560,10 @@ class Admin extends BaseController
             $dataDatosPersonales[$subasta['fk_usuario']] = $datosPersonales;
         }
         $dataMenu = [
-            'userName' => 'Administrador',
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/'),
+            'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de subastas',
@@ -571,6 +585,7 @@ class Admin extends BaseController
             'sesion' => 'Cerrar sesión',
             'url' => base_url('/'),
             'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $Contenido = [
             'titulo' => 'GOTA DE ARTE | Actualizar Subasta',
@@ -616,9 +631,10 @@ class Admin extends BaseController
     {
         $results = $this->contactosModel->findAll();
         $dataMenu = [
-            'userName' => 'Administrador',
+            'userName' => $this->userName,
             'sesion' => 'Cerrar sesión',
-            'urlSalir' => base_url('/'),
+            'urlSalir' => base_url('/salirAdmin'),
+            'urlPhoto' => $this->urlFoto,
         ];
         $dataContenido = [
             'titulo' => 'GOTA DE ARTE | Lista de Contactos',
