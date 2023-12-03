@@ -174,7 +174,7 @@ class Admin extends BaseController
         } else if($results->estatus_user == 1){            
             $dataUser = ['estatus_user' => '0' ];
             $this->usuariomodel->update($id, $dataUser);
-            return redirect()->to('/usuariosLista')->with('message-update', 'Se actualizo el usuario 2'.$id.' exitosamente.');
+            return redirect()->to('/usuariosLista')->with('message-update', 'Se actualizo el usuario '.$id.' exitosamente.');
         }
     }
 

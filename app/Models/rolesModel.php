@@ -12,15 +12,12 @@ class rolesModel extends Model{
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'object';  //array
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
     protected $allowedFields = ['id', 'nombre'];
 
     // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'fecha_creacion';
-    protected $updatedField  = 'fecha_modifica';
-    protected $deletedField  = 'fecha_delete';
+    protected $useTimestamps = false;
+
 
 }
