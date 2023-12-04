@@ -36,12 +36,6 @@
                     placeholder="Ingresa tu email" id="email" required />
                     </div>
                 </div>
-                <div class="mb-3 row">
-                    <label for="telefono" class="col-md-2 col-form-label">Telefono</label>
-                    <div class="col-md-10">
-                    <input class="form-control" type="tel" value="" pattern="[0-9]{10}" title="Le falta numeros" name="telefono" placeholder="Agrega tu telefono" id="telefono" required />
-                    </div>
-                </div>
 
                 <div class="mb-3 row">
                     <label for="asunto" class="col-md-2 col-form-label">Asunto </label>
