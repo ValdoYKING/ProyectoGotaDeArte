@@ -62,13 +62,13 @@
                             <td><?php if($subasta['precioInicial'] <= 0)
                             {echo '<p>N/A</p>'; }
                             else {
-                                echo $subasta['precioInicial'];
+                                echo '$'.$subasta['precioInicial'].'.00';
                             }?>
                             </td>
                             <td><?php if($subasta['precioPagado'] <= 0)
                             {echo '<p>N/A</p>'; 
                             }  else {
-                                echo $subasta['precioPagado'];
+                                echo '$'.$subasta['precioPagado'].'.00';
                             } ?>
                             </td>
                             <td>

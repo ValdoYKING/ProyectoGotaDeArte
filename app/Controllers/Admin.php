@@ -7,7 +7,8 @@ use App\Models\subastasModelo;
 use App\Models\contactosModel;
 use App\Models\usuariosModel;
 use App\Models\datosPersonalesModel;
-
+use App\Models\usuarioguardado;
+use App\Models\Canasta; 
 
 class Admin extends BaseController
 {
@@ -16,6 +17,8 @@ class Admin extends BaseController
     private $contactosModel;
     private $usuariomodel;
     protected $userName;
+    protected $guardado;
+    protected $canasta;
     protected $datosPersonalesModel;
     protected $fotoUser;
     protected $urlFoto;
@@ -27,6 +30,8 @@ class Admin extends BaseController
         $this->contactosModel = new ContactosModel();
         $this->usuariomodel = new usuariosModel();
         $this->datosPersonalesModel = new datosPersonalesModel();
+        $this->guardado = new usuarioguardado();
+        $this->canasta = new Canasta();
         if (session()->has('user_id')) {
             $userNameSession = session()->get('user_id');
             // $datosPersonalesModel = new datosPersonalesModel();
@@ -304,7 +309,7 @@ class Admin extends BaseController
     {
         $results = $this->obrasArtista->findAll();
         foreach ($results as $publicacion) {
-            $datosPersonales = $this->datosPersonalesModel->where('id', $publicacion->fk_usuario_artista)->findAll();
+            $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $publicacion->fk_usuario_artista)->findAll();
             $dataDatosPersonales[$publicacion->fk_usuario_artista] = $datosPersonales;
         }
         $dataMenu = [
@@ -526,11 +531,24 @@ class Admin extends BaseController
 
     public function eliminarPublicacion($id)
     {
-        $sub = $this->subastas->where('fk_obra', $id)->first();
+        $sub = $this->subastas->where('fk_obra',$id)->first();
+        $Oguardados = $this->guardado->where('fk_obra',$id)->find();
+        $Ocanastas = $this->canasta->where('fk_obra',$id)->find();
         $foto = $this->obrasArtista->find($id);
         $url = $foto->foto;
-        if ($sub == true) {
-
+        if ($sub == true) { 
+            if($Oguardados == true){
+                foreach($Oguardados as $guardado){
+                    $idG = $guardado->id;
+                    $this->guardado->delete($idG);
+                }
+            }
+            if($Ocanastas == true){
+                foreach($Ocanastas as $canasta){
+                    $idC = $canasta['id'];
+                    $this->canasta->delete($idC);
+                }
+            }
             $fk = $sub['id'];
             try {
                 unlink($url);
@@ -542,6 +560,18 @@ class Admin extends BaseController
             $this->obrasArtista->delete($id);
             return redirect()->to('/publicacionesLista')->with('message-delete', 'Se elmino la obra y la subasta exitosamente.');
         } else {
+            if($Oguardados == true){
+                foreach($Oguardados as $guardado){
+                    $idG = $guardado->id;
+                    $this->guardado->delete($idG);
+                }
+            }
+            if($Ocanastas == true){
+                foreach($Ocanastas as $canasta){
+                    $idC = $canasta['id'];
+                    $this->canasta->delete($idC);
+                }
+            }
             try {
                 unlink($url);
             } catch (\Throwable $th) {
@@ -556,7 +586,7 @@ class Admin extends BaseController
     {
         $results = $this->subastas->findAll();
         foreach ($results as $subasta) {
-            $datosPersonales = $this->datosPersonalesModel->where('id', $subasta['fk_usuario'])->findAll();
+            $datosPersonales = $this->datosPersonalesModel->where('fk_usuario', $subasta['fk_usuario'])->findAll();
             $dataDatosPersonales[$subasta['fk_usuario']] = $datosPersonales;
         }
         $dataMenu = [

@@ -14,7 +14,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h2>Pablo Picasso</h2>
                 <p>El arte lava del alma el polvo de la vida cotidiana.</p>
-                <a href="#" class="btn btn-primary">Hazte socio</a>
+                <a href="<?php echo base_url('/registrar_art')?>" class="btn btn-primary">Hazte socio</a>
             </div>
         </div>
         <div id="caruselL" class="carousel-item">
@@ -22,7 +22,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h2>Frida Kahlo</h2>
                 <p>El arte es la manera más intensa de vivir; es la vida más completa que una persona puede experimentar</p>
-                <a href="#" class="btn btn-primary">Registrate</a>
+                <a href="<?php echo base_url('/registrar') ?>" class="btn btn-primary">Registrate</a>
             </div>
         </div>
         <div id="caruselL" class="carousel-item">
@@ -30,7 +30,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h2>Vincent van Gogh</h2>
                 <p>El arte es el espejo de la vida, nunca se detiene, nunca engaña.</p>
-                <a href="#" class="btn btn-primary">Conoce mas</a>
+                <a href="<?php echo base_url('/registrar') ?>" class="btn btn-primary">Conoce mas</a>
             </div>
         </div>
     </div>
